@@ -22,7 +22,7 @@ public class DrugRestController {
 	@RequestMapping(value="/dbresponse")
 	public String showSampleText(){
 		System.out.println(fetchFromDBService.getDrugInfo());
-		return  "DB Response - Name List = "+ fetchFromDBService.getDrugInfo(); 
+		return  "DB Response - Name List = ++++"+ fetchFromDBService.getDrugInfo(); 
 	}
 
 	@RequestMapping(value="/")
