@@ -1,4 +1,4 @@
-package com.vir.demo.main.Entity;
+package com.vir.demo.main.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

@@ -1,36 +1,34 @@
-package com.vir.demo.main.DAO;
-
-import java.util.ArrayList;
-import java.util.List;
+package com.vir.demo.main.dao;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-import org.hibernate.SQLQuery;
 import org.springframework.stereotype.Repository;
 
-import com.vir.demo.main.Entity.Emdrugs;
+import com.vir.demo.main.constants.DrugConstants;
+import com.vir.demo.main.constants.ErrorCodes;
+import com.vir.demo.main.entity.UserLoginDetails;
+import com.vir.demo.main.exception.LoginValidationException;
 
 @Repository
-public class FetchFromDBImpl {
+public class DrugDAO {
 	
 	@PersistenceContext
 	private EntityManager entity;
 
-	public List<String> getAll(){
-		List<String> list = null;
+	public UserLoginDetails doLogin(String userName, String password){
+		UserLoginDetails UserLoginDetails = null;
 		try{
-			String selectSql = " from Emdrugs";
-			Query  qry =  entity.createQuery(selectSql);
-			List<Emdrugs> list1 = qry.getResultList();
-			list = new ArrayList<String>();
-			for(Emdrugs em : list1){
-				list.add(em.getName());
-			}
-		}catch(Exception exe){
-			exe.printStackTrace();
+			String selectSQL = " from UserLoginDetails p  where p.userName =: userName";
+			Query query = entity.createQuery(selectSQL);
+			query.setParameter("userName", userName);
+			UserLoginDetails = (UserLoginDetails) query.getSingleResult();
+		}catch(NoResultException exe){
+			throw new LoginValidationException(DrugConstants.IN_VALID_USER_ID, ErrorCodes.USER_ID_VALIDATION_ERROR_CODE);
 		}
-		return list;
+		return UserLoginDetails;
 	}
+	
 }
