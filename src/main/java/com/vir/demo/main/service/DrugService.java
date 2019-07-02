@@ -1,5 +1,7 @@
 package com.vir.demo.main.service;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.apache.commons.lang3.StringUtils;
@@ -9,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.vir.demo.main.constants.DrugConstants;
 import com.vir.demo.main.constants.ErrorCodes;
 import com.vir.demo.main.dao.DrugDAO;
+import com.vir.demo.main.entity.PharmacyDetails;
 import com.vir.demo.main.entity.UserLoginDetails;
 import com.vir.demo.main.exception.LoginValidationException;
 
@@ -42,5 +45,8 @@ public class DrugService {
 		return responseMsg;	
 	}
 	
+	public List<PharmacyDetails> getPharmacyDetails(){
+		return drugDAO.getPharmacyDetails();
+	}
 
 }

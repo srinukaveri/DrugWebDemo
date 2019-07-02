@@ -6,5 +6,6 @@ com\vir\demo\main\dao\DrugDAO.class
 com\vir\demo\main\constants\ErrorCodes.class
 com\vir\demo\main\controller\DrugController.class
 com\vir\demo\main\util\DrugUtil.class
+com\vir\demo\main\entity\PharmacyDetails.class
 com\vir\demo\main\exception\LoginValidationException.class
 com\vir\demo\main\service\DrugService.class
