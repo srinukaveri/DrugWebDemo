@@ -11,7 +11,9 @@ import org.springframework.stereotype.Service;
 import com.vir.demo.main.constants.DrugConstants;
 import com.vir.demo.main.constants.ErrorCodes;
 import com.vir.demo.main.dao.DrugDAO;
+import com.vir.demo.main.entity.DrugDetails;
 import com.vir.demo.main.entity.PharmacyDetails;
+import com.vir.demo.main.entity.PharmacyDrugMaster;
 import com.vir.demo.main.entity.UserLoginDetails;
 import com.vir.demo.main.exception.LoginValidationException;
 
@@ -47,6 +49,14 @@ public class DrugService {
 	
 	public List<PharmacyDetails> getPharmacyDetails(){
 		return drugDAO.getPharmacyDetails();
+	}
+	
+	public List<DrugDetails> getDrugDetails(){
+		return drugDAO.getDrugDetails();
+	}
+	
+	public List<PharmacyDrugMaster> getPharmacyDrugMasterDetails(){
+		return drugDAO.getPharmacyDrugMasterDetails();
 	}
 
 }

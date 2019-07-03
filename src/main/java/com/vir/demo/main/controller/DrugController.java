@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.vir.demo.main.entity.DrugDetails;
 import com.vir.demo.main.entity.PharmacyDetails;
+import com.vir.demo.main.entity.PharmacyDrugMaster;
 import com.vir.demo.main.exception.LoginValidationException;
 import com.vir.demo.main.service.DrugService;
 import com.vir.demo.main.util.DrugUtil;
@@ -45,5 +47,13 @@ public class DrugController {
 			return drugService.getPharmacyDetails();
 		}
 		
+		@RequestMapping(method = RequestMethod.GET,value="/drug")
+		public List<DrugDetails> getDrugDetails(){
+			return drugService.getDrugDetails();
+		}
 	
+		@RequestMapping(method = RequestMethod.GET,value="/drug/details")
+		public List<PharmacyDrugMaster> getPharmacyDrugMasterDetails(){
+			return drugService.getPharmacyDrugMasterDetails();
+		}
 }

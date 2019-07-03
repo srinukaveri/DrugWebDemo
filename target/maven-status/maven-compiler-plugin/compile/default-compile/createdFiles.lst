@@ -1,5 +1,4 @@
 com\vir\demo\main\entity\UserLoginDetails.class
-com\vir\demo\main\entity\Emdrugs.class
 com\vir\demo\main\constants\DrugConstants.class
 com\vir\demo\main\AppMain.class
 com\vir\demo\main\dao\DrugDAO.class
@@ -7,5 +6,7 @@ com\vir\demo\main\constants\ErrorCodes.class
 com\vir\demo\main\controller\DrugController.class
 com\vir\demo\main\util\DrugUtil.class
 com\vir\demo\main\entity\PharmacyDetails.class
+com\vir\demo\main\entity\DrugDetails.class
 com\vir\demo\main\exception\LoginValidationException.class
 com\vir\demo\main\service\DrugService.class
+com\vir\demo\main\entity\PharmacyDrugMaster.class

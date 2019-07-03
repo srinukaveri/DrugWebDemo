@@ -11,7 +11,9 @@ import org.springframework.stereotype.Repository;
 
 import com.vir.demo.main.constants.DrugConstants;
 import com.vir.demo.main.constants.ErrorCodes;
+import com.vir.demo.main.entity.DrugDetails;
 import com.vir.demo.main.entity.PharmacyDetails;
+import com.vir.demo.main.entity.PharmacyDrugMaster;
 import com.vir.demo.main.entity.UserLoginDetails;
 import com.vir.demo.main.exception.LoginValidationException;
 
@@ -46,6 +48,32 @@ public class DrugDAO {
 			exe.printStackTrace();
 		}
 		return pharmacyList;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<DrugDetails> getDrugDetails(){
+		List<DrugDetails> drugList = null;
+		try{
+			String selectSQL = " from DrugDetails";
+			Query query = entity.createQuery(selectSQL);
+			drugList =  query.getResultList();
+		}catch(Exception exe){
+			exe.printStackTrace();
+		}
+		return drugList;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<PharmacyDrugMaster> getPharmacyDrugMasterDetails(){
+		List<PharmacyDrugMaster> pharmacyDrugList = null;
+		try{
+			String selectSQL = " from PharmacyDrugMaster";
+			Query query = entity.createQuery(selectSQL);
+			pharmacyDrugList =  query.getResultList();
+		}catch(Exception exe){
+			exe.printStackTrace();
+		}
+		return pharmacyDrugList;
 	}
 	
 }
