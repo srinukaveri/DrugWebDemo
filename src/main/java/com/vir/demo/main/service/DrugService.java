@@ -12,8 +12,8 @@ import com.vir.demo.main.constants.DrugConstants;
 import com.vir.demo.main.constants.ErrorCodes;
 import com.vir.demo.main.dao.DrugDAO;
 import com.vir.demo.main.entity.DrugDetails;
+import com.vir.demo.main.entity.DrugSearch;
 import com.vir.demo.main.entity.PharmacyDetails;
-import com.vir.demo.main.entity.PharmacyDrugMaster;
 import com.vir.demo.main.entity.UserLoginDetails;
 import com.vir.demo.main.exception.LoginValidationException;
 
@@ -31,9 +31,9 @@ public class DrugService {
 		   if(!StringUtils.isBlank(userName) && !StringUtils.isBlank(password)){
 			   UserLoginDetails userInfo = drugDAO.doLogin(userName, password);
 			   if(userInfo != null){
-				   if(userInfo.getUserName().equals(userName)&& userInfo.getPassWord().equals(password)){
+				   if(userInfo.getUserName().equals(userName)&& userInfo.getUserPassword().equals(password)){
 					   responseMsg = DrugConstants.LOGIN_SUCCESS_MSG;
-				   }else if(!userInfo.getPassWord().equals(password)){
+				   }else if(!userInfo.getUserPassword().equals(password)){
 					   responseMsg = DrugConstants.IN_VALID_USER_PASSWORD;
 				   }else{
 					   responseMsg = DrugConstants.INVALID_LOGIN_CREDENTIALS;
@@ -55,8 +55,9 @@ public class DrugService {
 		return drugDAO.getDrugDetails();
 	}
 	
-	public List<PharmacyDrugMaster> getPharmacyDrugMasterDetails(){
-		return drugDAO.getPharmacyDrugMasterDetails();
+	public List<DrugSearch> getPharmacyDrugMasterDetails(String drugName){
+		//return drugDAO.getPharmacyDrugMasterDetails();
+		return drugDAO.getPharmacyDrugDetails(drugName);
 	}
 
 }

@@ -1,6 +1,8 @@
+com\vir\demo\main\constants\SQLConstants.class
 com\vir\demo\main\entity\UserLoginDetails.class
 com\vir\demo\main\constants\DrugConstants.class
 com\vir\demo\main\AppMain.class
+com\vir\demo\main\entity\DrugSearch.class
 com\vir\demo\main\dao\DrugDAO.class
 com\vir\demo\main\constants\ErrorCodes.class
 com\vir\demo\main\controller\DrugController.class

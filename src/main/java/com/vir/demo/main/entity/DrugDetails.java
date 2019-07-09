@@ -15,7 +15,7 @@ public class DrugDetails implements Serializable{
 
 	@Id
 	@Column(name="DRUG_ID")
-	private String drugid;
+	private String drugId;
 	
 	@Column(name="DRUG_NAME")
 	private String drugName;
@@ -23,12 +23,14 @@ public class DrugDetails implements Serializable{
 	@Column(name="IS_ACTIVE")
 	private String isActive;
 
-	public String getDrugid() {
-		return drugid;
+
+
+	public String getDrugId() {
+		return drugId;
 	}
 
-	public void setDrugid(String drugid) {
-		this.drugid = drugid;
+	public void setDrugId(String drugId) {
+		this.drugId = drugId;
 	}
 
 	public String getDrugName() {

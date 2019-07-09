@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.vir.demo.main.constants.DrugConstants;
 
 public class DrugUtil {
 	
@@ -21,5 +22,25 @@ public class DrugUtil {
 		responseJsonStr.put("message", message);
 		return objectMapper.writeValueAsString(responseJsonStr);
 	}
+	
+	public static ObjectMapper getMapperInstance(){
+		ObjectMapper objectMapper = null;
+		if(objectMapper == null){
+			objectMapper = new ObjectMapper();
+		}
+		return objectMapper;
+	}
 
+	public static Map<String,String> setResponseMsg(String responseMessage){
+		Map<String,String> mapResponse = new HashMap<String,String>();
+		mapResponse.put(DrugConstants.MESSAGE, responseMessage);
+		return mapResponse;
+	}
+	public static Map<String,String> setResponseMsg(String errorMessage,Integer errorCode){
+		Map<String,String> mapResponse = new HashMap<String,String>();
+		mapResponse.put("error message", errorMessage);
+		mapResponse.put("error code", errorCode.toString());
+		return mapResponse;
+	}
+	
 }

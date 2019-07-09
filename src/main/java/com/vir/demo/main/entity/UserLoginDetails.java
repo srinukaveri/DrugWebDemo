@@ -5,8 +5,11 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name="USER_LOGIN_DETAILS")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class UserLoginDetails  {
 	
 	@Id
@@ -24,14 +27,13 @@ public class UserLoginDetails  {
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-	public String getPassWord() {
+	
+	public String getUserPassword() {
 		return userPassword;
 	}
-	public void setPassWord(String passWord) {
-		this.userPassword = passWord;
+	public void setUserPassword(String userPassword) {
+		this.userPassword = userPassword;
 	}
-	
-	
 	 
 
 }

@@ -1,6 +1,7 @@
 package com.vir.demo.main.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
@@ -11,7 +12,9 @@ import org.springframework.stereotype.Repository;
 
 import com.vir.demo.main.constants.DrugConstants;
 import com.vir.demo.main.constants.ErrorCodes;
+import com.vir.demo.main.constants.SQLConstants;
 import com.vir.demo.main.entity.DrugDetails;
+import com.vir.demo.main.entity.DrugSearch;
 import com.vir.demo.main.entity.PharmacyDetails;
 import com.vir.demo.main.entity.PharmacyDrugMaster;
 import com.vir.demo.main.entity.UserLoginDetails;
@@ -26,9 +29,8 @@ public class DrugDAO {
 	public UserLoginDetails doLogin(String userName, String password){
 		UserLoginDetails UserLoginDetails = null;
 		try{
-			String selectSQL = " from UserLoginDetails p  where p.userName =: userName";
-			Query query = entity.createQuery(selectSQL);
-			query.setParameter("userName", userName);
+			Query query = entity.createQuery(SQLConstants.LOGIN_SQL);
+			query.setParameter(SQLConstants.USER_NAME, userName);
 			UserLoginDetails = (UserLoginDetails) query.getSingleResult();
 		}catch(NoResultException exe){
 			throw new LoginValidationException(DrugConstants.IN_VALID_USER_ID, ErrorCodes.USER_ID_VALIDATION_ERROR_CODE);
@@ -41,8 +43,7 @@ public class DrugDAO {
 	public List<PharmacyDetails> getPharmacyDetails(){
 		List<PharmacyDetails> pharmacyList = null;
 		try{
-			String selectSQL = " from PharmacyDetails";
-			Query query = entity.createQuery(selectSQL);
+			Query query = entity.createQuery(SQLConstants.GET_PHARMACY_SQL);
 			pharmacyList =  query.getResultList();
 		}catch(Exception exe){
 			exe.printStackTrace();
@@ -54,8 +55,7 @@ public class DrugDAO {
 	public List<DrugDetails> getDrugDetails(){
 		List<DrugDetails> drugList = null;
 		try{
-			String selectSQL = " from DrugDetails";
-			Query query = entity.createQuery(selectSQL);
+			Query query = entity.createQuery(SQLConstants.GET_DRUG_SQL);
 			drugList =  query.getResultList();
 		}catch(Exception exe){
 			exe.printStackTrace();
@@ -76,4 +76,17 @@ public class DrugDAO {
 		return pharmacyDrugList;
 	}
 	
+	
+	@SuppressWarnings("unchecked")
+	public List<DrugSearch> getPharmacyDrugDetails(String drugName){
+		List<DrugSearch> pharmacyDrugList = null;
+		try{
+			Query query = entity.createQuery(SQLConstants.DRUG_SEARCH_SQL);
+			query.setParameter(SQLConstants.DRUG_NAME,drugName);
+			pharmacyDrugList =  query.getResultList();
+		}catch(Exception exe){
+			exe.printStackTrace();
+		}
+		return pharmacyDrugList;
+	}
 }

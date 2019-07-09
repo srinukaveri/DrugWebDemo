@@ -1,17 +1,21 @@
 package com.vir.demo.main.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.vir.demo.main.entity.DrugDetails;
+import com.vir.demo.main.entity.DrugSearch;
 import com.vir.demo.main.entity.PharmacyDetails;
-import com.vir.demo.main.entity.PharmacyDrugMaster;
+import com.vir.demo.main.entity.UserLoginDetails;
 import com.vir.demo.main.exception.LoginValidationException;
 import com.vir.demo.main.service.DrugService;
 import com.vir.demo.main.util.DrugUtil;
@@ -52,8 +56,33 @@ public class DrugController {
 			return drugService.getDrugDetails();
 		}
 	
-		@RequestMapping(method = RequestMethod.GET,value="/drug/details")
-		public List<PharmacyDrugMaster> getPharmacyDrugMasterDetails(){
-			return drugService.getPharmacyDrugMasterDetails();
+		@RequestMapping(
+				value="/drug/details",
+				method = RequestMethod.POST,
+				consumes = MediaType.APPLICATION_JSON_VALUE,
+				produces=MediaType.APPLICATION_JSON_VALUE)
+		public List<DrugSearch> getPharmacyDrugMasterDetails(@RequestBody String drugDetails)throws Exception{
+			DrugDetails drugDetailsObj = DrugUtil.getMapperInstance().readValue(drugDetails, DrugDetails.class);
+			return drugService.getPharmacyDrugMasterDetails(drugDetailsObj.getDrugName());
 		}
+		
+		@RequestMapping(
+				value="/login/", 
+				method = RequestMethod.POST,
+				consumes = MediaType.APPLICATION_JSON_VALUE,
+				produces=MediaType.APPLICATION_JSON_VALUE)
+		public Map<String,String> doUserLogin(@RequestBody String loginDetails)throws Exception{
+			Map<String,String> response=null;
+			try{
+				UserLoginDetails loginDetailsObj = DrugUtil.getMapperInstance().readValue(loginDetails, UserLoginDetails.class);
+				String serviceResponse=drugService.doLogin(loginDetailsObj.getUserName(), loginDetailsObj.getUserPassword());
+				response = DrugUtil.setResponseMsg(serviceResponse);
+        	}catch(LoginValidationException  exe){
+        		response = DrugUtil.setResponseMsg(exe.getMessage(), exe.getErrorCode());
+        	}
+		 return response;	
+		}
+		
+		
+		
 }
