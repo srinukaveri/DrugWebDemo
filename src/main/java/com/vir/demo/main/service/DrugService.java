@@ -1,6 +1,10 @@
 package com.vir.demo.main.service;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.transaction.Transactional;
 
@@ -51,8 +55,19 @@ public class DrugService {
 		return drugDAO.getPharmacyDetails();
 	}
 	
-	public List<DrugDetails> getDrugDetails(){
-		return drugDAO.getDrugDetails();
+	public Map<String,List<String>> getDrugDetails(){
+		List<DrugDetails> drugList = drugDAO.getDrugDetails();
+		List<String> drugNames = null;
+		Map<String,List<String>> finalResponse = new HashMap<String,List<String>>();	
+		if(drugList != null && drugList.size()>0 && !drugList.isEmpty()){
+			drugNames = new ArrayList<String>();
+			for(DrugDetails durgDetails : drugList){
+				drugNames.add(durgDetails.getDrugName());
+			}
+			Collections.sort(drugNames);
+		}
+		finalResponse.put("druglist", drugNames);
+		return finalResponse;
 	}
 	
 	public List<DrugSearch> getPharmacyDrugMasterDetails(String drugName){

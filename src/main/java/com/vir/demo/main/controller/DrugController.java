@@ -51,8 +51,10 @@ public class DrugController {
 			return drugService.getPharmacyDetails();
 		}
 		
-		@RequestMapping(method = RequestMethod.GET,value="/drug")
-		public List<DrugDetails> getDrugDetails(){
+		@RequestMapping(value="/drug",
+				method = RequestMethod.GET,
+				produces=MediaType.APPLICATION_JSON_VALUE)
+		public Map<String,List<String>> getDrugDetails(){
 			return drugService.getDrugDetails();
 		}
 	
