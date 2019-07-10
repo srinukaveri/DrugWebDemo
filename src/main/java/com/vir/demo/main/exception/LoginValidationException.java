@@ -2,6 +2,10 @@ package com.vir.demo.main.exception;
 
 import com.vir.demo.main.constants.ErrorCodes;
 
+/**
+ * @author Sreeni
+ * handling the customized exception
+ */
 public class LoginValidationException extends RuntimeException {
 
 	

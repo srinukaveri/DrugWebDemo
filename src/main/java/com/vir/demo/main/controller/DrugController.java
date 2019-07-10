@@ -20,6 +20,11 @@ import com.vir.demo.main.exception.LoginValidationException;
 import com.vir.demo.main.service.DrugService;
 import com.vir.demo.main.util.DrugUtil;
 
+/**
+ * @author Sreeni
+ * This is the controller class where all process starting from here.
+ *
+ */
 @RestController
 @Component
 public class DrugController {
@@ -33,6 +38,13 @@ public class DrugController {
 			return  "Welcome to drugweb app...!"; 
 		}
 	
+		/**
+		 * this method validate the user id and password from the UI and returns the response
+		 * @param userName
+		 * @param password
+		 * @return the login response whether success or failure
+		 * @throws Exception
+		 */
 		@RequestMapping(method = RequestMethod.GET,value="/login")
 		public String doLogin(@RequestParam(value="username") String userName,
 							  @RequestParam(value="password") String password)throws Exception{
@@ -46,11 +58,19 @@ public class DrugController {
 			return loginResponse;
 		}
 		
+		/**
+		 * This method returns all the pharmacy details for the user
+		 * @return  list of PharmacyDetails
+		 */
 		@RequestMapping(method = RequestMethod.GET,value="/pharmacy")
 		public List<PharmacyDetails> getPharmacyDetails(){
 			return drugService.getPharmacyDetails();
 		}
 		
+		/**
+		 * This method return the detailed information about the drugs
+		 * @return list of drug details
+		 */
 		@RequestMapping(value="/drug",
 				method = RequestMethod.GET,
 				produces=MediaType.APPLICATION_JSON_VALUE)
@@ -58,6 +78,13 @@ public class DrugController {
 			return drugService.getDrugDetails();
 		}
 	
+		/**
+		 * This method find the corresponding and near by available 
+		 * pharmacy details for the particular drug which is given by the user.
+		 * @param drugDetails
+		 * @return drugsearch
+		 * @throws Exception
+		 */
 		@RequestMapping(
 				value="/drug/details",
 				method = RequestMethod.POST,
@@ -68,6 +95,11 @@ public class DrugController {
 			return drugService.getPharmacyDrugMasterDetails(drugDetailsObj.getDrugName());
 		}
 		
+		/**
+		 * @param loginDetails
+		 * @return
+		 * @throws Exception
+		 */
 		@RequestMapping(
 				value="/login/", 
 				method = RequestMethod.POST,

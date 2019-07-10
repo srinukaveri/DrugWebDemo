@@ -1,5 +1,9 @@
 package com.vir.demo.main.constants;
 
+/**
+ * @author Sreeni
+ * SQL Queries listed in below
+ */
 public class SQLConstants {
 
 	public static final String LOGIN_SQL = "from UserLoginDetails p  where p.userName =: userName";

@@ -20,12 +20,22 @@ import com.vir.demo.main.entity.PharmacyDrugMaster;
 import com.vir.demo.main.entity.UserLoginDetails;
 import com.vir.demo.main.exception.LoginValidationException;
 
+/**
+ * @author Sreeni
+ *
+ */
 @Repository
 public class DrugDAO {
 	
 	@PersistenceContext
 	private EntityManager entity;
 
+	/**
+	 * Retrieve  the corresponding user details and validate the credentials
+	 * @param userName
+	 * @param password
+	 * @return UserLoginDetails
+	 */
 	public UserLoginDetails doLogin(String userName, String password){
 		UserLoginDetails UserLoginDetails = null;
 		try{
@@ -39,6 +49,10 @@ public class DrugDAO {
 	}
 	
 	
+	/**
+	 * Fetch the details of the pharmacy
+	 * @return PharmacyDetails
+	 */
 	@SuppressWarnings("unchecked")
 	public List<PharmacyDetails> getPharmacyDetails(){
 		List<PharmacyDetails> pharmacyList = null;
@@ -51,6 +65,10 @@ public class DrugDAO {
 		return pharmacyList;
 	}
 	
+	/**
+	 * fetch the drugdetails
+	 * @return DrugDetails
+	 */
 	@SuppressWarnings("unchecked")
 	public List<DrugDetails> getDrugDetails(){
 		List<DrugDetails> drugList = null;
@@ -63,6 +81,10 @@ public class DrugDAO {
 		return drugList;
 	}
 	
+	/**
+	 * fetch the master details of the pharmacy
+	 * @return PharmacyDrugMaster
+	 */
 	@SuppressWarnings("unchecked")
 	public List<PharmacyDrugMaster> getPharmacyDrugMasterDetails(){
 		List<PharmacyDrugMaster> pharmacyDrugList = null;
@@ -77,6 +99,11 @@ public class DrugDAO {
 	}
 	
 	
+	/**
+	 * fetch the pharmacy details of the drug which i s available
+	 * @param drugName
+	 * @return DrugSearch
+	 */
 	@SuppressWarnings("unchecked")
 	public List<DrugSearch> getPharmacyDrugDetails(String drugName){
 		List<DrugSearch> pharmacyDrugList = null;

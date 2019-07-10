@@ -7,6 +7,10 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+/**
+ * @author Sreeni
+ *
+ */
 @Entity
 @Table(name="USER_LOGIN_DETAILS")
 @JsonIgnoreProperties(ignoreUnknown = true)

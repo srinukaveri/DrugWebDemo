@@ -6,6 +6,10 @@ import java.util.Map;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.vir.demo.main.constants.DrugConstants;
 
+/**
+ * @author Sreeni
+ * having all the utility methods
+ */
 public class DrugUtil {
 	
 	public static String toJSONStringException(String errorMessage,Integer errorCode)throws Exception{

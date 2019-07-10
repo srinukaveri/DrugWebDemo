@@ -7,6 +7,10 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * @author Sreeni
+ *
+ */
 @Entity
 @Table(name="PHARMACY_DRUG_MASTER")
 public class PharmacyDrugMaster implements Serializable{

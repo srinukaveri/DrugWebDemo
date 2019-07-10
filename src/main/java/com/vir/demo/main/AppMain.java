@@ -2,10 +2,10 @@ package com.vir.demo.main;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-/*
- * @Author- Sreeni
- * Spring-Boot runner class
- * 
+/**
+ * @author Sreeni
+ * The main class and the entry point of the application
+ *
  */
 @SpringBootApplication
 public class AppMain {

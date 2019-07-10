@@ -1,6 +1,10 @@
 package com.vir.demo.main.entity;
 
 //@JsonIgnoreProperties(ignoreUnknown = true)
+/**
+ * @author Sreeni
+ *
+ */
 public class DrugSearch {
 	
 	

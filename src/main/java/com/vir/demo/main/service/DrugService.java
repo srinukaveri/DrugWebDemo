@@ -21,6 +21,10 @@ import com.vir.demo.main.entity.PharmacyDetails;
 import com.vir.demo.main.entity.UserLoginDetails;
 import com.vir.demo.main.exception.LoginValidationException;
 
+/**
+ * @author Sreeni
+ *
+ */
 @Service
 @Transactional
 public class DrugService {
@@ -30,6 +34,12 @@ public class DrugService {
 	
 		
 	
+	/**
+	 * for the login valiidation
+	 * @param userName
+	 * @param password
+	 * @return response msg
+	 */
 	public String doLogin(String userName,String password){
 	String responseMsg = null;
 		   if(!StringUtils.isBlank(userName) && !StringUtils.isBlank(password)){
@@ -51,10 +61,18 @@ public class DrugService {
 		return responseMsg;	
 	}
 	
+	/**
+	 * fetch the detailed information about the pharmacy
+	 * @return pharmacy details
+	 */
 	public List<PharmacyDetails> getPharmacyDetails(){
 		return drugDAO.getPharmacyDetails();
 	}
 	
+	/**
+	 * fetch the detailed information about the drug
+	 * @return drugdetails
+	 */
 	public Map<String,List<String>> getDrugDetails(){
 		List<DrugDetails> drugList = drugDAO.getDrugDetails();
 		List<String> drugNames = null;
@@ -70,6 +88,10 @@ public class DrugService {
 		return finalResponse;
 	}
 	
+	/**
+	 * @param drugName
+	 * @return pharmacy master details
+	 */
 	public List<DrugSearch> getPharmacyDrugMasterDetails(String drugName){
 		//return drugDAO.getPharmacyDrugMasterDetails();
 		return drugDAO.getPharmacyDrugDetails(drugName);

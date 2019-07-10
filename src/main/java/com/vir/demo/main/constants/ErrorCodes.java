@@ -1,5 +1,9 @@
 package com.vir.demo.main.constants;
 
+/**
+ * @author Sreeni
+ * All the Error codes are configured 
+ */
 public enum ErrorCodes {
 	
 	SERVICE_ERROR(1000),
