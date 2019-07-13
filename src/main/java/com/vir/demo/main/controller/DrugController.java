@@ -20,6 +20,8 @@ import com.vir.demo.main.exception.LoginValidationException;
 import com.vir.demo.main.service.DrugService;
 import com.vir.demo.main.util.DrugUtil;
 
+import object.PriceInput;
+
 /**
  * @author Sreeni
  * This is the controller class where all process starting from here.
@@ -117,6 +119,25 @@ public class DrugController {
 		 return response;	
 		}
 		
-		
+		/**
+		 * This method find the corresponding and near by available 
+		 * pharmacy details for the particular drug which is given by the user.
+		 * @param drugDetails
+		 * @return drugsearch
+		 * @throws Exception
+		 */
+		@RequestMapping(
+				value="/drug/info",
+				method = RequestMethod.POST,
+				consumes = MediaType.APPLICATION_JSON_VALUE,
+				produces=MediaType.APPLICATION_JSON_VALUE)
+		public List<DrugSearch> getPriceDetails(@RequestBody String drugDetails)throws Exception{
+			
+			PriceInput priceInputObj = DrugUtil.getMapperInstance().readValue(drugDetails,PriceInput.class);
+			
+			return drugService.getPharmacyDrugInfo(priceInputObj);
+
+			//return drugDetails;
+		}
 		
 }

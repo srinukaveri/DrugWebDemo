@@ -116,4 +116,18 @@ public class DrugDAO {
 		}
 		return pharmacyDrugList;
 	}
+
+
+	public List<DrugSearch> getPharmacyDrugInfo(String area, List<String> drugList) {
+		List<DrugSearch> pharmacyDrugList = null;
+		try{
+			Query query = entity.createQuery(SQLConstants.DRUG_INFORMATION);
+			query.setParameter(SQLConstants.AREA,area);
+			query.setParameter(SQLConstants.DRUG_NAME,drugList);
+			pharmacyDrugList =  query.getResultList();
+		}catch(Exception exe){
+			exe.printStackTrace();
+		}
+		return pharmacyDrugList;
+	}
 }
