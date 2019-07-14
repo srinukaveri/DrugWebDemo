@@ -1,7 +1,6 @@
 package com.vir.demo.main.dao;
 
 import java.util.List;
-import java.util.Map;
 
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
@@ -16,7 +15,6 @@ import com.vir.demo.main.constants.SQLConstants;
 import com.vir.demo.main.entity.DrugDetails;
 import com.vir.demo.main.entity.DrugSearch;
 import com.vir.demo.main.entity.PharmacyDetails;
-import com.vir.demo.main.entity.PharmacyDrugMaster;
 import com.vir.demo.main.entity.UserLoginDetails;
 import com.vir.demo.main.exception.LoginValidationException;
 
@@ -54,10 +52,11 @@ public class DrugDAO {
 	 * @return PharmacyDetails
 	 */
 	@SuppressWarnings("unchecked")
-	public List<PharmacyDetails> getPharmacyDetails(){
+	public List<PharmacyDetails> getPharmacyDetails(String area){
 		List<PharmacyDetails> pharmacyList = null;
 		try{
 			Query query = entity.createQuery(SQLConstants.GET_PHARMACY_SQL);
+			query.setParameter(SQLConstants.AREA,area);
 			pharmacyList =  query.getResultList();
 		}catch(Exception exe){
 			exe.printStackTrace();
@@ -86,16 +85,17 @@ public class DrugDAO {
 	 * @return PharmacyDrugMaster
 	 */
 	@SuppressWarnings("unchecked")
-	public List<PharmacyDrugMaster> getPharmacyDrugMasterDetails(){
-		List<PharmacyDrugMaster> pharmacyDrugList = null;
+	public List<DrugSearch>  getDrugListMaster(List<String> pharmacyId,List<String> drugNameList){
+		List<DrugSearch> drugListMaster = null;
 		try{
-			String selectSQL = " from PharmacyDrugMaster";
-			Query query = entity.createQuery(selectSQL);
-			pharmacyDrugList =  query.getResultList();
+			Query query = entity.createQuery(SQLConstants.DRUG_SEARCH_SQL);
+			query.setParameter(SQLConstants.PHARMACY_ID,pharmacyId);
+			query.setParameter(SQLConstants.DRUG_NAME,drugNameList);
+			drugListMaster =  query.getResultList();
 		}catch(Exception exe){
 			exe.printStackTrace();
 		}
-		return pharmacyDrugList;
+		return drugListMaster;
 	}
 	
 	
@@ -117,17 +117,4 @@ public class DrugDAO {
 		return pharmacyDrugList;
 	}
 
-
-	public List<DrugSearch> getPharmacyDrugInfo(String area, List<String> drugList) {
-		List<DrugSearch> pharmacyDrugList = null;
-		try{
-			Query query = entity.createQuery(SQLConstants.DRUG_INFORMATION);
-			query.setParameter(SQLConstants.AREA,area);
-			query.setParameter(SQLConstants.DRUG_NAME,drugList);
-			pharmacyDrugList =  query.getResultList();
-		}catch(Exception exe){
-			exe.printStackTrace();
-		}
-		return pharmacyDrugList;
-	}
 }

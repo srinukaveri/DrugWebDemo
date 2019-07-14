@@ -1,6 +1,7 @@
 package com.vir.demo.main.service;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -15,13 +16,15 @@ import org.springframework.stereotype.Service;
 import com.vir.demo.main.constants.DrugConstants;
 import com.vir.demo.main.constants.ErrorCodes;
 import com.vir.demo.main.dao.DrugDAO;
+import com.vir.demo.main.dto.DrugSearchDTO;
+import com.vir.demo.main.dto.PharmacyDTO;
 import com.vir.demo.main.entity.DrugDetails;
+import com.vir.demo.main.entity.DrugRequest;
 import com.vir.demo.main.entity.DrugSearch;
 import com.vir.demo.main.entity.PharmacyDetails;
 import com.vir.demo.main.entity.UserLoginDetails;
 import com.vir.demo.main.exception.LoginValidationException;
-
-import object.PriceInput;
+import com.vir.demo.main.util.DrugUtil;
 
 /**
  * @author Sreeni
@@ -64,14 +67,6 @@ public class DrugService {
 	}
 	
 	/**
-	 * fetch the detailed information about the pharmacy
-	 * @return pharmacy details
-	 */
-	public List<PharmacyDetails> getPharmacyDetails(){
-		return drugDAO.getPharmacyDetails();
-	}
-	
-	/**
 	 * fetch the detailed information about the drug
 	 * @return drugdetails
 	 */
@@ -95,16 +90,46 @@ public class DrugService {
 	 * @return pharmacy master details
 	 */
 	public List<DrugSearch> getPharmacyDrugMasterDetails(String drugName){
-		//return drugDAO.getPharmacyDrugMasterDetails();
 		return drugDAO.getPharmacyDrugDetails(drugName);
 	}
 
-	public List<DrugSearch> getPharmacyDrugInfo(PriceInput drugDetails) {
-		
+	public List<Object>  getPharmacyDrugInfo(DrugRequest drugDetails) {
 		String area = drugDetails.getArea();
 		List<String> drugList = drugDetails.getDrugName();
-		return drugDAO.getPharmacyDrugInfo(area,drugList);
-		
+		List<PharmacyDetails> pharmacyList = drugDAO.getPharmacyDetails(area);
+		List<DrugSearch> drugResultList = drugDAO.getDrugListMaster(getPharmacyID(pharmacyList),drugList);
+		return mappingPharmacyDrug(pharmacyList,drugResultList);
 	}
+	
+	private List<String> getPharmacyID(List<PharmacyDetails> pharmacyList){
+		List<String> pharmacyIdList = null;
+		if(pharmacyList!= null  && ! pharmacyList.isEmpty()){
+			for(PharmacyDetails pharmcayDetails : pharmacyList){
+				pharmacyIdList = new ArrayList<String>();
+				pharmacyIdList.add(pharmcayDetails.getPharmacyMasterId());
+			}
+		}
+		return pharmacyIdList;
+	}
+	
+	
+	@SuppressWarnings("unchecked")
+	private List<Object> mappingPharmacyDrug(List<PharmacyDetails> pharmacyList,List<DrugSearch> drugResultList){
+	     Map<Object,Object> pharmacyFinalResponse = new HashMap<Object,Object>();
+	     List<Object> finalResponse = new ArrayList<Object>();
+		for(PharmacyDetails pharmacyDTO : pharmacyList){
+			 List<DrugSearch> drugRes = new ArrayList<DrugSearch>();
+			 pharmacyFinalResponse = DrugUtil.getMapperInstance().convertValue(pharmacyDTO, Map.class);
+			for(DrugSearch drugSearch :drugResultList){
+				if(pharmacyDTO.getPharmacyMasterId().equals(drugSearch.getPharmacyMasterId())){
+					drugRes.add(drugSearch);
+				}
+				pharmacyFinalResponse.put("drugList",drugRes);
+			}
+			finalResponse.add(pharmacyFinalResponse);
+		}
+		return finalResponse;
+	}
+	
 
 }

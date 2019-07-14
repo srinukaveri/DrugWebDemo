@@ -11,4 +11,7 @@ com\vir\demo\main\entity\PharmacyDetails.class
 com\vir\demo\main\entity\DrugDetails.class
 com\vir\demo\main\exception\LoginValidationException.class
 com\vir\demo\main\service\DrugService.class
+com\vir\demo\main\dto\DrugSearchDTO.class
+com\vir\demo\main\dto\PharmacyDTO.class
+com\vir\demo\main\entity\DrugRequest.class
 com\vir\demo\main\entity\PharmacyDrugMaster.class

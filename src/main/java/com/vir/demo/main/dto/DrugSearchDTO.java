@@ -1,4 +1,4 @@
-package com.vir.demo.main.entity;
+package com.vir.demo.main.dto;
 
 import org.springframework.stereotype.Component;
 
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
  *
  */
 @Component
-public class DrugSearch {
+public class DrugSearchDTO {
 	
 	
 	private String pharmacyMasterId;
@@ -23,11 +23,11 @@ public class DrugSearch {
 	private Double drugPriceEach;
 	private String currency;
 	
-	public DrugSearch(){}
+	public DrugSearchDTO(){}
 		
 	
 	
-	public DrugSearch(String pharmacyMasterId,String drugId,String drugName,String isActive,String mappingId,String isAvailable,Double drugPriceEach,String currency){
+	public DrugSearchDTO(String pharmacyMasterId,String drugId,String drugName,String isActive,String mappingId,String isAvailable,Double drugPriceEach,String currency){
 		this.pharmacyMasterId=pharmacyMasterId;
 		this.drugId=drugId;
 		this.drugName =drugName;

@@ -1,15 +1,10 @@
-/**
- * 
- */
-package object;
+package com.vir.demo.main.entity;
 
 import java.util.List;
 
-/**
- * @author Sreeni
- *
- */
-public class PriceInput {
+public class DrugRequest {
+	
+	
 	private String area;
 	private List<String> drugName;
 	/**
@@ -36,6 +31,5 @@ public class PriceInput {
 	public void setDrugName(List<String> drugName) {
 		this.drugName = drugName;
 	}
-	
 
 }

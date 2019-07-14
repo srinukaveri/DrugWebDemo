@@ -1,15 +1,15 @@
 /**
  * 
  */
-package object;
+package com.vir.demo.main.dto;
 
-import javax.persistence.Column;
+import java.util.List;
 
 /**
  * @author C-PN16
  *
  */
-public class PharDetails {
+public class PharmacyDTO {
 private String pharmacyMasterId;
 	
 	private String pharmacyName;
@@ -39,6 +39,8 @@ private String pharmacyMasterId;
 	private String phone;
 	
 	private String webSite;
+	
+	private List<DrugSearchDTO> drugSearchDTO;
 
 	/**
 	 * @return the pharmacyMasterId
@@ -249,6 +251,22 @@ private String pharmacyMasterId;
 	public void setWebSite(String webSite) {
 		this.webSite = webSite;
 	}
+
+	/**
+	 * @return the drugSearchDTO
+	 */
+	public List<DrugSearchDTO> getDrugSearchDTO() {
+		return drugSearchDTO;
+	}
+
+	/**
+	 * @param drugSearchDTO the drugSearchDTO to set
+	 */
+	public void setDrugSearchDTO(List<DrugSearchDTO> drugSearchDTO) {
+		this.drugSearchDTO = drugSearchDTO;
+	}
+
+	
 	
 	
 

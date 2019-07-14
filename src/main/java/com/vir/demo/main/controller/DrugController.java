@@ -12,15 +12,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.vir.demo.main.dto.PharmacyDTO;
 import com.vir.demo.main.entity.DrugDetails;
+import com.vir.demo.main.entity.DrugRequest;
 import com.vir.demo.main.entity.DrugSearch;
-import com.vir.demo.main.entity.PharmacyDetails;
 import com.vir.demo.main.entity.UserLoginDetails;
 import com.vir.demo.main.exception.LoginValidationException;
 import com.vir.demo.main.service.DrugService;
 import com.vir.demo.main.util.DrugUtil;
-
-import object.PriceInput;
 
 /**
  * @author Sreeni
@@ -58,15 +57,6 @@ public class DrugController {
             		loginResponse = DrugUtil.toJSONStringException(exe.getMessage(), exe.getErrorCode());
             	}
 			return loginResponse;
-		}
-		
-		/**
-		 * This method returns all the pharmacy details for the user
-		 * @return  list of PharmacyDetails
-		 */
-		@RequestMapping(method = RequestMethod.GET,value="/pharmacy")
-		public List<PharmacyDetails> getPharmacyDetails(){
-			return drugService.getPharmacyDetails();
 		}
 		
 		/**
@@ -131,13 +121,9 @@ public class DrugController {
 				method = RequestMethod.POST,
 				consumes = MediaType.APPLICATION_JSON_VALUE,
 				produces=MediaType.APPLICATION_JSON_VALUE)
-		public List<DrugSearch> getPriceDetails(@RequestBody String drugDetails)throws Exception{
-			
-			PriceInput priceInputObj = DrugUtil.getMapperInstance().readValue(drugDetails,PriceInput.class);
-			
-			return drugService.getPharmacyDrugInfo(priceInputObj);
-
-			//return drugDetails;
+		public List<Object>  getPriceDetails(@RequestBody String drugDetails)throws Exception{
+			DrugRequest drugRequestObj = DrugUtil.getMapperInstance().readValue(drugDetails,DrugRequest.class);
+			return drugService.getPharmacyDrugInfo(drugRequestObj);
 		}
 		
 }
