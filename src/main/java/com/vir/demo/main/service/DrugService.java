@@ -102,10 +102,9 @@ public class DrugService {
 	}
 	
 	private List<String> getPharmacyID(List<PharmacyDetails> pharmacyList){
-		List<String> pharmacyIdList = null;
+		List<String> pharmacyIdList = new ArrayList<String>();
 		if(pharmacyList!= null  && ! pharmacyList.isEmpty()){
 			for(PharmacyDetails pharmcayDetails : pharmacyList){
-				pharmacyIdList = new ArrayList<String>();
 				pharmacyIdList.add(pharmcayDetails.getPharmacyMasterId());
 			}
 		}
@@ -118,10 +117,11 @@ public class DrugService {
 	     Map<Object,Object> pharmacyFinalResponse = new HashMap<Object,Object>();
 	     List<Object> finalResponse = new ArrayList<Object>();
 		for(PharmacyDetails pharmacyDTO : pharmacyList){
-			 List<DrugSearch> drugRes = new ArrayList<DrugSearch>();
+			 List<DrugSearch> drugRes = new ArrayList<DrugSearch>();;
 			 pharmacyFinalResponse = DrugUtil.getMapperInstance().convertValue(pharmacyDTO, Map.class);
 			for(DrugSearch drugSearch :drugResultList){
 				if(pharmacyDTO.getPharmacyMasterId().equals(drugSearch.getPharmacyMasterId())){
+					
 					drugRes.add(drugSearch);
 				}
 				pharmacyFinalResponse.put("drugList",drugRes);
