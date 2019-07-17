@@ -116,15 +116,20 @@ public class DrugService {
 	private List<Object> mappingPharmacyDrug(List<PharmacyDetails> pharmacyList,List<DrugSearch> drugResultList){
 	     Map<Object,Object> pharmacyFinalResponse = new HashMap<Object,Object>();
 	     List<Object> finalResponse = new ArrayList<Object>();
+	     String currency = null;
+			
 		for(PharmacyDetails pharmacyDTO : pharmacyList){
-			 List<DrugSearch> drugRes = new ArrayList<DrugSearch>();;
+			double total = 0;
+			 List<DrugSearch> drugRes = new ArrayList<DrugSearch>();
 			 pharmacyFinalResponse = DrugUtil.getMapperInstance().convertValue(pharmacyDTO, Map.class);
-			for(DrugSearch drugSearch :drugResultList){
+			 for(DrugSearch drugSearch :drugResultList){
 				if(pharmacyDTO.getPharmacyMasterId().equals(drugSearch.getPharmacyMasterId())){
-					
+					total += drugSearch.getDrugPriceEach();
+					currency= drugSearch.getCurrency();
 					drugRes.add(drugSearch);
 				}
 				pharmacyFinalResponse.put("drugList",drugRes);
+				pharmacyFinalResponse.put("total",total+" "+currency);
 			}
 			finalResponse.add(pharmacyFinalResponse);
 		}
