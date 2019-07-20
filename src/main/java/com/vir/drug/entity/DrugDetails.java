@@ -7,15 +7,12 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
-
 /**
  * @author Sreeni
  *
  */
 @Entity
 @Table(name = "DRUG_DETAILS")
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class DrugDetails implements Serializable {
 
 	private static final long serialVersionUID = 2797681336780870561L;

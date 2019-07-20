@@ -3,6 +3,7 @@ package com.vir.drug.util;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.vir.drug.constants.DrugConstants;
 
@@ -31,6 +32,7 @@ public class DrugUtil {
 		ObjectMapper objectMapper = null;
 		if(objectMapper == null){
 			objectMapper = new ObjectMapper();
+			objectMapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
 		}
 		return objectMapper;
 	}
