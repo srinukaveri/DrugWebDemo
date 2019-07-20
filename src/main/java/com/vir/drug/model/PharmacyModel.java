@@ -6,13 +6,10 @@ package com.vir.drug.model;
 import java.io.Serializable;
 import java.util.List;
 
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
-
 /**
  * @author C-PN16
  *
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class PharmacyModel implements Serializable {
 
 	private static final long serialVersionUID = -290782604397999615L;

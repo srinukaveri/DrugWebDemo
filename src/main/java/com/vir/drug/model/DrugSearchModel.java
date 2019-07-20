@@ -2,7 +2,6 @@ package com.vir.drug.model;
 
 import java.io.Serializable;
 
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.springframework.stereotype.Component;
 
 //@JsonIgnoreProperties(ignoreUnknown = true)
@@ -11,7 +10,7 @@ import org.springframework.stereotype.Component;
  *
  */
 @Component
-@JsonIgnoreProperties(ignoreUnknown = true)
+
 public class DrugSearchModel implements Serializable {
 
 	private static final long serialVersionUID = 1205439122744464967L;

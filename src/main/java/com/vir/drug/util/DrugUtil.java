@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.springframework.stereotype.Component;
 
+import com.fasterxml.jackson.databind.DeserializationConfig;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.vir.drug.constants.DrugConstants;
@@ -32,13 +33,8 @@ public class DrugUtil {
 	}
 	
 	public  ObjectMapper getMapperInstance(){
-		ObjectMapper objectMapper = null;
-		if(objectMapper == null){
-			objectMapper = new ObjectMapper();
-			//objectMapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
-			objectMapper.configure(
-					DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-		}
+		ObjectMapper objectMapper =  new ObjectMapper();
+		objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 		return objectMapper;
 	}
 

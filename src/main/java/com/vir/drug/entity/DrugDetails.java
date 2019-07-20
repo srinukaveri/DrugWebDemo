@@ -7,7 +7,10 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+import org.codehaus.jackson.annotate.JsonIgnore;
+import org.codehaus.jackson.annotate.JsonProperty;
+
+
 
 /**
  * @author Sreeni
@@ -21,18 +24,22 @@ public class DrugDetails implements Serializable {
 
 	@Id
 	@Column(name = "DRUG_ID")
+	@JsonIgnore
 	private String drugId;
 
 	@Column(name = "DRUG_NAME")
+	@JsonIgnore
 	private String drugName;
 
 	@Column(name = "IS_ACTIVE")
+	@JsonIgnore
 	private String isActive;
 
 	public String getDrugId() {
 		return drugId;
 	}
 
+	 @JsonProperty("drugId")
 	public void setDrugId(String drugId) {
 		this.drugId = drugId;
 	}
@@ -41,14 +48,17 @@ public class DrugDetails implements Serializable {
 		return drugName;
 	}
 
+	@JsonProperty("drugName")
 	public void setDrugName(String drugName) {
 		this.drugName = drugName;
 	}
 
+	
 	public String getIsActive() {
 		return isActive;
 	}
-
+	
+	@JsonProperty("isActive")
 	public void setIsActive(String isActive) {
 		this.isActive = isActive;
 	}
