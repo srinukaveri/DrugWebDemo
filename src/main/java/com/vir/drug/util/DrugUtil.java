@@ -35,7 +35,9 @@ public class DrugUtil {
 		ObjectMapper objectMapper = null;
 		if(objectMapper == null){
 			objectMapper = new ObjectMapper();
-			objectMapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+			//objectMapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+			objectMapper.configure(
+					DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 		}
 		return objectMapper;
 	}
