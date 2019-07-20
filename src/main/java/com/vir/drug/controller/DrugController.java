@@ -27,6 +27,9 @@ public class DrugController {
 
 	@Autowired
 	private IDrugService drugService;
+	
+	@Autowired
+	private DrugUtil durgUtil;
 
 	@RequestMapping(method = RequestMethod.GET, value = "/")
 	public String showText() {
@@ -53,7 +56,7 @@ public class DrugController {
 	 */
 	@RequestMapping(value = "/drug/details", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Object> getPriceDetails(@RequestBody String drugDetails) throws Exception {
-		DrugRequest drugRequestObj = DrugUtil.getMapperInstance().readValue(drugDetails, DrugRequest.class);
+		DrugRequest drugRequestObj = durgUtil.getMapperInstance().readValue(drugDetails, DrugRequest.class);
 		return drugService.fetchPharmacyDrugDetails(drugRequestObj);
 	}
 

@@ -3,6 +3,9 @@ package com.vir.drug.model;
 import java.io.Serializable;
 import java.util.List;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class DrugRequest implements Serializable {
 
 	private static final long serialVersionUID = 1548102846183592891L;

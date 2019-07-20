@@ -15,7 +15,6 @@ import org.codehaus.jackson.annotate.JsonIgnoreProperties;
  */
 @Entity
 @Table(name = "DRUG_DETAILS")
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class DrugDetails implements Serializable {
 
 	private static final long serialVersionUID = 2797681336780870561L;

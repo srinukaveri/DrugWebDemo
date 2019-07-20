@@ -28,6 +28,9 @@ public class DrugService implements IDrugService {
 
 	@Autowired
 	private IDrugDAO drugDAO;
+	
+	@Autowired
+	private DrugUtil durgUtil;
 
 	/**
 	 * fetch the detailed information about the drug
@@ -92,7 +95,7 @@ public class DrugService implements IDrugService {
 		List<Object> finalResponse = new ArrayList<Object>();
 		for (PharmacyDetails pharmacyDTO : pharmacyList) {
 			List<DrugSearch> drugRes = new ArrayList<DrugSearch>();
-			pharmacyFinalResponse = DrugUtil.getMapperInstance().convertValue(pharmacyDTO, Map.class);
+			pharmacyFinalResponse = durgUtil.getMapperInstance().convertValue(pharmacyDTO, Map.class);
 			for (DrugSearch drugSearch : drugResultList) {
 				if (pharmacyDTO.getPharmacyMasterId().equals(drugSearch.getPharmacyMasterId())) {
 					drugRes.add(drugSearch);

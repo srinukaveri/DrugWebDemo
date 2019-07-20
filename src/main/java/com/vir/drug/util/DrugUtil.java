@@ -3,6 +3,8 @@ package com.vir.drug.util;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.stereotype.Component;
+
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.vir.drug.constants.DrugConstants;
@@ -11,6 +13,7 @@ import com.vir.drug.constants.DrugConstants;
  * @author Sreeni
  * having all the utility methods
  */
+@Component
 public class DrugUtil {
 	
 	public static String toJSONStringException(String errorMessage,Integer errorCode)throws Exception{
@@ -28,7 +31,7 @@ public class DrugUtil {
 		return objectMapper.writeValueAsString(responseJsonStr);
 	}
 	
-	public static ObjectMapper getMapperInstance(){
+	public  ObjectMapper getMapperInstance(){
 		ObjectMapper objectMapper = null;
 		if(objectMapper == null){
 			objectMapper = new ObjectMapper();
