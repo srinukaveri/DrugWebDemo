@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
  *
  */
 @Component
-public class DrugSearch implements Serializable {
+public class DrugSearch {
 
 	private static final long serialVersionUID = -5054854741954145500L;
 

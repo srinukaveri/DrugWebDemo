@@ -24,22 +24,18 @@ public class DrugDetails implements Serializable {
 
 	@Id
 	@Column(name = "DRUG_ID")
-	@JsonIgnore
 	private String drugId;
 
 	@Column(name = "DRUG_NAME")
-	@JsonIgnore
 	private String drugName;
 
 	@Column(name = "IS_ACTIVE")
-	@JsonIgnore
 	private String isActive;
 
 	public String getDrugId() {
 		return drugId;
 	}
 
-	 @JsonProperty("drugId")
 	public void setDrugId(String drugId) {
 		this.drugId = drugId;
 	}
@@ -48,7 +44,6 @@ public class DrugDetails implements Serializable {
 		return drugName;
 	}
 
-	@JsonProperty("drugName")
 	public void setDrugName(String drugName) {
 		this.drugName = drugName;
 	}
@@ -58,7 +53,6 @@ public class DrugDetails implements Serializable {
 		return isActive;
 	}
 	
-	@JsonProperty("isActive")
 	public void setIsActive(String isActive) {
 		this.isActive = isActive;
 	}
