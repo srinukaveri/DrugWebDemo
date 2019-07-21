@@ -34,7 +34,7 @@ public class DrugUtil {
 	
 	public  ObjectMapper getMapperInstance(){
 		ObjectMapper objectMapper =  new ObjectMapper();
-		objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+		//objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 		return objectMapper;
 	}
 

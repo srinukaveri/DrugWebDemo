@@ -7,8 +7,10 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+
 
 /**
  * @author Sreeni
@@ -16,47 +18,44 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  */
 @Entity
 @Table(name = "DRUG_DETAILS")
-@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonIgnoreProperties(value={"drugId", "drugName", "isActive"},allowSetters= true, allowGetters= true)
 public class DrugDetails implements Serializable {
 
 	private static final long serialVersionUID = 2797681336780870561L;
 
 	@Id
 	@Column(name = "DRUG_ID")
-	@JsonIgnore
+	@JsonProperty("drugId")
 	private String drugId;
 
 	@Column(name = "DRUG_NAME")
-	@JsonIgnore
+	@JsonProperty("drugName")
 	private String drugName;
-
-	@Column(name = "IS_ACTIVE")
-	@JsonIgnore
-	private String isActive;
 	
-	@JsonIgnore
+	@JsonProperty("isActive")
+	@Column(name = "IS_ACTIVE")
+	private String isActive;
+
 	public String getDrugId() {
 		return drugId;
 	}
-	@JsonIgnore
+
 	public void setDrugId(String drugId) {
 		this.drugId = drugId;
 	}
-	@JsonIgnore
+
 	public String getDrugName() {
 		return drugName;
 	}
-	@JsonIgnore
+
 	public void setDrugName(String drugName) {
 		this.drugName = drugName;
 	}
 
-	@JsonIgnore
 	public String getIsActive() {
 		return isActive;
 	}
-	
-	@JsonIgnore
+
 	public void setIsActive(String isActive) {
 		this.isActive = isActive;
 	}

@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * @author Sreeni
@@ -14,19 +15,21 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
  */
 
 @Component
-@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(Include.NON_EMPTY)
+@JsonIgnoreProperties(value={"drugId", "drugName", "isActive"},allowSetters= true, allowGetters= true)
 public class DrugSearch {
 
 	
 
 	private String pharmacyMasterId;
 	
-	@JsonIgnore
+	@JsonProperty("drugId")
 	private String drugId;
-	@JsonIgnore
+	
+	@JsonProperty("drugName")
 	private String drugName;
-	@JsonIgnore
+	
+	@JsonProperty("isActive")
 	private String isActive;
 
 	private String mappingId;
@@ -37,7 +40,7 @@ public class DrugSearch {
 	public DrugSearch() {
 	}
 
-	@JsonIgnore
+	
 	public DrugSearch(String pharmacyMasterId, String drugId, String drugName, String isActive, String mappingId,
 			String isAvailable, Double drugPriceEach, String currency) {
 		this.pharmacyMasterId = pharmacyMasterId;
@@ -111,7 +114,7 @@ public class DrugSearch {
 	public String getDrugId() {
 		return drugId;
 	}
-	@JsonIgnore
+
 	public void setDrugId(String drugId) {
 		this.drugId = drugId;
 	}
