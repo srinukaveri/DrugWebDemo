@@ -1,4 +1,4 @@
-package com.vir.drug.constants;
+package com.vir.demo.drug.constants;
 
 /**
  * @author Sreeni

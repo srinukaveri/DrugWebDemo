@@ -1,37 +1,33 @@
-package com.vir.drug.entity;
+package com.vir.demo.drug.entity;
 
-
+import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-
-
 /**
  * @author Sreeni
  *
  */
 @Entity
-@Table(name = "DRUG_DETAILS")
-//@JsonIgnoreProperties(value={"drugId", "drugName", "isActive"},allowSetters= true, allowGetters= true)
-public class DrugDetails  {
-
-	//private static final long serialVersionUID = 2797681336780870561L;
+@Table(name="DRUG_DETAILS")
+public class DrugDetails implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name = "DRUG_ID")
-	//@JsonProperty("drugId")
+	@Column(name="DRUG_ID")
 	private String drugId;
-
-	@Column(name = "DRUG_NAME")
-	//@JsonProperty("drugName")
+	
+	@Column(name="DRUG_NAME")
 	private String drugName;
 	
-	//@JsonProperty("isActive")
-	@Column(name = "IS_ACTIVE")
+	@Column(name="IS_ACTIVE")
 	private String isActive;
+
+
 
 	public String getDrugId() {
 		return drugId;
@@ -56,5 +52,7 @@ public class DrugDetails  {
 	public void setIsActive(String isActive) {
 		this.isActive = isActive;
 	}
+	
+	
 
 }

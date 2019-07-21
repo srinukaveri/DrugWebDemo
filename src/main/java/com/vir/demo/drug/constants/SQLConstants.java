@@ -1,4 +1,4 @@
-package com.vir.drug.constants;
+package com.vir.demo.drug.constants;
 
 /**
  * @author Sreeni
@@ -15,11 +15,15 @@ public class SQLConstants {
 	public static final String AREA = "area";
 	
 	
-	public static final String DRUG_SEARCH_SQL = "select  new com.vir.drug.model.DrugSearch("
+	public static final String DRUG_SEARCH_SQL = "select  new com.vir.demo.drug.model.DrugSearch("
 			+  "pd.pharmacyMasterId, d.drugId,d.drugName,d.isActive, "
 			+ " pd.mappingId,pd.isAvailable,pd.drugPriceEach,pd.currency) "
 			+" from DrugDetails d inner join PharmacyDrugMaster pd on d.drugId = pd.drugId "
-			+ " where pd.pharmacyMasterId in (:pharmacyMasterId) and d.drugName in (:drugName)";
+			+ " where  pd.pharmacyMasterId in (:pharmacyMasterId) and d.drugName in (:drugName)";
+	
+	
+	public static final String LATEST_DRUG_ID = "select new com.vir.demo.demo.drug.model.DrugSearch(max(d.drugId)) from "
+			+"DrugDetails d";
 	
 	
 

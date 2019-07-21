@@ -1,4 +1,4 @@
-package com.vir.drug;
+package com.vir.demo.drug;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -8,10 +8,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  *
  */
 @SpringBootApplication
-public class DrugPriceGrabber {
+public class DrugPriceGrabberMain {
 	
 	public static void main(String[] args) {
-		SpringApplication.run(DrugPriceGrabber.class, args);
+		SpringApplication.run(DrugPriceGrabberMain.class, args);
 	}
 
 }

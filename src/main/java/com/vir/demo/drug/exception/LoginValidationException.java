@@ -1,6 +1,6 @@
-package com.vir.drug.exception;
+package com.vir.demo.drug.exception;
 
-import com.vir.drug.constants.ErrorCodes;
+import com.vir.demo.drug.constants.ErrorCodes;
 
 /**
  * @author Sreeni

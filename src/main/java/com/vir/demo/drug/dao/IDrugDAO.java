@@ -1,13 +1,13 @@
 /**
  * 
  */
-package com.vir.drug.dao;
+package com.vir.demo.drug.dao;
 
 import java.util.List;
 
-import com.vir.drug.entity.DrugDetails;
-import com.vir.drug.entity.PharmacyDetails;
-import com.vir.drug.model.DrugSearch;
+import com.vir.demo.drug.entity.DrugDetails;
+import com.vir.demo.drug.entity.PharmacyDetails;
+import com.vir.demo.drug.model.DrugSearch;
 
 /**
  * @author sreeni

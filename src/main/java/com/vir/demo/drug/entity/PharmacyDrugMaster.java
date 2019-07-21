@@ -1,6 +1,6 @@
-package com.vir.drug.entity;
+package com.vir.demo.drug.entity;
 
-
+import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,30 +12,32 @@ import javax.persistence.Table;
  *
  */
 @Entity
-@Table(name = "PHARMACY_DRUG_MASTER")
-public class PharmacyDrugMaster  {
-
+@Table(name="PHARMACY_DRUG_MASTER")
+public class PharmacyDrugMaster implements Serializable{
 	
+	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name = "MAPPING_ID")
+	@Column(name="MAPPING_ID")
 	private String mappingId;
-
-	@Column(name = "PHARMACY_MASTER_ID")
+	
+	@Column(name="PHARMACY_MASTER_ID")
 	private String pharmacyMasterId;
-
-	@Column(name = "DRUG_ID")
+	
+	@Column(name="DRUG_ID")
 	private String drugId;
-
-	@Column(name = "IS_AVAILABLE")
+	
+	@Column(name="IS_AVAILABLE")
 	private String isAvailable;
-
-	@Column(name = "DRUG_PRICE_EACH")
+	
+	@Column(name="DRUG_PRICE_EACH")
 	private Double drugPriceEach;
-
-	@Column(name = "CURRENCY")
+	
+	@Column(name="CURRENCY")
 	private String currency;
 
+	
+	
 	public String getPharmacyMasterId() {
 		return pharmacyMasterId;
 	}
@@ -75,5 +77,7 @@ public class PharmacyDrugMaster  {
 	public void setCurrency(String currency) {
 		this.currency = currency;
 	}
-
+	
+	
+	
 }
