@@ -28,8 +28,7 @@ public class DrugController {
 	@Autowired
 	private IDrugService drugService;
 	
-	/*@Autowired
-	private DrugUtil durgUtil;*/
+
 
 	@RequestMapping(method = RequestMethod.GET, value = "/")
 	public String showText() {
