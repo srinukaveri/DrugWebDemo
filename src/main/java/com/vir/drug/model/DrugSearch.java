@@ -1,7 +1,7 @@
 package com.vir.drug.model;
 
-import java.io.Serializable;
 
+import org.codehaus.jackson.annotate.JsonProperty;
 import org.springframework.stereotype.Component;
 
 /**
@@ -11,12 +11,15 @@ import org.springframework.stereotype.Component;
 @Component
 public class DrugSearch {
 
-	private static final long serialVersionUID = -5054854741954145500L;
+	
 
 	private String pharmacyMasterId;
-
+	
+	@JsonProperty
 	private String drugId;
+	@JsonProperty
 	private String drugName;
+	@JsonProperty
 	private String isActive;
 
 	private String mappingId;
