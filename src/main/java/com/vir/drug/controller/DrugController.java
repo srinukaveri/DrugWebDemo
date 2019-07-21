@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.vir.drug.model.DrugRequest;
 import com.vir.drug.service.IDrugService;
-import com.vir.drug.util.DrugUtil;
 
 /**
  * @author Sreeni 
@@ -28,8 +28,8 @@ public class DrugController {
 	@Autowired
 	private IDrugService drugService;
 	
-	@Autowired
-	private DrugUtil durgUtil;
+	/*@Autowired
+	private DrugUtil durgUtil;*/
 
 	@RequestMapping(method = RequestMethod.GET, value = "/")
 	public String showText() {
@@ -56,7 +56,8 @@ public class DrugController {
 	 */
 	@RequestMapping(value = "/drug/details", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Object> getPriceDetails(@RequestBody String drugDetails) throws Exception {
-		DrugRequest drugRequestObj = durgUtil.getMapperInstance().readValue(drugDetails, DrugRequest.class);
+		ObjectMapper objectMapper =  new ObjectMapper();
+		DrugRequest drugRequestObj = objectMapper.readValue(drugDetails, DrugRequest.class);
 		return drugService.fetchPharmacyDrugDetails(drugRequestObj);
 	}
 

@@ -11,9 +11,9 @@ import org.springframework.stereotype.Component;
  */
 @Component
 
-public class DrugSearchModel implements Serializable {
+public class DrugSearchModel  {
 
-	private static final long serialVersionUID = 1205439122744464967L;
+	
 
 	private String pharmacyMasterId;
 

@@ -11,6 +11,7 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.vir.drug.dao.IDrugDAO;
 import com.vir.drug.entity.DrugDetails;
 import com.vir.drug.entity.PharmacyDetails;
@@ -95,7 +96,8 @@ public class DrugService implements IDrugService {
 		List<Object> finalResponse = new ArrayList<Object>();
 		for (PharmacyDetails pharmacyDTO : pharmacyList) {
 			List<DrugSearch> drugRes = new ArrayList<DrugSearch>();
-			pharmacyFinalResponse = durgUtil.getMapperInstance().convertValue(pharmacyDTO, Map.class);
+			ObjectMapper objectMapper =  new ObjectMapper();
+			pharmacyFinalResponse = objectMapper.convertValue(pharmacyDTO, Map.class);
 			for (DrugSearch drugSearch : drugResultList) {
 				if (pharmacyDTO.getPharmacyMasterId().equals(drugSearch.getPharmacyMasterId())) {
 					drugRes.add(drugSearch);
