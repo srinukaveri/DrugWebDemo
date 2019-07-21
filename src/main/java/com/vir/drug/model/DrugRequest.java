@@ -4,40 +4,25 @@ import java.io.Serializable;
 import java.util.List;
 
 
-public class DrugRequest implements Serializable {
+public class DrugRequest  {
 
-	private static final long serialVersionUID = 1548102846183592891L;
-	private String area;
-	private List<String> drugName;
-
-	/**
-	 * @return the area
-	 */
-	public String getArea() {
-		return area;
+	//private static final long serialVersionUID = 1548102846183592891L;
+	private String pharmacyArea;
+	private List<String> drugNameInput;
+	
+	public String getPharmacyArea() {
+		return pharmacyArea;
 	}
-
-	/**
-	 * @param area
-	 *            the area to set
-	 */
-	public void setArea(String area) {
-		this.area = area;
+	public void setPharmacyArea(String pharmacyArea) {
+		this.pharmacyArea = pharmacyArea;
 	}
-
-	/**
-	 * @return the drugName
-	 */
-	public List<String> getDrugName() {
-		return drugName;
+	public List<String> getDrugNameInput() {
+		return drugNameInput;
 	}
-
-	/**
-	 * @param drugName
-	 *            the drugName to set
-	 */
-	public void setDrugName(List<String> drugName) {
-		this.drugName = drugName;
+	public void setDrugNameInput(List<String> drugNameInput) {
+		this.drugNameInput = drugNameInput;
 	}
+	
+	
 
-}
+	}
