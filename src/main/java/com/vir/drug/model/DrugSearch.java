@@ -1,13 +1,15 @@
 package com.vir.drug.model;
 
 
-import org.codehaus.jackson.annotate.JsonProperty;
+import org.codehaus.jackson.annotate.JsonIgnore;
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.springframework.stereotype.Component;
 
 /**
  * @author Sreeni
  *
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 @Component
 public class DrugSearch {
 
@@ -15,11 +17,11 @@ public class DrugSearch {
 
 	private String pharmacyMasterId;
 	
-	@JsonProperty
+	@JsonIgnore(false)
 	private String drugId;
-	@JsonProperty
+	@JsonIgnore(false)
 	private String drugName;
-	@JsonProperty
+	@JsonIgnore(false)
 	private String isActive;
 
 	private String mappingId;
