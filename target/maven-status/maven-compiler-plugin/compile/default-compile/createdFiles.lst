@@ -1,10 +1,8 @@
-com\vir\drug\model\DrugSearchModel.class
-com\vir\drug\model\PharmacyModel.class
 com\vir\drug\model\DrugSearch.class
 com\vir\drug\controller\DrugController.class
 com\vir\drug\constants\SQLConstants.class
+com\vir\drug\model\DrugInputRequest.class
 com\vir\drug\entity\PharmacyDrugMaster.class
-com\vir\drug\model\DrugRequest.class
 com\vir\drug\service\IDrugService.class
 com\vir\drug\entity\DrugDetails.class
 com\vir\drug\exception\LoginValidationException.class

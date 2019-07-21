@@ -3,7 +3,7 @@ package com.vir.drug.model;
 import java.util.List;
 
 
-public class DrugRequest  {
+public class DrugInputRequest  {
 
 	private String area;
 	private List<String> drugName;

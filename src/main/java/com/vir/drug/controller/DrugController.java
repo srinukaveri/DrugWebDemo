@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.vir.drug.model.DrugRequest;
+import com.vir.drug.model.DrugInputRequest;
 import com.vir.drug.service.IDrugService;
 
 /**
@@ -54,9 +54,9 @@ public class DrugController {
 	 * @throws Exception
 	 */
 	@RequestMapping(value = "/drug/details", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<Object> getPriceDetails(@RequestBody String drugDetails) throws Exception {
+	public List<Object> getPriceDetails(@RequestBody String drugDetailsStr) throws Exception {
 		ObjectMapper objectMapper =  new ObjectMapper();
-		DrugRequest drugRequestObj = objectMapper.readValue(drugDetails, DrugRequest.class);
+		DrugInputRequest drugRequestObj = objectMapper.readValue(drugDetailsStr, DrugInputRequest.class);
 		return drugService.fetchPharmacyDrugDetails(drugRequestObj);
 	}
 

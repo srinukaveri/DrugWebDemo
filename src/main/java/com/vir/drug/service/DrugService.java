@@ -15,7 +15,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.vir.drug.dao.IDrugDAO;
 import com.vir.drug.entity.DrugDetails;
 import com.vir.drug.entity.PharmacyDetails;
-import com.vir.drug.model.DrugRequest;
+import com.vir.drug.model.DrugInputRequest;
 import com.vir.drug.model.DrugSearch;
 
 /**
@@ -56,7 +56,7 @@ public class DrugService implements IDrugService {
 	 * @param drugDetails
 	 * @return
 	 */
-	public List<Object> fetchPharmacyDrugDetails(DrugRequest drugDetails) {
+	public List<Object> fetchPharmacyDrugDetails(DrugInputRequest drugDetails) {
 		String area = drugDetails.getArea();
 		List<String> drugList = drugDetails.getDrugName();
 		List<PharmacyDetails> pharmacyList = drugDAO.getPharmacyDetails(area);
