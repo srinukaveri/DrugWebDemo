@@ -31,30 +31,32 @@ public class DrugDetails implements Serializable {
 	private String drugName;
 
 	@Column(name = "IS_ACTIVE")
-	
+	@JsonIgnore
 	private String isActive;
+	
 	@JsonIgnore
 	public String getDrugId() {
 		return drugId;
 	}
-
+	@JsonIgnore
 	public void setDrugId(String drugId) {
 		this.drugId = drugId;
 	}
-
+	@JsonIgnore
 	public String getDrugName() {
 		return drugName;
 	}
-
+	@JsonIgnore
 	public void setDrugName(String drugName) {
 		this.drugName = drugName;
 	}
 
-	
+	@JsonIgnore
 	public String getIsActive() {
 		return isActive;
 	}
 	
+	@JsonIgnore
 	public void setIsActive(String isActive) {
 		this.isActive = isActive;
 	}
