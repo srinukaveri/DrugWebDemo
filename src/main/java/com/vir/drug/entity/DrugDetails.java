@@ -19,9 +19,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @Entity
 @Table(name = "DRUG_DETAILS")
 @JsonIgnoreProperties(value={"drugId", "drugName", "isActive"},allowSetters= true, allowGetters= true)
-public class DrugDetails implements Serializable {
+public class DrugDetails  {
 
-	private static final long serialVersionUID = 2797681336780870561L;
+	//private static final long serialVersionUID = 2797681336780870561L;
 
 	@Id
 	@Column(name = "DRUG_ID")
