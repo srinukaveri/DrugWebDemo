@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 /**
  * @author Sreeni
  *
@@ -19,12 +21,15 @@ public class DrugDetails implements Serializable {
 
 	@Id
 	@Column(name = "DRUG_ID")
+	@JsonIgnore(false)
 	private String drugId;
 
 	@Column(name = "DRUG_NAME")
+	@JsonIgnore(false)
 	private String drugName;
 
 	@Column(name = "IS_ACTIVE")
+	@JsonIgnore(false)
 	private String isActive;
 
 	public String getDrugId() {
