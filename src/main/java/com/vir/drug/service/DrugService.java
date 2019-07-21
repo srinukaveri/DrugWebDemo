@@ -57,8 +57,12 @@ public class DrugService implements IDrugService {
 	 * @return
 	 */
 	public List<Object> fetchPharmacyDrugDetails(DrugInputRequest drugDetails) {
-		String area = drugDetails.getArea();
-		List<String> drugList = drugDetails.getDrugName();
+		//String area = drugDetails.getArea();
+		//List<String> drugList = drugDetails.getDrugName();
+		String area = "Virugambakkam";
+		List<String> drugList = new ArrayList<String>();
+		drugList.add("Abilify");
+		drugList.add("Abilify 10 mg");
 		List<PharmacyDetails> pharmacyList = drugDAO.getPharmacyDetails(area);
 		List<DrugSearch> drugResultList = drugDAO.getDrugListMaster(getPharmacyID(pharmacyList), drugList);
 		return mappingPharmacyDrug(pharmacyList, drugResultList);

@@ -55,8 +55,10 @@ public class DrugController {
 	 */
 	@RequestMapping(value = "/drug/details", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Object> getPriceDetails(@RequestBody String drugDetailsStr) throws Exception {
-		ObjectMapper objectMapper =  new ObjectMapper();
-		DrugInputRequest drugRequestObj = objectMapper.readValue(drugDetailsStr, DrugInputRequest.class);
+		System.out.println("drugDetailsStr >>>>>"+drugDetailsStr);
+		DrugInputRequest drugRequestObj = null;
+		//ObjectMapper objectMapper =  new ObjectMapper();
+		//DrugInputRequest drugRequestObj = objectMapper.readValue(drugDetailsStr, DrugInputRequest.class);
 		return drugService.fetchPharmacyDrugDetails(drugRequestObj);
 	}
 
