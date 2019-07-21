@@ -1,7 +1,6 @@
 package com.vir.drug.model;
 
 
-import org.codehaus.jackson.annotate.JsonIgnore;
 import org.springframework.stereotype.Component;
 
 /**
@@ -16,11 +15,11 @@ public class DrugSearch {
 
 	private String pharmacyMasterId;
 	
-	@JsonIgnore(false)
+	
 	private String drugId;
-	@JsonIgnore(false)
+	
 	private String drugName;
-	@JsonIgnore(false)
+	
 	private String isActive;
 
 	private String mappingId;

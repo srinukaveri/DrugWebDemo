@@ -7,7 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.codehaus.jackson.annotate.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
  * @author Sreeni
@@ -15,23 +16,24 @@ import org.codehaus.jackson.annotate.JsonIgnore;
  */
 @Entity
 @Table(name = "DRUG_DETAILS")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class DrugDetails implements Serializable {
 
 	private static final long serialVersionUID = 2797681336780870561L;
 
 	@Id
 	@Column(name = "DRUG_ID")
-	@JsonIgnore(false)
+	@JsonIgnore
 	private String drugId;
 
 	@Column(name = "DRUG_NAME")
-	@JsonIgnore(false)
+	@JsonIgnore
 	private String drugName;
 
 	@Column(name = "IS_ACTIVE")
-	@JsonIgnore(false)
+	
 	private String isActive;
-
+	@JsonIgnore
 	public String getDrugId() {
 		return drugId;
 	}
