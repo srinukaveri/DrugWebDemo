@@ -3,6 +3,8 @@ package com.vir.demo.drug.controller;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.vir.demo.drug.DrugPriceGrabberMain;
 import com.vir.demo.drug.entity.UserLoginDetails;
 import com.vir.demo.drug.exception.LoginValidationException;
 import com.vir.demo.drug.model.DrugRequest;
@@ -25,7 +28,7 @@ import com.vir.demo.drug.util.DrugUtil;
  */
 @RestController
 public class DrugController {
-	
+	private static final Logger logger = LogManager.getLogger(DrugController.class);
 
 	@Autowired
      private DrugService drugService;
@@ -103,6 +106,7 @@ public class DrugController {
 				consumes = MediaType.APPLICATION_JSON_VALUE,
 				produces=MediaType.APPLICATION_JSON_VALUE)
 		public List<Object>  getPriceDetails(@RequestBody String drugDetails)throws Exception{
+			logger.debug("inside the controller:inputs are"+ drugDetails);
 			DrugRequest drugRequestObj = DrugUtil.getMapperInstance().readValue(drugDetails,DrugRequest.class);
 			return drugService.fetchPharmacyDrugDetails(drugRequestObj);
 		}
