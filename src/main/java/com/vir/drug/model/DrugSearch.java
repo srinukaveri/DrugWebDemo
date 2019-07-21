@@ -15,21 +15,21 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 
 @Component
-@JsonInclude(Include.NON_EMPTY)
-@JsonIgnoreProperties(value={"drugId", "drugName", "isActive"},allowSetters= true, allowGetters= true)
+//@JsonInclude(Include.NON_EMPTY)
+//@JsonIgnoreProperties(value={"drugId", "drugName", "isActive"},allowSetters= true, allowGetters= true)
 public class DrugSearch {
 
 	
 
 	private String pharmacyMasterId;
 	
-	@JsonProperty("drugId")
+	//@JsonProperty("drugId")
 	private String drugId;
 	
-	@JsonProperty("drugName")
+	//@JsonProperty("drugName")
 	private String drugName;
 	
-	@JsonProperty("isActive")
+	//@JsonProperty("isActive")
 	private String isActive;
 
 	private String mappingId;
@@ -54,63 +54,63 @@ public class DrugSearch {
 
 	}
 
-	@JsonIgnore
+	//@JsonIgnore
 	public String getPharmacyMasterId() {
 		return pharmacyMasterId;
 	}
-	@JsonIgnore
+	//@JsonIgnore
 	public void setPharmacyMasterId(String pharmacyMasterId) {
 		this.pharmacyMasterId = pharmacyMasterId;
 	}
-	@JsonIgnore
+	//@JsonIgnore
 	public String getDrugName() {
 		return drugName;
 	}
-	@JsonIgnore
+	//@JsonIgnore
 	public void setDrugName(String drugName) {
 		this.drugName = drugName;
 	}
-	@JsonIgnore
+	//@JsonIgnore
 	public String getIsActive() {
 		return isActive;
 	}
-	@JsonIgnore
+	//@JsonIgnore
 	public void setIsActive(String isActive) {
 		this.isActive = isActive;
 	}
-	@JsonIgnore
+	//@JsonIgnore
 	public String getMappingId() {
 		return mappingId;
 	}
-	@JsonIgnore
+	//@JsonIgnore
 	public void setMappingId(String mappingId) {
 		this.mappingId = mappingId;
 	}
-	@JsonIgnore
+	//@JsonIgnore
 	public String getIsAvailable() {
 		return isAvailable;
 	}
-	@JsonIgnore
+	//@JsonIgnore
 	public void setIsAvailable(String isAvailable) {
 		this.isAvailable = isAvailable;
 	}
-	@JsonIgnore
+	//@JsonIgnore
 	public Double getDrugPriceEach() {
 		return drugPriceEach;
 	}
-	@JsonIgnore
+	//@JsonIgnore
 	public void setDrugPriceEach(Double drugPriceEach) {
 		this.drugPriceEach = drugPriceEach;
 	}
-	@JsonIgnore
+	//@JsonIgnore
 	public String getCurrency() {
 		return currency;
 	}
-	@JsonIgnore
+	//@JsonIgnore
 	public void setCurrency(String currency) {
 		this.currency = currency;
 	}
-	@JsonIgnore
+	//@JsonIgnore
 	public String getDrugId() {
 		return drugId;
 	}

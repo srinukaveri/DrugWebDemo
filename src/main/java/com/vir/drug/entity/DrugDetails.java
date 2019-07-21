@@ -18,21 +18,21 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @Entity
 @Table(name = "DRUG_DETAILS")
-@JsonIgnoreProperties(value={"drugId", "drugName", "isActive"},allowSetters= true, allowGetters= true)
+//@JsonIgnoreProperties(value={"drugId", "drugName", "isActive"},allowSetters= true, allowGetters= true)
 public class DrugDetails  {
 
 	//private static final long serialVersionUID = 2797681336780870561L;
 
 	@Id
 	@Column(name = "DRUG_ID")
-	@JsonProperty("drugId")
+	//@JsonProperty("drugId")
 	private String drugId;
 
 	@Column(name = "DRUG_NAME")
-	@JsonProperty("drugName")
+	//@JsonProperty("drugName")
 	private String drugName;
 	
-	@JsonProperty("isActive")
+	//@JsonProperty("isActive")
 	@Column(name = "IS_ACTIVE")
 	private String isActive;
 
