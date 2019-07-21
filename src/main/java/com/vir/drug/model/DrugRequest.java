@@ -1,26 +1,24 @@
 package com.vir.drug.model;
 
-import java.io.Serializable;
 import java.util.List;
 
 
 public class DrugRequest  {
 
-	//private static final long serialVersionUID = 1548102846183592891L;
-	private String pharmacyArea;
-	private List<String> drugNameInput;
+	private String area;
+	private List<String> drugName;
 	
-	public String getPharmacyArea() {
-		return pharmacyArea;
+	public String getArea() {
+		return area;
 	}
-	public void setPharmacyArea(String pharmacyArea) {
-		this.pharmacyArea = pharmacyArea;
+	public void setArea(String area) {
+		this.area = area;
 	}
-	public List<String> getDrugNameInput() {
-		return drugNameInput;
+	public List<String> getDrugName() {
+		return drugName;
 	}
-	public void setDrugNameInput(List<String> drugNameInput) {
-		this.drugNameInput = drugNameInput;
+	public void setDrugName(List<String> drugName) {
+		this.drugName = drugName;
 	}
 	
 	

@@ -3,16 +3,10 @@
  */
 package com.vir.drug.model;
 
-import java.io.Serializable;
 import java.util.List;
 
-/**
- * @author C-PN16
- *
- */
-public class PharmacyModel implements Serializable {
+public class PharmacyModel  {
 
-	private static final long serialVersionUID = -290782604397999615L;
 
 	private String pharmacyMasterId;
 

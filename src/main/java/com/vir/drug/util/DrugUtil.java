@@ -5,8 +5,6 @@ import java.util.Map;
 
 import org.springframework.stereotype.Component;
 
-import com.fasterxml.jackson.databind.DeserializationConfig;
-import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.vir.drug.constants.DrugConstants;
 
@@ -32,12 +30,6 @@ public class DrugUtil {
 		return objectMapper.writeValueAsString(responseJsonStr);
 	}
 	
-	/*public  ObjectMapper getMapperInstance(){
-		ObjectMapper objectMapper =  new ObjectMapper();
-		//objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-		return objectMapper;
-	}*/
-
 	public static Map<String,String> setResponseMsg(String responseMessage){
 		Map<String,String> mapResponse = new HashMap<String,String>();
 		mapResponse.put(DrugConstants.MESSAGE, responseMessage);

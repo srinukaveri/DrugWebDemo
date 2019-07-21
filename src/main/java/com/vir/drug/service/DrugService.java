@@ -17,7 +17,6 @@ import com.vir.drug.entity.DrugDetails;
 import com.vir.drug.entity.PharmacyDetails;
 import com.vir.drug.model.DrugRequest;
 import com.vir.drug.model.DrugSearch;
-import com.vir.drug.util.DrugUtil;
 
 /**
  * @author Sreeni
@@ -29,9 +28,7 @@ public class DrugService implements IDrugService {
 
 	@Autowired
 	private IDrugDAO drugDAO;
-	
-	@Autowired
-	private DrugUtil durgUtil;
+
 
 	/**
 	 * fetch the detailed information about the drug
@@ -60,8 +57,8 @@ public class DrugService implements IDrugService {
 	 * @return
 	 */
 	public List<Object> fetchPharmacyDrugDetails(DrugRequest drugDetails) {
-		String area = drugDetails.getPharmacyArea();
-		List<String> drugList = drugDetails.getDrugNameInput();
+		String area = drugDetails.getArea();
+		List<String> drugList = drugDetails.getDrugName();
 		List<PharmacyDetails> pharmacyList = drugDAO.getPharmacyDetails(area);
 		List<DrugSearch> drugResultList = drugDAO.getDrugListMaster(getPharmacyID(pharmacyList), drugList);
 		return mappingPharmacyDrug(pharmacyList, drugResultList);

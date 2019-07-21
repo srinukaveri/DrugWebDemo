@@ -1,16 +1,13 @@
 package com.vir.drug.model;
 
-import java.io.Serializable;
-
 import org.springframework.stereotype.Component;
 
-//@JsonIgnoreProperties(ignoreUnknown = true)
+
 /**
  * @author Sreeni
  *
  */
 @Component
-
 public class DrugSearchModel  {
 
 	

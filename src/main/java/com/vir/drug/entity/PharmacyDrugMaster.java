@@ -1,6 +1,6 @@
 package com.vir.drug.entity;
 
-import java.io.Serializable;
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,12 +13,9 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "PHARMACY_DRUG_MASTER")
-public class PharmacyDrugMaster implements Serializable {
+public class PharmacyDrugMaster  {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 7912028281163189950L;
+	
 
 	@Id
 	@Column(name = "MAPPING_ID")
