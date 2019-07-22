@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
@@ -14,6 +15,7 @@ import com.vir.demo.drug.constants.ErrorCodes;
 import com.vir.demo.drug.constants.SQLConstants;
 import com.vir.demo.drug.entity.DrugDetails;
 import com.vir.demo.drug.entity.PharmacyDetails;
+import com.vir.demo.drug.entity.PharmacyDrugMaster;
 import com.vir.demo.drug.entity.UserLoginDetails;
 import com.vir.demo.drug.exception.LoginValidationException;
 import com.vir.demo.drug.model.DrugSearch;
@@ -23,6 +25,7 @@ import com.vir.demo.drug.model.DrugSearch;
  *
  */
 @Repository
+@Transactional
 public class DrugDAO {
 	
 	@PersistenceContext
@@ -54,9 +57,13 @@ public class DrugDAO {
 	@SuppressWarnings("unchecked")
 	public List<PharmacyDetails> getPharmacyDetails(String area){
 		List<PharmacyDetails> pharmacyList = null;
+		Query query = null;
 		try{
-			Query query = entity.createQuery(SQLConstants.GET_PHARMACY_SQL);
-			query.setParameter(SQLConstants.AREA,area);
+			if(!DrugConstants.ALL.equals(area)){
+				query = entity.createQuery(SQLConstants.GET_PHARMACY_SQL);
+				query.setParameter(SQLConstants.AREA,area);
+			}
+			query = entity.createQuery(SQLConstants.GET_ALL_PHARMACY_SQL);
 			pharmacyList =  query.getResultList();
 		}catch(Exception exe){
 			exe.printStackTrace();
@@ -133,6 +140,11 @@ public class DrugDAO {
 	private String getLatestDrugId(){
 		Query query = entity.createQuery(SQLConstants.LATEST_DRUG_ID);
 		return query.getResultList().get(0).toString();
+	}
+	
+	public void savePharmcayDrugMapper(List<PharmacyDrugMaster> pharDrugMasterList){
+		pharDrugMasterList.forEach(pharMaster -> entity.persist(pharMaster));
+		System.out.println("Saved successfully...!");
 	}
 
 }

@@ -15,6 +15,14 @@ import javax.persistence.Table;
 @Table(name="PHARMACY_DRUG_MASTER")
 public class PharmacyDrugMaster implements Serializable{
 	
+	public String getMappingId() {
+		return mappingId;
+	}
+
+	public void setMappingId(String mappingId) {
+		this.mappingId = mappingId;
+	}
+
 	private static final long serialVersionUID = 1L;
 
 	@Id

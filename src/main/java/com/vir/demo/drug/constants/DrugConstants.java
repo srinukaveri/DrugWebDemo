@@ -16,6 +16,11 @@ public class DrugConstants {
 	public static final String SUCCESS_MSG = "Success";
 	public static final String ERROR_MSG = "Error";
 	
+	public static final String YES_Y = "Y";
+	public static final String NO_N = "N";
+	public static final String ALL = "all";
+	public static final String CURRENCY_INDIA = "Rs";
+	
 	
 	
 	

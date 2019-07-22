@@ -8,6 +8,7 @@ com\vir\demo\drug\DrugPriceGrabberMain.class
 com\vir\demo\drug\entity\UserLoginDetails.class
 com\vir\demo\drug\service\DrugService.class
 com\vir\demo\drug\model\DrugRequest.class
+com\vir\demo\drug\model\DBDrugMapperLoader.class
 com\vir\demo\drug\exception\LoginValidationException.class
 com\vir\demo\drug\entity\PharmacyDrugMaster.class
 com\vir\demo\drug\model\DrugSearch.class
