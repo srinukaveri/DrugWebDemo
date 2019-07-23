@@ -125,4 +125,11 @@ public class DrugController {
 			return null;
 		}
 		
+		
+		@RequestMapping(value="/pharmacy/area",
+				method = RequestMethod.GET,
+				produces=MediaType.APPLICATION_JSON_VALUE)
+		public List<String> getPharmacyArea(){
+			return drugService.fetchPharmacyArea();
+		}
 }

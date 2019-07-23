@@ -9,9 +9,7 @@ import java.util.Map;
 import javax.transaction.Transactional;
 
 import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.collections4.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cglib.core.CollectionUtils;
 import org.springframework.stereotype.Service;
 
 import com.vir.demo.drug.constants.DrugConstants;
@@ -143,5 +141,15 @@ public class DrugService {
 		return null;
 	}
 	
+	public List<String> fetchPharmacyArea(){
+		List<String> pharmacyAreaList = new ArrayList<String>();
+		List<PharmacyDetails> pharmacyList = drugDAO.getPharmacyDetails(DrugConstants.ALL);
+		if(pharmacyList!= null  && ! pharmacyList.isEmpty()){
+			for(PharmacyDetails pharmcayDetails : pharmacyList){
+				pharmacyAreaList.add(pharmcayDetails.getArea());
+			}
+		}
+	return pharmacyAreaList;
+	}
 
 }

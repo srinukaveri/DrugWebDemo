@@ -8,7 +8,7 @@ public class SQLConstants {
 
 	public static final String LOGIN_SQL = "from UserLoginDetails p  where p.userName =: userName";
 	public static final String GET_PHARMACY_SQL = " from PharmacyDetails p where p.isRegistered = 'Y' and p.area  =: area";
-	public static final String GET_ALL_PHARMACY_SQL = " from PharmacyDetails p where p.isRegistered = 'Y' ";
+	public static final String GET_ALL_PHARMACY_SQL = " from PharmacyDetails p where p.isRegistered = 'Y' order by p.area asc";
 	public static final String GET_DRUG_SQL = " from DrugDetails d where d.isActive = 'Y' order by d.drugName asc";
 	public static final String USER_NAME = "userName";
 	public static final String DRUG_NAME = "drugName";
