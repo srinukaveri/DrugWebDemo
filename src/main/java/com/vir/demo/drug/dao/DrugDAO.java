@@ -64,8 +64,9 @@ public class DrugDAO {
 			if(!DrugConstants.ALL.equals(area)){
 				query = entity.createQuery(SQLConstants.GET_PHARMACY_SQL);
 				query.setParameter(SQLConstants.AREA,area);
+			}else{
+				query = entity.createQuery(SQLConstants.GET_ALL_PHARMACY_SQL);
 			}
-			query = entity.createQuery(SQLConstants.GET_ALL_PHARMACY_SQL);
 			pharmacyList =  query.getResultList();
 		}catch(Exception exe){
 			exe.printStackTrace();
