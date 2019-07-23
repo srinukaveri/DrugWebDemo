@@ -20,6 +20,7 @@ import com.vir.demo.drug.entity.PharmacyDetails;
 import com.vir.demo.drug.entity.UserLoginDetails;
 import com.vir.demo.drug.exception.DrugMapperValidationException;
 import com.vir.demo.drug.exception.LoginValidationException;
+import com.vir.demo.drug.model.DrugManagement;
 import com.vir.demo.drug.model.DrugRequest;
 import com.vir.demo.drug.model.DrugSearch;
 import com.vir.demo.drug.model.ModifyDrugInfo;
@@ -31,7 +32,7 @@ import com.vir.demo.drug.util.DrugUtil;
  */
 @Service
 @Transactional
-public class DrugService {
+public class DrugService implements IDrugService{
 	
 	@Autowired
 	private DrugDAO drugDAO;
@@ -151,5 +152,17 @@ public class DrugService {
 		}
 	return pharmacyAreaList;
 	}
+
+	/**
+	 * @param drugManagementObj
+	 * @return response
+	 */
+	public DrugManagement drugManagement(DrugManagement drugManagementObj) {
+		drugDAO.updateDrugDetails(drugManagementObj);
+		return drugManagementObj;
+	}
+
+	
+	
 
 }

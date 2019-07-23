@@ -28,6 +28,6 @@ public class SQLConstants {
 	public static final String LATEST_DRUG_ID = "select new com.vir.demo.demo.drug.model.DrugSearch(max(d.drugId)) from "
 			+"DrugDetails d";
 	
-	
+	public static final String DRUG_UPDATE = "update DrugDetails d  set d.isActive =:isActive where d.drugName =: drugName";
 
 }

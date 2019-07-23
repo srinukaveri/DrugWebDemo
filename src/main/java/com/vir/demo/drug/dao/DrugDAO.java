@@ -19,8 +19,9 @@ import com.vir.demo.drug.entity.PharmacyDrugMaster;
 import com.vir.demo.drug.entity.UserLoginDetails;
 import com.vir.demo.drug.exception.DrugMapperValidationException;
 import com.vir.demo.drug.exception.LoginValidationException;
+import com.vir.demo.drug.model.DrugManageDetails;
+import com.vir.demo.drug.model.DrugManagement;
 import com.vir.demo.drug.model.DrugSearch;
-import com.vir.demo.drug.util.DrugUtil;
 
 /**
  * @author Sreeni
@@ -148,6 +149,22 @@ public class DrugDAO {
 	public void savePharmcayDrugMapper(List<PharmacyDrugMaster> pharDrugMasterList){
 		pharDrugMasterList.forEach(pharMaster -> entity.persist(pharMaster));
 		System.out.println("Saved successfully...!");
+	}
+
+
+	/**
+	 * @param drugManagementObj
+	 * @return
+	 */
+	public DrugManagement updateDrugDetails(DrugManagement drugManagementObj) {
+		List<DrugManageDetails> drugList = drugManagementObj.getDrugDetails();
+		for( DrugManageDetails drug : drugList){
+			Query  query = entity.createQuery(SQLConstants.DRUG_UPDATE);
+			query.setParameter("isActive", drug.getIsActive());
+			query.setParameter("drugName", drug.getDrugName());
+			query.executeUpdate();
+		}
+		return drugManagementObj;
 	}
 
 }

@@ -8,12 +8,12 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.vir.demo.drug.entity.UserLoginDetails;
 import com.vir.demo.drug.exception.DrugMapperValidationException;
 import com.vir.demo.drug.exception.LoginValidationException;
+import com.vir.demo.drug.model.DrugManagement;
 import com.vir.demo.drug.model.DrugRequest;
 import com.vir.demo.drug.model.ModifyDrugInfo;
 import com.vir.demo.drug.model.UserLogin;
@@ -132,4 +132,22 @@ public class DrugController {
 		public List<String> getPharmacyArea(){
 			return drugService.fetchPharmacyArea();
 		}
+		
+		/**
+		 * The Request uri for the drug management like drug active or inactive.
+		 * @param drugManageDetails
+		 * @return Success response;
+		 * @throws Exception
+		 */
+		@RequestMapping(
+				value="/drug/manage",
+				method = RequestMethod.POST,
+				consumes = MediaType.APPLICATION_JSON_VALUE,
+				produces=MediaType.APPLICATION_JSON_VALUE)
+		public DrugManagement drugMangement(@RequestBody String drugManageDetails)throws Exception{
+			DrugManagement  drugManagementObj = DrugUtil.getMapperInstance().readValue(drugManageDetails, DrugManagement.class);
+			return drugService.drugManagement(drugManagementObj);
+		
+		}
+		
 }
