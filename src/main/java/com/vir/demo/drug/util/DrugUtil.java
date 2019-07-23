@@ -1,6 +1,8 @@
 package com.vir.demo.drug.util;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -47,4 +49,12 @@ public class DrugUtil {
 		return mapResponse;
 	}
 	
+	public static List<Object> setResponseList(String errorMessage,Integer errorCode){
+		Map<String,String> mapResponse = new HashMap<String,String>();
+		List<Object> response = new ArrayList<Object>();
+		mapResponse.put("error message", errorMessage);
+		mapResponse.put("error code", errorCode.toString());
+		response.add(mapResponse);
+		return response;
+	}
 }

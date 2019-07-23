@@ -17,8 +17,10 @@ import com.vir.demo.drug.entity.DrugDetails;
 import com.vir.demo.drug.entity.PharmacyDetails;
 import com.vir.demo.drug.entity.PharmacyDrugMaster;
 import com.vir.demo.drug.entity.UserLoginDetails;
+import com.vir.demo.drug.exception.DrugMapperValidationException;
 import com.vir.demo.drug.exception.LoginValidationException;
 import com.vir.demo.drug.model.DrugSearch;
+import com.vir.demo.drug.util.DrugUtil;
 
 /**
  * @author Sreeni
@@ -100,7 +102,7 @@ public class DrugDAO {
 			query.setParameter(SQLConstants.DRUG_NAME,drugNameList);
 			drugListMaster =  query.getResultList();
 		}catch(Exception exe){
-			exe.printStackTrace();
+			throw new DrugMapperValidationException(DrugConstants.SERVICE_ERROR_MSG,ErrorCodes.SERVICE_ERROR_CODE);
 		}
 		return drugListMaster;
 	}

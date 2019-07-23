@@ -14,7 +14,7 @@ public class DrugConstants {
 	
 	public static final String MESSAGE = "message";
 	public static final String SUCCESS_MSG = "Success";
-	public static final String ERROR_MSG = "Error";
+	public static final String SERVICE_ERROR_MSG = "No Data Found";
 	
 	public static final String YES_Y = "Y";
 	public static final String NO_N = "N";

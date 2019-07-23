@@ -9,7 +9,9 @@ import java.util.Map;
 import javax.transaction.Transactional;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.collections4.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cglib.core.CollectionUtils;
 import org.springframework.stereotype.Service;
 
 import com.vir.demo.drug.constants.DrugConstants;
@@ -18,6 +20,7 @@ import com.vir.demo.drug.dao.DrugDAO;
 import com.vir.demo.drug.entity.DrugDetails;
 import com.vir.demo.drug.entity.PharmacyDetails;
 import com.vir.demo.drug.entity.UserLoginDetails;
+import com.vir.demo.drug.exception.DrugMapperValidationException;
 import com.vir.demo.drug.exception.LoginValidationException;
 import com.vir.demo.drug.model.DrugRequest;
 import com.vir.demo.drug.model.DrugSearch;
@@ -96,6 +99,9 @@ public class DrugService {
 		List<String> drugList = drugDetails.getDrugName();
 		List<PharmacyDetails> pharmacyList = drugDAO.getPharmacyDetails(area);
 		List<DrugSearch> drugResultList = drugDAO.getDrugListMaster(getPharmacyID(pharmacyList),drugList);
+		if(org.apache.commons.collections4.CollectionUtils.isEmpty(drugResultList)){
+			throw new DrugMapperValidationException(DrugConstants.SERVICE_ERROR_MSG,ErrorCodes.SERVICE_ERROR_CODE);
+		}
 		return mappingPharmacyDrug(pharmacyList,drugResultList);
 	}
 	

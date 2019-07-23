@@ -1,3 +1,4 @@
+com\vir\demo\drug\exception\DrugMapperValidationException.class
 com\vir\demo\drug\model\ModifyDrugInfo.class
 com\vir\demo\drug\util\DrugUtil.class
 com\vir\demo\drug\dao\IDrugDAO.class
@@ -9,6 +10,7 @@ com\vir\demo\drug\entity\UserLoginDetails.class
 com\vir\demo\drug\service\DrugService.class
 com\vir\demo\drug\model\DrugRequest.class
 com\vir\demo\drug\model\DBDrugMapperLoader.class
+com\vir\demo\drug\model\UserLogin.class
 com\vir\demo\drug\exception\LoginValidationException.class
 com\vir\demo\drug\entity\PharmacyDrugMaster.class
 com\vir\demo\drug\model\DrugSearch.class
