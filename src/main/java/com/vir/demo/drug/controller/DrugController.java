@@ -5,11 +5,13 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.vir.demo.drug.entity.PharmacyDetails;
 import com.vir.demo.drug.entity.UserLoginDetails;
 import com.vir.demo.drug.exception.DrugMapperValidationException;
 import com.vir.demo.drug.exception.LoginValidationException;
@@ -44,6 +46,7 @@ public class DrugController {
 		 * @return the login response whether success or failure
 		 * @throws Exception
 		 */
+		@CrossOrigin(origins = "*", allowedHeaders = "*")
 		@RequestMapping(method = RequestMethod.POST,value="/login")
 		public String doLogin(@RequestBody String userLoginDetails)throws Exception{
 			   String loginResponse = null;
@@ -129,7 +132,7 @@ public class DrugController {
 		@RequestMapping(value="/pharmacy/area",
 				method = RequestMethod.GET,
 				produces=MediaType.APPLICATION_JSON_VALUE)
-		public List<String> getPharmacyArea(){
+		public Map<String,List<PharmacyDetails>> getPharmacyArea(){
 			return drugService.fetchPharmacyArea();
 		}
 		
@@ -139,6 +142,7 @@ public class DrugController {
 		 * @return Success response;
 		 * @throws Exception
 		 */
+		
 		@RequestMapping(
 				value="/drug/manage",
 				method = RequestMethod.POST,

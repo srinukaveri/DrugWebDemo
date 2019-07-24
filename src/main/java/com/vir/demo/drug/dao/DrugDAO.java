@@ -167,4 +167,11 @@ public class DrugDAO {
 		return drugManagementObj;
 	}
 
+	@SuppressWarnings("unchecked")
+	public List<PharmacyDetails> getPharmacyArea(){
+		Query	query = entity.createQuery(SQLConstants.GET_PHARMACY_AREA_SQL);
+		return query.getResultList();
+	}
+	
+	
 }

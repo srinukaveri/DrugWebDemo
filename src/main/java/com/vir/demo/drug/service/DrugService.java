@@ -142,15 +142,10 @@ public class DrugService implements IDrugService{
 		return null;
 	}
 	
-	public List<String> fetchPharmacyArea(){
-		List<String> pharmacyAreaList = new ArrayList<String>();
-		List<PharmacyDetails> pharmacyList = drugDAO.getPharmacyDetails(DrugConstants.ALL);
-		if(pharmacyList!= null  && ! pharmacyList.isEmpty()){
-			for(PharmacyDetails pharmcayDetails : pharmacyList){
-				pharmacyAreaList.add(pharmcayDetails.getArea());
-			}
-		}
-	return pharmacyAreaList;
+	public Map<String,List<PharmacyDetails>> fetchPharmacyArea(){
+		Map<String,List<PharmacyDetails>> pharmacyAreaResponse = new HashMap<String,List<PharmacyDetails>>();
+		pharmacyAreaResponse.put("area", drugDAO.getPharmacyArea());
+	return pharmacyAreaResponse;
 	}
 
 	/**

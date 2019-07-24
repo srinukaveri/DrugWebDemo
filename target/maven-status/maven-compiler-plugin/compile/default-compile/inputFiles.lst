@@ -7,6 +7,7 @@ C:\Drug_workspace\DrugWebDemo\src\main\java\com\vir\demo\drug\entity\PharmacyDru
 C:\Drug_workspace\DrugWebDemo\src\main\java\com\vir\demo\drug\model\DBDrugMapperLoader.java
 C:\Drug_workspace\DrugWebDemo\src\main\java\com\vir\demo\drug\entity\PharmacyDetails.java
 C:\Drug_workspace\DrugWebDemo\src\main\java\com\vir\demo\drug\entity\UserLoginDetails.java
+C:\Drug_workspace\DrugWebDemo\src\main\java\com\vir\demo\drug\model\DrugManagement.java
 C:\Drug_workspace\DrugWebDemo\src\main\java\com\vir\demo\drug\constants\ErrorCodes.java
 C:\Drug_workspace\DrugWebDemo\src\main\java\com\vir\demo\drug\entity\DrugDetails.java
 C:\Drug_workspace\DrugWebDemo\src\main\java\com\vir\demo\drug\model\DrugSearch.java
@@ -14,6 +15,7 @@ C:\Drug_workspace\DrugWebDemo\src\main\java\com\vir\demo\drug\model\ModifyDrugIn
 C:\Drug_workspace\DrugWebDemo\src\main\java\com\vir\demo\drug\service\DrugService.java
 C:\Drug_workspace\DrugWebDemo\src\main\java\com\vir\demo\drug\exception\DrugMapperValidationException.java
 C:\Drug_workspace\DrugWebDemo\src\main\java\com\vir\demo\drug\dao\DrugDAO.java
+C:\Drug_workspace\DrugWebDemo\src\main\java\com\vir\demo\drug\model\DrugManageDetails.java
 C:\Drug_workspace\DrugWebDemo\src\main\java\com\vir\demo\drug\model\DrugRequest.java
 C:\Drug_workspace\DrugWebDemo\src\main\java\com\vir\demo\drug\model\UserLogin.java
 C:\Drug_workspace\DrugWebDemo\src\main\java\com\vir\demo\drug\constants\SQLConstants.java
