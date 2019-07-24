@@ -3,6 +3,8 @@
  */
 package com.vir.demo.drug.model;
 
+import java.io.Serializable;
+
 import org.springframework.stereotype.Component;
 
 /**
@@ -10,10 +12,16 @@ import org.springframework.stereotype.Component;
  *
  */
 
-public class DrugManageDetails {
+public class DrugManageDetails  implements Serializable{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2603563013497631623L;
 	private String drugName;
 	private String isActive;
 	
+	public DrugManageDetails(){}
 	
 	public DrugManageDetails(String drugName,String isActive){
 		this.drugName=drugName;

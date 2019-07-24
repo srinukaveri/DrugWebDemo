@@ -6,7 +6,6 @@ package com.vir.demo.drug.service;
 import java.util.List;
 
 import com.vir.demo.drug.model.DrugManageDetails;
-import com.vir.demo.drug.model.DrugManagement;
 import com.vir.demo.drug.model.DrugRequest;
 
 /**

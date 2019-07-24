@@ -14,8 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.vir.demo.drug.exception.LoginValidationException;
 import com.vir.demo.drug.model.DrugManageDetails;
-import com.vir.demo.drug.model.DrugManagement;
-import com.vir.demo.drug.model.DrugSearch;
 import com.vir.demo.drug.model.UserLogin;
 import com.vir.demo.drug.service.DrugService;
 import com.vir.demo.drug.util.DrugUtil;
@@ -61,7 +59,7 @@ public class DrugAdminController {
 	 * @throws Exception
 	 */
 	
-	/*@CrossOrigin(origins = "*", allowedHeaders = "*")
+	@CrossOrigin(origins = "*", allowedHeaders = "*")
 	@RequestMapping(
 			value="/drug/manage",
 			method = RequestMethod.POST,
@@ -73,7 +71,7 @@ public class DrugAdminController {
 		mapObj.put("message", drugService.drugManagement(drugManagementObj));
 		return mapObj ;
 	
-	}*/
+	}
 	
 	@CrossOrigin(origins = "*", allowedHeaders = "*")
 	@RequestMapping(value="/drug/status",

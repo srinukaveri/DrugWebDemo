@@ -5,7 +5,6 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,10 +14,8 @@ import com.vir.demo.drug.entity.PharmacyDetails;
 import com.vir.demo.drug.entity.UserLoginDetails;
 import com.vir.demo.drug.exception.DrugMapperValidationException;
 import com.vir.demo.drug.exception.LoginValidationException;
-import com.vir.demo.drug.model.DrugManagement;
 import com.vir.demo.drug.model.DrugRequest;
 import com.vir.demo.drug.model.ModifyDrugInfo;
-import com.vir.demo.drug.model.UserLogin;
 import com.vir.demo.drug.service.DrugService;
 import com.vir.demo.drug.util.DrugUtil;
 

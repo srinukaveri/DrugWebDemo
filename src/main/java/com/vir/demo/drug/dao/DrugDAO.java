@@ -20,7 +20,6 @@ import com.vir.demo.drug.entity.UserLoginDetails;
 import com.vir.demo.drug.exception.DrugMapperValidationException;
 import com.vir.demo.drug.exception.LoginValidationException;
 import com.vir.demo.drug.model.DrugManageDetails;
-import com.vir.demo.drug.model.DrugManagement;
 import com.vir.demo.drug.model.DrugSearch;
 
 /**
