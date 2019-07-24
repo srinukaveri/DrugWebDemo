@@ -156,21 +156,29 @@ public class DrugDAO {
 	 * @param drugManagementObj
 	 * @return
 	 */
-	public DrugManagement updateDrugDetails(DrugManagement drugManagementObj) {
-		List<DrugManageDetails> drugList = drugManagementObj.getDrugDetails();
-		for( DrugManageDetails drug : drugList){
+	public String updateDrugDetails(DrugManageDetails drug) {
+		String responseMsg= "Drug Details Successfully Updated";
+		    try{
 			Query  query = entity.createQuery(SQLConstants.DRUG_UPDATE);
 			query.setParameter("isActive", drug.getIsActive());
 			query.setParameter("drugName", drug.getDrugName());
 			query.executeUpdate();
-		}
-		return drugManagementObj;
+		    }catch(Exception exe){
+		    	exe.printStackTrace();
+		    	responseMsg ="Error Occoured While Update";
+		    }
+		return responseMsg;
 	}
 
 	@SuppressWarnings("unchecked")
 	public List<PharmacyDetails> getPharmacyArea(){
 		Query	query = entity.createQuery(SQLConstants.GET_PHARMACY_AREA_SQL);
 		return query.getResultList();
+	}
+	
+	public List<DrugManageDetails> getDrugNameStatusInfo(){
+		Query query = entity.createQuery(SQLConstants.DRUG_NAME_STATUS_SQL);
+		return  query.getResultList();
 	}
 	
 	

@@ -3,6 +3,7 @@ C:\Drug_workspace\DrugWebDemo\src\main\java\com\vir\demo\drug\controller\DrugCon
 C:\Drug_workspace\DrugWebDemo\src\main\java\com\vir\demo\drug\dao\IDrugDAO.java
 C:\Drug_workspace\DrugWebDemo\src\main\java\com\vir\demo\drug\DrugPriceGrabberMain.java
 C:\Drug_workspace\DrugWebDemo\src\main\java\com\vir\demo\drug\constants\DrugConstants.java
+C:\Drug_workspace\DrugWebDemo\src\main\java\com\vir\demo\drug\controller\DrugAdminController.java
 C:\Drug_workspace\DrugWebDemo\src\main\java\com\vir\demo\drug\entity\PharmacyDrugMaster.java
 C:\Drug_workspace\DrugWebDemo\src\main\java\com\vir\demo\drug\model\DBDrugMapperLoader.java
 C:\Drug_workspace\DrugWebDemo\src\main\java\com\vir\demo\drug\entity\PharmacyDetails.java

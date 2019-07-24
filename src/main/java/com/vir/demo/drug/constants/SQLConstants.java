@@ -26,6 +26,9 @@ public class SQLConstants {
 			+ " where d.isActive = 'Y' and pd.isAvailable = 'Y' and pd.pharmacyMasterId in (:pharmacyMasterId) and d.drugName in (:drugName)";
 	
 	
+	public static final String DRUG_NAME_STATUS_SQL = "select  new com.vir.demo.drug.model.DrugManageDetails("
+			+" d.drugName, d.isActive) from DrugDetails d ";
+	
 	public static final String LATEST_DRUG_ID = "select new com.vir.demo.demo.drug.model.DrugSearch(max(d.drugId)) from "
 			+"DrugDetails d";
 	

@@ -14,6 +14,7 @@ com\vir\demo\drug\dao\IDrugDAO.class
 com\vir\demo\drug\dao\DrugDAO.class
 com\vir\demo\drug\DrugPriceGrabberMain.class
 com\vir\demo\drug\entity\UserLoginDetails.class
+com\vir\demo\drug\controller\DrugAdminController.class
 com\vir\demo\drug\service\DrugService.class
 com\vir\demo\drug\model\DBDrugMapperLoader.class
 com\vir\demo\drug\model\UserLogin.class

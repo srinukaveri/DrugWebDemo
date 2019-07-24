@@ -3,13 +3,23 @@
  */
 package com.vir.demo.drug.model;
 
+import org.springframework.stereotype.Component;
+
 /**
  * @author C-PN16
  *
  */
+
 public class DrugManageDetails {
 	private String drugName;
 	private String isActive;
+	
+	
+	public DrugManageDetails(String drugName,String isActive){
+		this.drugName=drugName;
+		this.isActive=isActive;
+	}
+	
 	/**
 	 * @return the drugName
 	 */

@@ -20,7 +20,7 @@ import com.vir.demo.drug.entity.PharmacyDetails;
 import com.vir.demo.drug.entity.UserLoginDetails;
 import com.vir.demo.drug.exception.DrugMapperValidationException;
 import com.vir.demo.drug.exception.LoginValidationException;
-import com.vir.demo.drug.model.DrugManagement;
+import com.vir.demo.drug.model.DrugManageDetails;
 import com.vir.demo.drug.model.DrugRequest;
 import com.vir.demo.drug.model.DrugSearch;
 import com.vir.demo.drug.model.ModifyDrugInfo;
@@ -152,11 +152,13 @@ public class DrugService implements IDrugService{
 	 * @param drugManagementObj
 	 * @return response
 	 */
-	public DrugManagement drugManagement(DrugManagement drugManagementObj) {
-		drugDAO.updateDrugDetails(drugManagementObj);
-		return drugManagementObj;
+	public String drugManagement(DrugManageDetails drugManagementObj) {
+		return drugDAO.updateDrugDetails(drugManagementObj);
 	}
 
+	public List<DrugManageDetails> getDrugNameStatusInfo(){
+	 return drugDAO.getDrugNameStatusInfo();	
+	}
 	
 	
 

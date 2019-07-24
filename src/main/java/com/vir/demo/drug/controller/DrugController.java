@@ -39,26 +39,7 @@ public class DrugController {
 			return  "Welcome to drugweb app...!"; 
 		}
 	
-		/**
-		 * this method validate the user id and password from the UI and returns the response
-		 * @param userName
-		 * @param password
-		 * @return the login response whether success or failure
-		 * @throws Exception
-		 */
-		@CrossOrigin(origins = "*", allowedHeaders = "*")
-		@RequestMapping(method = RequestMethod.POST,value="/login")
-		public String doLogin(@RequestBody String userLoginDetails)throws Exception{
-			   String loginResponse = null;
-            	try{
-            		UserLogin loginObj = DrugUtil.getMapperInstance().readValue(userLoginDetails,UserLogin.class);
-	            	String serviceResponse=drugService.doLogin(loginObj.getUserName(), loginObj.getPassword());
-	            	loginResponse = DrugUtil.toJSONString(serviceResponse);
-            	}catch(LoginValidationException  exe){
-            		loginResponse = DrugUtil.toJSONStringException(exe.getMessage(), exe.getErrorCode());
-            	}
-			return loginResponse;
-		}
+		
 		
 		/**
 		 * This method return the detailed information about the drugs
@@ -136,22 +117,5 @@ public class DrugController {
 			return drugService.fetchPharmacyArea();
 		}
 		
-		/**
-		 * The Request uri for the drug management like drug active or inactive.
-		 * @param drugManageDetails
-		 * @return Success response;
-		 * @throws Exception
-		 */
-		
-		@RequestMapping(
-				value="/drug/manage",
-				method = RequestMethod.POST,
-				consumes = MediaType.APPLICATION_JSON_VALUE,
-				produces=MediaType.APPLICATION_JSON_VALUE)
-		public DrugManagement drugMangement(@RequestBody String drugManageDetails)throws Exception{
-			DrugManagement  drugManagementObj = DrugUtil.getMapperInstance().readValue(drugManageDetails, DrugManagement.class);
-			return drugService.drugManagement(drugManagementObj);
-		
-		}
-		
+	
 }

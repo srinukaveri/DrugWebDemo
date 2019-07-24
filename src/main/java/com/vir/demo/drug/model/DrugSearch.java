@@ -25,8 +25,6 @@ public class DrugSearch {
 	
 	public DrugSearch(){}
 		
-	
-	
 	public DrugSearch(String pharmacyMasterId,String drugId,String drugName,String isActive,String mappingId,String isAvailable,Double drugPriceEach,String currency){
 		this.pharmacyMasterId=pharmacyMasterId;
 		this.drugId=drugId;
