@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.vir.demo.drug.entity.PharmacyDetails;
 import com.vir.demo.drug.exception.LoginValidationException;
 import com.vir.demo.drug.model.DrugManageDetails;
+import com.vir.demo.drug.model.DrugPharmacyMapper;
 import com.vir.demo.drug.model.PharmacyManageDetails;
 import com.vir.demo.drug.model.UserLogin;
 import com.vir.demo.drug.service.DrugService;
@@ -110,6 +111,14 @@ public class DrugAdminController {
 	@RequestMapping(value = "/pharmacy/list", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<PharmacyDetails> getPharmacyList() {
 		return drugService.getPharmacyList();
+	}
+	
+	@CrossOrigin(origins = "*", allowedHeaders = "*")
+	@RequestMapping(value = "/dp/isavailable", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	public DrugPharmacyMapper drugIsAvailableInPharmacy(@RequestBody String drugPharmacyDetails) throws Exception {
+		DrugPharmacyMapper pharmacyManageDetailsObj = DrugUtil.getMapperInstance().readValue(drugPharmacyDetails,
+				DrugPharmacyMapper.class);
+		return drugService.getDrugIsAvailableInPharmacy(pharmacyManageDetailsObj);
 	}
 
 }

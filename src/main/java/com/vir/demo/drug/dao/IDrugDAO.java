@@ -10,6 +10,7 @@ import com.vir.demo.drug.entity.PharmacyDetails;
 import com.vir.demo.drug.entity.PharmacyDrugMaster;
 import com.vir.demo.drug.entity.UserLoginDetails;
 import com.vir.demo.drug.model.DrugManageDetails;
+import com.vir.demo.drug.model.DrugPharmacyMapper;
 import com.vir.demo.drug.model.DrugSearch;
 import com.vir.demo.drug.model.PharmacyManageDetails;
 
@@ -39,4 +40,6 @@ public interface IDrugDAO {
 	String updatePharmacyDetails(PharmacyManageDetails pharmacyManageDetailsObj);
 	
 	public List<PharmacyManageDetails> getPharmacyStatus(String pharmacyName);
+	
+	public DrugPharmacyMapper  getDrugIsAvailableInPharmacy(DrugPharmacyMapper drugPharmacyMapper);
 }

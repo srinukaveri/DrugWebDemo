@@ -20,6 +20,7 @@ import com.vir.demo.drug.entity.UserLoginDetails;
 import com.vir.demo.drug.exception.DrugMapperValidationException;
 import com.vir.demo.drug.exception.LoginValidationException;
 import com.vir.demo.drug.model.DrugManageDetails;
+import com.vir.demo.drug.model.DrugPharmacyMapper;
 import com.vir.demo.drug.model.DrugSearch;
 import com.vir.demo.drug.model.PharmacyManageDetails;
 
@@ -226,5 +227,14 @@ public class DrugDAO implements IDrugDAO {
 		Query query = entity.createQuery(SQLConstants.GET_PHARMACY_LIST_SQL);
 		return query.getResultList();
 	}
+	
+	public DrugPharmacyMapper  getDrugIsAvailableInPharmacy(DrugPharmacyMapper drugPharmacyMapper){
+		Query query = entity.createQuery(SQLConstants.GET_DRUG_PHARMACY_AVAIL_SQL);
+		query.setParameter("pharmacyName", drugPharmacyMapper.getPharmacyName());
+		query.setParameter("area", drugPharmacyMapper.getArea());
+		query.setParameter("drugName", drugPharmacyMapper.getDrugName());
+		return (DrugPharmacyMapper) query.getSingleResult();
+	}
+
 
 }

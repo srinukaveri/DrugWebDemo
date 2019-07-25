@@ -35,5 +35,10 @@ public class SQLConstants {
 
 	public static final String DRUG_UPDATE = "update DrugDetails d  set d.isActive =:isActive where d.drugName =: drugName";
 	public static final String PHARMACY_UPDATE = "update PharmacyDetails p  set p.isRegistered =:isRegistered where p.pharmacyName =: pharmacyName and p.area = :area";
+	
+	public static final String GET_DRUG_PHARMACY_AVAIL_SQL = "select  new com.vir.demo.drug.model.DrugPharmacyMapper("
+			+" pd.mappingId, pd.isAvailable) from PharmacyDetails p inner join PharmacyDrugMaster pd on p.pharmacyMasterId = pd.pharmacyMasterId "
+			+" inner join DrugDetails d on d.drugId = pd.drugId where p.pharmacyName =: pharmacyName and p.area  =: area and d.drugName =: drugName ";
+	
 
 }

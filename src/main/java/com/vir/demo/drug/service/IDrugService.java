@@ -8,6 +8,7 @@ import java.util.Map;
 
 import com.vir.demo.drug.entity.PharmacyDetails;
 import com.vir.demo.drug.model.DrugManageDetails;
+import com.vir.demo.drug.model.DrugPharmacyMapper;
 import com.vir.demo.drug.model.DrugRequest;
 import com.vir.demo.drug.model.DrugSearch;
 import com.vir.demo.drug.model.PharmacyManageDetails;
@@ -35,5 +36,7 @@ public interface IDrugService {
 	String pharmacyManagement(PharmacyManageDetails pharmacyManageDetailsObj);
 	
 	public List<PharmacyDetails> getPharmacyList(); 
+	
+	public DrugPharmacyMapper  getDrugIsAvailableInPharmacy(DrugPharmacyMapper drugPharmacyMapper);
 
 }
