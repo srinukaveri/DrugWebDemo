@@ -184,8 +184,8 @@ public class DrugService implements IDrugService {
 	 * @return List<PharmacyManageDetails>
 	 */
 	@Override
-	public List<PharmacyManageDetails> getPharmacyStatus() {
-		return drugDAO.getPharmacyStatus();
+	public List<PharmacyManageDetails> getPharmacyStatus(String pharmacyName) {
+		return drugDAO.getPharmacyStatus(pharmacyName);
 	}
 	
 	

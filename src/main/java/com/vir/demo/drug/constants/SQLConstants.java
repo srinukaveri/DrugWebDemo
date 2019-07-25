@@ -28,7 +28,7 @@ public class SQLConstants {
 			+ " d.drugName, d.isActive) from DrugDetails d order by d.drugName asc";
 
 	public static final String PHARMACY_STATUS_SQL = "select  new com.vir.demo.drug.model.PharmacyManageDetails("
-			+ " p.pharmacyName, p.isRegistered, p.area) from PharmacyDetails p order by p.pharmacyName asc";
+			+ "  p.isRegistered, p.area) from PharmacyDetails p where p.pharmacyName =: pharmacyName order by p.pharmacyName asc";
 
 	public static final String LATEST_DRUG_ID = "select new com.vir.demo.demo.drug.model.DrugSearch(max(d.drugId)) from "
 			+ "DrugDetails d";

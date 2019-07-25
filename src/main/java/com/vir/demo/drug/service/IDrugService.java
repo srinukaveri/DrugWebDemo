@@ -30,7 +30,7 @@ public interface IDrugService {
 
 	List<DrugManageDetails> getDrugNameStatusInfo();
 
-	List<PharmacyManageDetails> getPharmacyStatus();
+	List<PharmacyManageDetails> getPharmacyStatus(String pharmacyName);
 
 	String pharmacyManagement(PharmacyManageDetails pharmacyManageDetailsObj);
 	

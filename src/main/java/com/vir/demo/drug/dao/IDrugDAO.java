@@ -25,7 +25,6 @@ public interface IDrugDAO {
 	public List<DrugSearch> getDrugListMaster(List<String> pharmacyId, List<String> drugNameList);
 
 	public UserLoginDetails doLogin(String userName, String password);
-	public List<PharmacyManageDetails> getPharmacyStatus();
 
 	List<DrugManageDetails> getDrugNameStatusInfo();
 
@@ -38,4 +37,6 @@ public interface IDrugDAO {
 	List<DrugSearch> getPharmacyDrugDetails(String drugName);
 
 	String updatePharmacyDetails(PharmacyManageDetails pharmacyManageDetailsObj);
+	
+	public List<PharmacyManageDetails> getPharmacyStatus(String pharmacyName);
 }

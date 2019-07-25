@@ -194,9 +194,9 @@ public class DrugDAO implements IDrugDAO {
 	}
 
 	@SuppressWarnings("unchecked")
-	@Override
-	public List<PharmacyManageDetails> getPharmacyStatus() {
+	public List<PharmacyManageDetails> getPharmacyStatus(String pharmacyName) {
 		Query query = entity.createQuery(SQLConstants.PHARMACY_STATUS_SQL);
+		query.setParameter("pharmacyName", pharmacyName);
 		return query.getResultList();
 	}
 

@@ -80,9 +80,11 @@ public class DrugAdminController {
 	}
 
 	@CrossOrigin(origins = "*", allowedHeaders = "*")
-	@RequestMapping(value = "/pharmacy/status", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<PharmacyManageDetails> getPharmacyStatus() {
-		return drugService.getPharmacyStatus();
+	@RequestMapping(value = "/pharmacy/status", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<PharmacyManageDetails> getPharmacyStatus(@RequestBody String pharmacyName)throws Exception {
+		PharmacyManageDetails pharmacyManageDetailsObj = DrugUtil.getMapperInstance().readValue(pharmacyName,
+				PharmacyManageDetails.class);
+		return drugService.getPharmacyStatus(pharmacyManageDetailsObj.getPharmacyName());
 	}
 	
 	/**
