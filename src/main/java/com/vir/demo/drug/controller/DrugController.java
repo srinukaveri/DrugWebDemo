@@ -94,6 +94,7 @@ public class DrugController {
 		return null;
 	}
 
+	@CrossOrigin(origins = "*", allowedHeaders = "*")
 	@RequestMapping(value = "/pharmacy/area", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public Map<String, List<PharmacyDetails>> getPharmacyArea() {
 		return drugService.fetchPharmacyArea();

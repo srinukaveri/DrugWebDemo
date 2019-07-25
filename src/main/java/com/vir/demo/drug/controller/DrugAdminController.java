@@ -120,5 +120,13 @@ public class DrugAdminController {
 				DrugPharmacyMapper.class);
 		return drugService.getDrugIsAvailableInPharmacy(pharmacyManageDetailsObj);
 	}
+	
+	@CrossOrigin(origins = "*", allowedHeaders = "*")
+	@RequestMapping(value = "/dp/update", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	public DrugPharmacyMapper drugIsAvailableUpdate(@RequestBody String drugPharmacyDetails) throws Exception {
+		DrugPharmacyMapper pharmacyManageDetailsObj = DrugUtil.getMapperInstance().readValue(drugPharmacyDetails,
+				DrugPharmacyMapper.class);
+		return drugService.getDrugIsAvailableInPharmacy(pharmacyManageDetailsObj);
+	}
 
 }
