@@ -1,7 +1,7 @@
 package com.vir.demo.drug.constants;
 
 /**
- * @author Sreeni
+ * @author Sreeni 
  * SQL Queries listed in below
  */
 public class SQLConstants {
@@ -16,25 +16,22 @@ public class SQLConstants {
 	public static final String PHARMACY_ID = "pharmacyMasterId";
 	public static final String AREA = "area";
 	public static final String ALL = "all";
-	
-	
-	
+
 	public static final String DRUG_SEARCH_SQL = "select  new com.vir.demo.drug.model.DrugSearch("
-			+  "pd.pharmacyMasterId, d.drugId,d.drugName,d.isActive, "
+			+ "pd.pharmacyMasterId, d.drugId,d.drugName,d.isActive, "
 			+ " pd.mappingId,pd.isAvailable,pd.drugPriceEach,pd.currency) "
-			+" from DrugDetails d inner join PharmacyDrugMaster pd on d.drugId = pd.drugId "
+			+ " from DrugDetails d inner join PharmacyDrugMaster pd on d.drugId = pd.drugId "
 			+ " where d.isActive = 'Y' and pd.isAvailable = 'Y' and pd.pharmacyMasterId in (:pharmacyMasterId) and d.drugName in (:drugName)";
-	
-	
+
 	public static final String DRUG_NAME_STATUS_SQL = "select  new com.vir.demo.drug.model.DrugManageDetails("
-			+" d.drugName, d.isActive) from DrugDetails d ";
-	
+			+ " d.drugName, d.isActive) from DrugDetails d ";
+
 	public static final String PHARMACY_STATUS_SQL = "select  new com.vir.demo.drug.model.PharmacyManageDetails("
-			+" p.pharmacyName, p.isRegistered, p.area) from PharmacyDetails p order by p.pharmacyName asc";
-	
+			+ " p.pharmacyName, p.isRegistered, p.area) from PharmacyDetails p order by p.pharmacyName asc";
+
 	public static final String LATEST_DRUG_ID = "select new com.vir.demo.demo.drug.model.DrugSearch(max(d.drugId)) from "
-			+"DrugDetails d";
-	
+			+ "DrugDetails d";
+
 	public static final String DRUG_UPDATE = "update DrugDetails d  set d.isActive =:isActive where d.drugName =: drugName";
 
 }

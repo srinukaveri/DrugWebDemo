@@ -29,164 +29,175 @@ import com.vir.demo.drug.model.PharmacyManageDetails;
  */
 @Repository
 @Transactional
-public class DrugDAO {
-	
+public class DrugDAO implements IDrugDAO {
+
 	@PersistenceContext
 	private EntityManager entity;
 
 	/**
-	 * Retrieve  the corresponding user details and validate the credentials
+	 * Retrieve the corresponding user details and validate the credentials
+	 * 
 	 * @param userName
 	 * @param password
 	 * @return UserLoginDetails
 	 */
-	public UserLoginDetails doLogin(String userName, String password){
+	@Override
+	public UserLoginDetails doLogin(String userName, String password) {
 		UserLoginDetails UserLoginDetails = null;
-		try{
+		try {
 			Query query = entity.createQuery(SQLConstants.LOGIN_SQL);
 			query.setParameter(SQLConstants.USER_NAME, userName);
 			UserLoginDetails = (UserLoginDetails) query.getSingleResult();
-		}catch(NoResultException exe){
-			throw new LoginValidationException(DrugConstants.IN_VALID_USER_ID, ErrorCodes.USER_ID_VALIDATION_ERROR_CODE);
+		} catch (NoResultException exe) {
+			throw new LoginValidationException(DrugConstants.IN_VALID_USER_ID,
+					ErrorCodes.USER_ID_VALIDATION_ERROR_CODE);
 		}
 		return UserLoginDetails;
 	}
-	
-	
+
 	/**
 	 * Fetch the details of the pharmacy
+	 * 
 	 * @return PharmacyDetails
 	 */
 	@SuppressWarnings("unchecked")
-	public List<PharmacyDetails> getPharmacyDetails(String area){
+	@Override
+	public List<PharmacyDetails> getPharmacyDetails(String area) {
 		List<PharmacyDetails> pharmacyList = null;
 		Query query = null;
-		try{
-			if(!DrugConstants.ALL.equals(area)){
+		try {
+			if (!DrugConstants.ALL.equals(area)) {
 				query = entity.createQuery(SQLConstants.GET_PHARMACY_SQL);
-				query.setParameter(SQLConstants.AREA,area);
-			}else{
+				query.setParameter(SQLConstants.AREA, area);
+			} else {
 				query = entity.createQuery(SQLConstants.GET_ALL_PHARMACY_SQL);
 			}
-			pharmacyList =  query.getResultList();
-		}catch(Exception exe){
+			pharmacyList = query.getResultList();
+		} catch (Exception exe) {
 			exe.printStackTrace();
 		}
 		return pharmacyList;
 	}
-	
+
 	/**
 	 * fetch the drugdetails
+	 * 
 	 * @return DrugDetails
 	 */
 	@SuppressWarnings("unchecked")
-	public List<DrugDetails> getDrugDetails(){
+	@Override
+	public List<DrugDetails> getDrugDetails() {
 		List<DrugDetails> drugList = null;
-		try{
+		try {
 			Query query = entity.createQuery(SQLConstants.GET_DRUG_SQL);
-			drugList =  query.getResultList();
-		}catch(Exception exe){
+			drugList = query.getResultList();
+		} catch (Exception exe) {
 			exe.printStackTrace();
 		}
 		return drugList;
 	}
-	
+
 	/**
 	 * fetch the master details of the pharmacy
+	 * 
 	 * @return PharmacyDrugMaster
 	 */
 	@SuppressWarnings("unchecked")
-	public List<DrugSearch>  getDrugListMaster(List<String> pharmacyId,List<String> drugNameList){
+	@Override
+	public List<DrugSearch> getDrugListMaster(List<String> pharmacyId, List<String> drugNameList) {
 		List<DrugSearch> drugListMaster = null;
-		try{
+		try {
 			Query query = entity.createQuery(SQLConstants.DRUG_SEARCH_SQL);
-			query.setParameter(SQLConstants.PHARMACY_ID,pharmacyId);
-			query.setParameter(SQLConstants.DRUG_NAME,drugNameList);
-			drugListMaster =  query.getResultList();
-		}catch(Exception exe){
-			throw new DrugMapperValidationException(DrugConstants.SERVICE_ERROR_MSG,ErrorCodes.SERVICE_ERROR_CODE);
+			query.setParameter(SQLConstants.PHARMACY_ID, pharmacyId);
+			query.setParameter(SQLConstants.DRUG_NAME, drugNameList);
+			drugListMaster = query.getResultList();
+		} catch (Exception exe) {
+			throw new DrugMapperValidationException(DrugConstants.SERVICE_ERROR_MSG, ErrorCodes.SERVICE_ERROR_CODE);
 		}
 		return drugListMaster;
 	}
-	
-	
+
 	/**
 	 * fetch the pharmacy details of the drug which i s available
+	 * 
 	 * @param drugName
 	 * @return DrugSearch
 	 */
 	@SuppressWarnings("unchecked")
-	public List<DrugSearch> getPharmacyDrugDetails(String drugName){
+	@Override
+	public List<DrugSearch> getPharmacyDrugDetails(String drugName) {
 		List<DrugSearch> pharmacyDrugList = null;
-		try{
+		try {
 			Query query = entity.createQuery(SQLConstants.DRUG_SEARCH_SQL);
-			query.setParameter(SQLConstants.DRUG_NAME,drugName);
-			pharmacyDrugList =  query.getResultList();
-		}catch(Exception exe){
+			query.setParameter(SQLConstants.DRUG_NAME, drugName);
+			pharmacyDrugList = query.getResultList();
+		} catch (Exception exe) {
 			exe.printStackTrace();
 		}
 		return pharmacyDrugList;
 	}
-	
-	public String saveDrug(List<String> drugList){
-		String responseMsg= null;
-		if(!drugList.isEmpty()&&drugList != null){
-			for(String durgName : drugList){
+
+	/*public String saveDrug(List<String> drugList) {
+		String responseMsg = null;
+		if (!drugList.isEmpty() && drugList != null) {
+			for (String durgName : drugList) {
 				String latestDrugId = getLatestDrugId();
 				Query query = entity.createQuery(SQLConstants.DRUG_SEARCH_SQL);
-			//	query.setParameter();
+				// query.setParameter();
 				query.executeUpdate();
 			}
 		}
 		return responseMsg;
-	}
-	
-	private String getLatestDrugId(){
+	}*/
+
+	private String getLatestDrugId() {
 		Query query = entity.createQuery(SQLConstants.LATEST_DRUG_ID);
 		return query.getResultList().get(0).toString();
 	}
-	
-	public void savePharmcayDrugMapper(List<PharmacyDrugMaster> pharDrugMasterList){
+	@Override
+	public void savePharmcayDrugMapper(List<PharmacyDrugMaster> pharDrugMasterList) {
 		pharDrugMasterList.forEach(pharMaster -> entity.persist(pharMaster));
 		System.out.println("Saved successfully...!");
 	}
-
 
 	/**
 	 * @param drugManagementObj
 	 * @return
 	 */
+	@Override
 	public String updateDrugDetails(DrugManageDetails drug) {
-		String responseMsg= "Drug Details Successfully Updated";
-		    try{
-			Query  query = entity.createQuery(SQLConstants.DRUG_UPDATE);
+		String responseMsg = "Drug Details Successfully Updated";
+		try {
+			Query query = entity.createQuery(SQLConstants.DRUG_UPDATE);
 			query.setParameter("isActive", drug.getIsActive());
 			query.setParameter("drugName", drug.getDrugName());
 			query.executeUpdate();
-		    }catch(Exception exe){
-		    	exe.printStackTrace();
-		    	responseMsg ="Error Occoured While Update";
-		    }
+		} catch (Exception exe) {
+			exe.printStackTrace();
+			responseMsg = "Error Occoured While Update";
+		}
 		return responseMsg;
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<PharmacyDetails> getPharmacyArea(){
-		Query	query = entity.createQuery(SQLConstants.GET_PHARMACY_AREA_SQL);
+	@Override
+	public List<PharmacyDetails> getPharmacyArea() {
+		Query query = entity.createQuery(SQLConstants.GET_PHARMACY_AREA_SQL);
 		return query.getResultList();
 	}
-	
+
 	@SuppressWarnings("unchecked")
-	public List<DrugManageDetails> getDrugNameStatusInfo(){
+	@Override
+	public List<DrugManageDetails> getDrugNameStatusInfo() {
 		Query query = entity.createQuery(SQLConstants.DRUG_NAME_STATUS_SQL);
-		return  query.getResultList();
+		return query.getResultList();
 	}
-	
+
 	@SuppressWarnings("unchecked")
-	public List<PharmacyManageDetails> getPharmacyStatus(){
+	@Override
+	public List<PharmacyManageDetails> getPharmacyStatus() {
 		Query query = entity.createQuery(SQLConstants.PHARMACY_STATUS_SQL);
-		return  query.getResultList();
+		return query.getResultList();
 	}
-	
-	
+
 }

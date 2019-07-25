@@ -20,77 +20,68 @@ import com.vir.demo.drug.service.DrugService;
 import com.vir.demo.drug.util.DrugUtil;
 
 /**
- * @author Sreeni
- * This is the admin controller class where all admin activity process start's  here.
+ * @author Sreeni This is the admin controller class where all admin activity
+ *         process start's here.
  *
  */
 @RestController
 public class DrugAdminController {
-	
+
 	@Autowired
-    private DrugService drugService;
-	
+	private DrugService drugService;
+
 	/**
-	 * this method validate the user id and password from the UI and returns the response
+	 * this method validate the user id and password from the UI and returns the
+	 * response
+	 * 
 	 * @param userName
 	 * @param password
 	 * @return the login response whether success or failure
 	 * @throws Exception
 	 */
 	@CrossOrigin(origins = "*", allowedHeaders = "*")
-	@RequestMapping(method = RequestMethod.POST,value="/login")
-	public String doLogin(@RequestBody String userLoginDetails)throws Exception{
-		   String loginResponse = null;
-        	try{
-        		UserLogin loginObj = DrugUtil.getMapperInstance().readValue(userLoginDetails,UserLogin.class);
-            	String serviceResponse=drugService.doLogin(loginObj.getUserName(), loginObj.getPassword());
-            	loginResponse = DrugUtil.toJSONString(serviceResponse);
-        	}catch(LoginValidationException  exe){
-        		loginResponse = DrugUtil.toJSONStringException(exe.getMessage(), exe.getErrorCode());
-        	}
+	@RequestMapping(method = RequestMethod.POST, value = "/login")
+	public String doLogin(@RequestBody String userLoginDetails) throws Exception {
+		String loginResponse = null;
+		try {
+			UserLogin loginObj = DrugUtil.getMapperInstance().readValue(userLoginDetails, UserLogin.class);
+			String serviceResponse = drugService.doLogin(loginObj.getUserName(), loginObj.getPassword());
+			loginResponse = DrugUtil.toJSONString(serviceResponse);
+		} catch (LoginValidationException exe) {
+			loginResponse = DrugUtil.toJSONStringException(exe.getMessage(), exe.getErrorCode());
+		}
 		return loginResponse;
 	}
-	
-	
 
 	/**
 	 * The Request uri for the drug management like drug active or inactive.
+	 * 
 	 * @param drugManageDetails
 	 * @return Success response;
 	 * @throws Exception
 	 */
-	
+
 	@CrossOrigin(origins = "*", allowedHeaders = "*")
-	@RequestMapping(
-			value="/drug/manage",
-			method = RequestMethod.POST,
-			consumes = MediaType.APPLICATION_JSON_VALUE,
-			produces=MediaType.APPLICATION_JSON_VALUE)
-	public Map<String,String> drugMangement(@RequestBody String drugManageDetails)throws Exception{
-		DrugManageDetails  drugManagementObj = DrugUtil.getMapperInstance().readValue(drugManageDetails, DrugManageDetails.class);
-		Map<String,String> mapObj = new HashMap<String,String>();
+	@RequestMapping(value = "/drug/manage", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	public Map<String, String> drugMangement(@RequestBody String drugManageDetails) throws Exception {
+		DrugManageDetails drugManagementObj = DrugUtil.getMapperInstance().readValue(drugManageDetails,
+				DrugManageDetails.class);
+		Map<String, String> mapObj = new HashMap<String, String>();
 		mapObj.put("message", drugService.drugManagement(drugManagementObj));
-		return mapObj ;
-	
+		return mapObj;
+
 	}
-	
+
 	@CrossOrigin(origins = "*", allowedHeaders = "*")
-	@RequestMapping(value="/drug/status",
-			method = RequestMethod.GET,
-			produces=MediaType.APPLICATION_JSON_VALUE)
-	public List<DrugManageDetails> getDrugNameStatusInfo(){
+	@RequestMapping(value = "/drug/status", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<DrugManageDetails> getDrugNameStatusInfo() {
 		return drugService.getDrugNameStatusInfo();
 	}
-	
+
 	@CrossOrigin(origins = "*", allowedHeaders = "*")
-	@RequestMapping(value="/pharmacy/status",
-			method = RequestMethod.GET,
-			produces=MediaType.APPLICATION_JSON_VALUE)
-	public List<PharmacyManageDetails> getPharmacyStatus(){
+	@RequestMapping(value = "/pharmacy/status", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<PharmacyManageDetails> getPharmacyStatus() {
 		return drugService.getPharmacyStatus();
 	}
-	
-	
-	
-	
+
 }

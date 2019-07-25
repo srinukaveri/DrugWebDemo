@@ -16,11 +16,12 @@ import com.vir.demo.drug.entity.DrugDetails;
 import com.vir.demo.drug.entity.PharmacyDetails;
 import com.vir.demo.drug.entity.PharmacyDrugMaster;
 
-/*
+/**
+ * @author C-PN16
  * which helps to pre-load the PD Master information in H2 DB
  * before the server up
+ *
  */
-
 @Component
 public class DBDrugMapperLoader{
 	

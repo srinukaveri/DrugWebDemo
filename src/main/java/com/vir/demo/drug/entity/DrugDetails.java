@@ -12,22 +12,20 @@ import javax.persistence.Table;
  *
  */
 @Entity
-@Table(name="DRUG_DETAILS")
-public class DrugDetails implements Serializable{
-	
+@Table(name = "DRUG_DETAILS")
+public class DrugDetails implements Serializable {
+
 	private static final long serialVersionUID = 8125389399525055138L;
 
 	@Id
-	@Column(name="DRUG_ID")
+	@Column(name = "DRUG_ID")
 	private String drugId;
-	
-	@Column(name="DRUG_NAME")
+
+	@Column(name = "DRUG_NAME")
 	private String drugName;
-	
-	@Column(name="IS_ACTIVE")
+
+	@Column(name = "IS_ACTIVE")
 	private String isActive;
-
-
 
 	public String getDrugId() {
 		return drugId;
@@ -52,7 +50,5 @@ public class DrugDetails implements Serializable{
 	public void setIsActive(String isActive) {
 		this.isActive = isActive;
 	}
-	
-	
 
 }
