@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.vir.demo.drug.entity.PharmacyDetails;
 import com.vir.demo.drug.exception.LoginValidationException;
 import com.vir.demo.drug.model.DrugManageDetails;
 import com.vir.demo.drug.model.PharmacyManageDetails;
@@ -101,6 +102,12 @@ public class DrugAdminController {
 		mapObj.put("message", drugService.pharmacyManagement(pharmacyManageDetailsObj));
 		return mapObj;
 
+	}
+	
+	@CrossOrigin(origins = "*", allowedHeaders = "*")
+	@RequestMapping(value = "/pharmacy/status", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<PharmacyDetails> getPharmacyList() {
+		return drugService.getPharmacyList();
 	}
 
 }

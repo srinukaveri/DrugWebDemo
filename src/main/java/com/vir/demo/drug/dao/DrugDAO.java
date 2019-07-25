@@ -219,5 +219,12 @@ public class DrugDAO implements IDrugDAO {
 		}
 		return responseMsg;
 	}
+	
+
+	@SuppressWarnings("unchecked")
+	public List<PharmacyDetails> getPharmacyList() {
+		Query query = entity.createQuery(SQLConstants.GET_PHARMACY_LIST_SQL);
+		return query.getResultList();
+	}
 
 }
