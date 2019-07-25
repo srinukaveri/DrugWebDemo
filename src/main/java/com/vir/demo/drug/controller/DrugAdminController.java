@@ -83,5 +83,24 @@ public class DrugAdminController {
 	public List<PharmacyManageDetails> getPharmacyStatus() {
 		return drugService.getPharmacyStatus();
 	}
+	
+	/**
+	 * The Request uri for the pharmacy management like drug active or inactive.
+	 * 
+	 * @param drugManageDetails
+	 * @return Success response;
+	 * @throws Exception
+	 */
+
+	@CrossOrigin(origins = "*", allowedHeaders = "*")
+	@RequestMapping(value = "/pharmacy/manage", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	public Map<String, String> pharmacyMangement(@RequestBody String pharmacyManageDetails) throws Exception {
+		PharmacyManageDetails pharmacyManageDetailsObj = DrugUtil.getMapperInstance().readValue(pharmacyManageDetails,
+				PharmacyManageDetails.class);
+		Map<String, String> mapObj = new HashMap<String, String>();
+		mapObj.put("message", drugService.pharmacyManagement(pharmacyManageDetailsObj));
+		return mapObj;
+
+	}
 
 }

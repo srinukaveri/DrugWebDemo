@@ -36,4 +36,6 @@ public interface IDrugDAO {
 	void savePharmcayDrugMapper(List<PharmacyDrugMaster> pharDrugMasterList);
 
 	List<DrugSearch> getPharmacyDrugDetails(String drugName);
+
+	String updatePharmacyDetails(PharmacyManageDetails pharmacyManageDetailsObj);
 }

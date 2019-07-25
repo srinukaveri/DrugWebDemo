@@ -2,6 +2,7 @@ com\vir\demo\drug\exception\DrugMapperValidationException.class
 com\vir\demo\drug\util\DrugUtil.class
 com\vir\demo\drug\controller\DrugController.class
 com\vir\demo\drug\service\IDrugService.class
+test\DrugControllerTest.class
 com\vir\demo\drug\model\DrugRequest.class
 com\vir\demo\drug\entity\PharmacyDrugMaster.class
 com\vir\demo\drug\model\PharmacyManageDetails.class

@@ -33,5 +33,6 @@ public class SQLConstants {
 			+ "DrugDetails d";
 
 	public static final String DRUG_UPDATE = "update DrugDetails d  set d.isActive =:isActive where d.drugName =: drugName";
+	public static final String PHARMACY_UPDATE = "update PharmacyDetails p  set p.isRegistered =:isRegistered where p.pharmacyName =: pharmacyName and p.area = :area";
 
 }

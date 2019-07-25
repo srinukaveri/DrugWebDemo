@@ -32,4 +32,6 @@ public interface IDrugService {
 
 	List<PharmacyManageDetails> getPharmacyStatus();
 
+	String pharmacyManagement(PharmacyManageDetails pharmacyManageDetailsObj);
+
 }

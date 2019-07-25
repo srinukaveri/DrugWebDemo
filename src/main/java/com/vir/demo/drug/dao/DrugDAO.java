@@ -200,4 +200,24 @@ public class DrugDAO implements IDrugDAO {
 		return query.getResultList();
 	}
 
+	/**
+	 * @param pharmacyManageDetailsObj
+	 * @return
+	 */
+	@Override
+	public String updatePharmacyDetails(PharmacyManageDetails pharmacy) {
+		String responseMsg = "Pharmacy Details Updated Successfully";
+		try {
+			Query query = entity.createQuery(SQLConstants.PHARMACY_UPDATE);
+			query.setParameter("isRegistered", pharmacy.getIsRegistered());
+			query.setParameter("pharmacyName", pharmacy.getPharmacyName());
+			query.setParameter("area", pharmacy.getArea());
+			query.executeUpdate();
+		} catch (Exception exe) {
+			exe.printStackTrace();
+			responseMsg = "Error Occoured While Update";
+		}
+		return responseMsg;
+	}
+
 }

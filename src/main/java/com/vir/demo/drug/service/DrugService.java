@@ -188,4 +188,10 @@ public class DrugService implements IDrugService {
 		return drugDAO.getPharmacyStatus();
 	}
 
+	@Override
+	public String pharmacyManagement(PharmacyManageDetails pharmacyManageDetailsObj) {
+		return drugDAO.updatePharmacyDetails(pharmacyManageDetailsObj);
+		
+	}
+
 }
