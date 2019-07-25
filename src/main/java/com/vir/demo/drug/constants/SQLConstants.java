@@ -24,7 +24,7 @@ public class SQLConstants {
 			+ " where d.isActive = 'Y' and pd.isAvailable = 'Y' and pd.pharmacyMasterId in (:pharmacyMasterId) and d.drugName in (:drugName)";
 
 	public static final String DRUG_NAME_STATUS_SQL = "select  new com.vir.demo.drug.model.DrugManageDetails("
-			+ " d.drugName, d.isActive) from DrugDetails d ";
+			+ " d.drugName, d.isActive) from DrugDetails d order by d.drugName asc";
 
 	public static final String PHARMACY_STATUS_SQL = "select  new com.vir.demo.drug.model.PharmacyManageDetails("
 			+ " p.pharmacyName, p.isRegistered, p.area) from PharmacyDetails p order by p.pharmacyName asc";
