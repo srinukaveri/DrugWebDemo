@@ -105,7 +105,7 @@ public class DrugAdminController {
 	}
 	
 	@CrossOrigin(origins = "*", allowedHeaders = "*")
-	@RequestMapping(value = "/pharmacy/status", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/pharmacy/list", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<PharmacyDetails> getPharmacyList() {
 		return drugService.getPharmacyList();
 	}
