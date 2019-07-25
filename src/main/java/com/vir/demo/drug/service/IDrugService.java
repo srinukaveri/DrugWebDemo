@@ -38,5 +38,7 @@ public interface IDrugService {
 	public List<PharmacyDetails> getPharmacyList(); 
 	
 	public DrugPharmacyMapper  getDrugIsAvailableInPharmacy(DrugPharmacyMapper drugPharmacyMapper);
+	
+	public String drugStatusUpdate(DrugPharmacyMapper drugPharmacyMapper);
 
 }

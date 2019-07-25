@@ -42,4 +42,6 @@ public interface IDrugDAO {
 	public List<PharmacyManageDetails> getPharmacyStatus(String pharmacyName);
 	
 	public DrugPharmacyMapper  getDrugIsAvailableInPharmacy(DrugPharmacyMapper drugPharmacyMapper);
+	
+	public String drugStatusUpdate(DrugPharmacyMapper drugPharmacyMapper);
 }

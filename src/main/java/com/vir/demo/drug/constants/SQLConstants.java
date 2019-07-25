@@ -40,5 +40,7 @@ public class SQLConstants {
 			+" pd.mappingId, pd.isAvailable) from PharmacyDetails p inner join PharmacyDrugMaster pd on p.pharmacyMasterId = pd.pharmacyMasterId "
 			+" inner join DrugDetails d on d.drugId = pd.drugId where p.pharmacyName =: pharmacyName and p.area  =: area and d.drugName =: drugName ";
 	
+	public static final String UPDATE_PHARMACY_DRUG_MASTER_SQL = "update PharmacyDrugMaster pd  set pd.isAvailable =:isAvailable where pd.mappingId =: mappingId ";
+	
 
 }

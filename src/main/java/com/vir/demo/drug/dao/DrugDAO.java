@@ -236,5 +236,18 @@ public class DrugDAO implements IDrugDAO {
 		return (DrugPharmacyMapper) query.getSingleResult();
 	}
 
+	public String drugStatusUpdate(DrugPharmacyMapper drugPharmacyMapper){
+		String responseMsg = "Drug Details Successfully Updated";
+		try {
+			Query query = entity.createQuery(SQLConstants.UPDATE_PHARMACY_DRUG_MASTER_SQL);
+			query.setParameter("isAvailable",drugPharmacyMapper.getIsAvailable());
+			query.setParameter("mappingId",drugPharmacyMapper.getMappingId());
+			query.executeUpdate();
+		} catch (Exception exe) {
+			exe.printStackTrace();
+			responseMsg = "Error Occoured While Update";
+		}
+		return responseMsg;
+	}
 
 }

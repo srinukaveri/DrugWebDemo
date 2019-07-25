@@ -204,5 +204,8 @@ public class DrugService implements IDrugService {
 		return drugDAO.getDrugIsAvailableInPharmacy(drugPharmacyMapper);
 	}
 
+	public String drugStatusUpdate(DrugPharmacyMapper drugPharmacyMapper){
+		return drugDAO.drugStatusUpdate(drugPharmacyMapper);
+	}
 
 }
