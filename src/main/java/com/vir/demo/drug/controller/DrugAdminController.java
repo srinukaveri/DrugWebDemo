@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.vir.demo.drug.exception.LoginValidationException;
 import com.vir.demo.drug.model.DrugManageDetails;
+import com.vir.demo.drug.model.PharmacyManageDetails;
 import com.vir.demo.drug.model.UserLogin;
 import com.vir.demo.drug.service.DrugService;
 import com.vir.demo.drug.util.DrugUtil;
@@ -80,6 +81,15 @@ public class DrugAdminController {
 	public List<DrugManageDetails> getDrugNameStatusInfo(){
 		return drugService.getDrugNameStatusInfo();
 	}
+	
+	@CrossOrigin(origins = "*", allowedHeaders = "*")
+	@RequestMapping(value="/pharmacy/status",
+			method = RequestMethod.GET,
+			produces=MediaType.APPLICATION_JSON_VALUE)
+	public List<PharmacyManageDetails> getPharmacyStatus(){
+		return drugService.getPharmacyStatus();
+	}
+	
 	
 	
 	

@@ -1,16 +1,19 @@
 package com.vir.demo.drug.model;
 
+import java.io.Serializable;
+
 import org.springframework.stereotype.Component;
 
-//@JsonIgnoreProperties(ignoreUnknown = true)
 /**
  * @author Sreeni
  *
  */
 @Component
-public class DrugSearch {
+public class DrugSearch implements Serializable{
 	
-	
+	private static final long serialVersionUID = 8213906472664172127L;
+
+
 	private String pharmacyMasterId;
 
 	
@@ -36,9 +39,6 @@ public class DrugSearch {
         this.currency=currency;
 		
 	}
-	
-	
-	
 	
 	public String getPharmacyMasterId() {
 		return pharmacyMasterId;

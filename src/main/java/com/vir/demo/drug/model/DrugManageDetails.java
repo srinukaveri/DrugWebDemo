@@ -5,8 +5,6 @@ package com.vir.demo.drug.model;
 
 import java.io.Serializable;
 
-import org.springframework.stereotype.Component;
-
 /**
  * @author C-PN16
  *

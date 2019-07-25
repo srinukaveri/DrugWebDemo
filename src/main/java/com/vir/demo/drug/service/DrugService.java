@@ -24,6 +24,7 @@ import com.vir.demo.drug.model.DrugManageDetails;
 import com.vir.demo.drug.model.DrugRequest;
 import com.vir.demo.drug.model.DrugSearch;
 import com.vir.demo.drug.model.ModifyDrugInfo;
+import com.vir.demo.drug.model.PharmacyManageDetails;
 import com.vir.demo.drug.util.DrugUtil;
 
 /**
@@ -133,15 +134,7 @@ public class DrugService implements IDrugService{
 		return finalResponse;
 	}
 	
-	public Map<String,String> saveDrug(ModifyDrugInfo drugInfo){
-		String action = drugInfo.getActionType();
-		List<String> drugList = drugInfo.getDrugList();
-		if(action != null && action.equals("save")){
-			
-		}
-		return null;
-	}
-	
+
 	public Map<String,List<PharmacyDetails>> fetchPharmacyArea(){
 		Map<String,List<PharmacyDetails>> pharmacyAreaResponse = new HashMap<String,List<PharmacyDetails>>();
 		pharmacyAreaResponse.put("area", drugDAO.getPharmacyArea());
@@ -160,6 +153,10 @@ public class DrugService implements IDrugService{
 	 return drugDAO.getDrugNameStatusInfo();	
 	}
 	
+	
+	public List<PharmacyManageDetails> getPharmacyStatus(){
+		return  drugDAO.getPharmacyStatus();
+	}
 	
 
 }

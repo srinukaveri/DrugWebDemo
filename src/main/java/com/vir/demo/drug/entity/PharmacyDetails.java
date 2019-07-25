@@ -15,7 +15,7 @@ import javax.persistence.Table;
 @Table(name="PHARMACY_DETAILS")
 public class PharmacyDetails implements Serializable{
 	
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = -6360528126560852762L;
 
 	@Id
 	@Column(name="PHARMACY_MASTER_ID")

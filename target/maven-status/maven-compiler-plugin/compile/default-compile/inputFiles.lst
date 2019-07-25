@@ -6,9 +6,9 @@ C:\Drug_workspace\DrugWebDemo\src\main\java\com\vir\demo\drug\constants\DrugCons
 C:\Drug_workspace\DrugWebDemo\src\main\java\com\vir\demo\drug\controller\DrugAdminController.java
 C:\Drug_workspace\DrugWebDemo\src\main\java\com\vir\demo\drug\entity\PharmacyDrugMaster.java
 C:\Drug_workspace\DrugWebDemo\src\main\java\com\vir\demo\drug\model\DBDrugMapperLoader.java
+C:\Drug_workspace\DrugWebDemo\src\main\java\com\vir\demo\drug\model\PharmacyManageDetails.java
 C:\Drug_workspace\DrugWebDemo\src\main\java\com\vir\demo\drug\entity\PharmacyDetails.java
 C:\Drug_workspace\DrugWebDemo\src\main\java\com\vir\demo\drug\entity\UserLoginDetails.java
-C:\Drug_workspace\DrugWebDemo\src\main\java\com\vir\demo\drug\model\DrugManagement.java
 C:\Drug_workspace\DrugWebDemo\src\main\java\com\vir\demo\drug\constants\ErrorCodes.java
 C:\Drug_workspace\DrugWebDemo\src\main\java\com\vir\demo\drug\entity\DrugDetails.java
 C:\Drug_workspace\DrugWebDemo\src\main\java\com\vir\demo\drug\model\DrugSearch.java

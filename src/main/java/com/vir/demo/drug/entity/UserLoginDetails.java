@@ -1,11 +1,11 @@
 package com.vir.demo.drug.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
  * @author Sreeni
@@ -13,9 +13,10 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  */
 @Entity
 @Table(name="USER_LOGIN_DETAILS")
-@JsonIgnoreProperties(ignoreUnknown = true)
-public class UserLoginDetails  {
+public class UserLoginDetails implements Serializable {
 	
+	private static final long serialVersionUID = 5377507755559681999L;
+
 	@Id
 	@Column(name="USER_NAME")
 	private String userName;

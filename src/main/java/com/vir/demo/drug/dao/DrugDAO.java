@@ -21,6 +21,7 @@ import com.vir.demo.drug.exception.DrugMapperValidationException;
 import com.vir.demo.drug.exception.LoginValidationException;
 import com.vir.demo.drug.model.DrugManageDetails;
 import com.vir.demo.drug.model.DrugSearch;
+import com.vir.demo.drug.model.PharmacyManageDetails;
 
 /**
  * @author Sreeni
@@ -175,8 +176,15 @@ public class DrugDAO {
 		return query.getResultList();
 	}
 	
+	@SuppressWarnings("unchecked")
 	public List<DrugManageDetails> getDrugNameStatusInfo(){
 		Query query = entity.createQuery(SQLConstants.DRUG_NAME_STATUS_SQL);
+		return  query.getResultList();
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<PharmacyManageDetails> getPharmacyStatus(){
+		Query query = entity.createQuery(SQLConstants.PHARMACY_STATUS_SQL);
 		return  query.getResultList();
 	}
 	

@@ -8,8 +8,8 @@ import com.vir.demo.drug.constants.ErrorCodes;
  */
 public class LoginValidationException extends RuntimeException {
 
-	
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 4596131214593550372L;
+
 	private Integer errorCode;
 
 	public LoginValidationException(String message,ErrorCodes errorCode){

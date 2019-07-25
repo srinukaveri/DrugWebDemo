@@ -18,5 +18,4 @@ public interface IDrugDAO {
 	public List<DrugDetails> getDrugDetails();
 	public List<DrugSearch> getDrugListMaster(List<String> pharmacyId, List<String> drugNameList);
 	
-
 }

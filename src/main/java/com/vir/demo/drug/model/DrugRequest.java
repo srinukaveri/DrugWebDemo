@@ -1,9 +1,11 @@
 package com.vir.demo.drug.model;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class DrugRequest {
+public class DrugRequest implements Serializable{
 	
+	private static final long serialVersionUID = 1757049042037765049L;
 	
 	private String area;
 	private List<String> drugName;

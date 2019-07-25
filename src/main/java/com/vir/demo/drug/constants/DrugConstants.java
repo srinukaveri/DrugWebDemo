@@ -20,6 +20,7 @@ public class DrugConstants {
 	public static final String NO_N = "N";
 	public static final String ALL = "all";
 	public static final String CURRENCY_INDIA = "Rs";
+	public static final String PD_MASTER_ID_PREFIX = "PDMID";
 	
 	
 	

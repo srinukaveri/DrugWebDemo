@@ -15,6 +15,8 @@ import javax.persistence.Table;
 @Table(name="PHARMACY_DRUG_MASTER")
 public class PharmacyDrugMaster implements Serializable{
 	
+	private static final long serialVersionUID = -1984768982853176528L;
+
 	public String getMappingId() {
 		return mappingId;
 	}
@@ -23,7 +25,7 @@ public class PharmacyDrugMaster implements Serializable{
 		this.mappingId = mappingId;
 	}
 
-	private static final long serialVersionUID = 1L;
+	
 
 	@Id
 	@Column(name="MAPPING_ID")
