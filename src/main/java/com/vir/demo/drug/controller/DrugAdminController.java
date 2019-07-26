@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.vir.demo.drug.entity.DrugDetails;
 import com.vir.demo.drug.entity.PharmacyDetails;
 import com.vir.demo.drug.exception.LoginValidationException;
 import com.vir.demo.drug.model.DrugManageDetails;
@@ -127,6 +128,15 @@ public class DrugAdminController {
 		DrugPharmacyMapper pharmacyManageDetailsObj = DrugUtil.getMapperInstance().readValue(drugPharmacyDetails,
 				DrugPharmacyMapper.class);
 		return drugService.drugStatusUpdate(pharmacyManageDetailsObj);
+	}
+	
+	@CrossOrigin(origins = "*", allowedHeaders = "*")
+	@RequestMapping(value = "/drug/save", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	public Map<String,String> saveDrug(@RequestBody String drugDetails)throws Exception{
+		DrugDetails drugObj = DrugUtil.getMapperInstance().readValue(drugDetails,DrugDetails.class);
+		Map<String, String> mapObj = new HashMap<String, String>();
+		mapObj.put("message", drugService.saveDrug(drugObj));
+		return mapObj;
 	}
 
 }

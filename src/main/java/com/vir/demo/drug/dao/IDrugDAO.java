@@ -4,6 +4,7 @@
 package com.vir.demo.drug.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import com.vir.demo.drug.entity.DrugDetails;
 import com.vir.demo.drug.entity.PharmacyDetails;
@@ -44,4 +45,7 @@ public interface IDrugDAO {
 	public DrugPharmacyMapper  getDrugIsAvailableInPharmacy(DrugPharmacyMapper drugPharmacyMapper);
 	
 	public String drugStatusUpdate(DrugPharmacyMapper drugPharmacyMapper);
+	
+	public String saveDrug(DrugDetails drugDetails);
+	
 }

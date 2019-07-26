@@ -12,6 +12,7 @@ public class SQLConstants {
 	public static final String GET_PHARMACY_AREA_SQL = "select distinct(p.area) from PharmacyDetails p where p.isRegistered = 'Y' order by p.area asc";
 	public static final String GET_PHARMACY_LIST_SQL = "select distinct(p.pharmacyName) from PharmacyDetails p order by p.pharmacyName asc";
 	public static final String GET_DRUG_SQL = " from DrugDetails d where d.isActive = 'Y' order by d.drugName asc";
+	public static final String GET_ALL_DRUG_SQL = " from DrugDetails d where order by d.drugName asc";
 	public static final String USER_NAME = "userName";
 	public static final String DRUG_NAME = "drugName";
 	public static final String PHARMACY_ID = "pharmacyMasterId";
@@ -30,7 +31,7 @@ public class SQLConstants {
 	public static final String PHARMACY_STATUS_SQL = "select  new com.vir.demo.drug.model.PharmacyManageDetails("
 			+ "  p.isRegistered, p.area) from PharmacyDetails p where p.pharmacyName =: pharmacyName order by p.pharmacyName asc";
 
-	public static final String LATEST_DRUG_ID = "select new com.vir.demo.demo.drug.model.DrugSearch(max(d.drugId)) from "
+	public static final String LATEST_DRUG_ID = "select max(d.drugId) from "
 			+ "DrugDetails d";
 
 	public static final String DRUG_UPDATE = "update DrugDetails d  set d.isActive =:isActive where d.drugName =: drugName";

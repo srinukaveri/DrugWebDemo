@@ -4,6 +4,7 @@ com\vir\demo\drug\controller\DrugController.class
 com\vir\demo\drug\service\IDrugService.class
 com\vir\demo\drug\model\DrugRequest.class
 com\vir\demo\drug\entity\PharmacyDrugMaster.class
+com\vir\demo\drug\model\DrugPharmacyMapper.class
 com\vir\demo\drug\model\PharmacyManageDetails.class
 com\vir\demo\drug\model\DrugSearch.class
 com\vir\demo\drug\constants\DrugConstants.class

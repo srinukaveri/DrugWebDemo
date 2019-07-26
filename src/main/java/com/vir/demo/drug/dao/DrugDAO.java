@@ -1,6 +1,7 @@
 package com.vir.demo.drug.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
@@ -97,6 +98,7 @@ public class DrugDAO implements IDrugDAO {
 		}
 		return drugList;
 	}
+	
 
 	/**
 	 * fetch the master details of the pharmacy
@@ -138,20 +140,12 @@ public class DrugDAO implements IDrugDAO {
 		return pharmacyDrugList;
 	}
 
-	/*public String saveDrug(List<String> drugList) {
-		String responseMsg = null;
-		if (!drugList.isEmpty() && drugList != null) {
-			for (String durgName : drugList) {
-				String latestDrugId = getLatestDrugId();
-				Query query = entity.createQuery(SQLConstants.DRUG_SEARCH_SQL);
-				// query.setParameter();
-				query.executeUpdate();
-			}
-		}
-		return responseMsg;
-	}*/
+	public String saveDrug(DrugDetails drugDetails) {
+		entity.persist(drugDetails);
+		return "Drug Saved Successgully";
+	}
 
-	private String getLatestDrugId() {
+	public String getLatestDrugId() {
 		Query query = entity.createQuery(SQLConstants.LATEST_DRUG_ID);
 		return query.getResultList().get(0).toString();
 	}

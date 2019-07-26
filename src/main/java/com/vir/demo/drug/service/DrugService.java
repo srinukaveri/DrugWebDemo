@@ -207,5 +207,27 @@ public class DrugService implements IDrugService {
 	public String drugStatusUpdate(DrugPharmacyMapper drugPharmacyMapper){
 		return drugDAO.drugStatusUpdate(drugPharmacyMapper);
 	}
+	
+	public String saveDrug(DrugDetails drugDetails){
+		String responseMsg= null;
+	if(drugDetails!=null && drugDetails.getDrugName()!= null){
+		List<DrugDetails>  drugList = drugDAO.getDrugDetails();
+		if(drugList.contains(drugDetails.getDrugName())){
+			return  "Drug Is Already Exist";
+		}
+		drugDetails.setDrugId(generateID(drugDAO.getLatestDrugId().toString()));
+		drugDetails.setDrugName(drugDetails.getDrugName());
+		drugDetails.setIsActive(DrugConstants.YES_Y);
+		
+	}
+	return drugDAO.saveDrug(drugDetails);
+	}
 
+	
+   private String  generateID(String s) {
+        Integer  temp = Integer.parseInt(s.substring(3));
+        temp = temp +1;
+        String id = s.substring(0,3)+temp;
+        return id;
+    }
 }
