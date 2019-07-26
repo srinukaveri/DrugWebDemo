@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.vir.demo.drug.constants.DrugConstants;
 import com.vir.demo.drug.entity.DrugDetails;
 import com.vir.demo.drug.entity.PharmacyDetails;
 import com.vir.demo.drug.exception.LoginValidationException;
@@ -19,7 +20,7 @@ import com.vir.demo.drug.model.DrugManageDetails;
 import com.vir.demo.drug.model.DrugPharmacyMapper;
 import com.vir.demo.drug.model.PharmacyManageDetails;
 import com.vir.demo.drug.model.UserLogin;
-import com.vir.demo.drug.service.DrugService;
+import com.vir.demo.drug.service.IDrugService;
 import com.vir.demo.drug.util.DrugUtil;
 
 /**
@@ -31,12 +32,11 @@ import com.vir.demo.drug.util.DrugUtil;
 public class DrugAdminController {
 
 	@Autowired
-	private DrugService drugService;
+	private IDrugService drugService;
 
 	/**
 	 * this method validate the user id and password from the UI and returns the
 	 * response
-	 * 
 	 * @param userName
 	 * @param password
 	 * @return the login response whether success or failure
@@ -75,20 +75,28 @@ public class DrugAdminController {
 
 	}
 
+	/**
+	 * @return
+	 */
 	@CrossOrigin(origins = "*", allowedHeaders = "*")
 	@RequestMapping(value = "/drug/status", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<DrugManageDetails> getDrugNameStatusInfo() {
 		return drugService.getDrugNameStatusInfo();
 	}
 
+	/**
+	 * @param pharmacyName
+	 * @return
+	 * @throws Exception
+	 */
 	@CrossOrigin(origins = "*", allowedHeaders = "*")
 	@RequestMapping(value = "/pharmacy/status", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<PharmacyManageDetails> getPharmacyStatus(@RequestBody String pharmacyName)throws Exception {
+	public List<PharmacyManageDetails> getPharmacyStatus(@RequestBody String pharmacyName) throws Exception {
 		PharmacyManageDetails pharmacyManageDetailsObj = DrugUtil.getMapperInstance().readValue(pharmacyName,
 				PharmacyManageDetails.class);
 		return drugService.getPharmacyStatus(pharmacyManageDetailsObj.getPharmacyName());
 	}
-	
+
 	/**
 	 * The Request uri for the pharmacy management like drug active or inactive.
 	 * 
@@ -107,13 +115,21 @@ public class DrugAdminController {
 		return mapObj;
 
 	}
-	
+
+	/**
+	 * @return
+	 */
 	@CrossOrigin(origins = "*", allowedHeaders = "*")
 	@RequestMapping(value = "/pharmacy/list", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<PharmacyDetails> getPharmacyList() {
 		return drugService.getPharmacyList();
 	}
-	
+
+	/**
+	 * @param drugPharmacyDetails
+	 * @return
+	 * @throws Exception
+	 */
 	@CrossOrigin(origins = "*", allowedHeaders = "*")
 	@RequestMapping(value = "/dp/isavailable", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public DrugPharmacyMapper drugIsAvailableInPharmacy(@RequestBody String drugPharmacyDetails) throws Exception {
@@ -121,7 +137,12 @@ public class DrugAdminController {
 				DrugPharmacyMapper.class);
 		return drugService.getDrugIsAvailableInPharmacy(pharmacyManageDetailsObj);
 	}
-	
+
+	/**
+	 * @param drugPharmacyDetails
+	 * @return
+	 * @throws Exception
+	 */
 	@CrossOrigin(origins = "*", allowedHeaders = "*")
 	@RequestMapping(value = "/dp/update", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public String drugMasterIsAvailableUpdate(@RequestBody String drugPharmacyDetails) throws Exception {
@@ -129,14 +150,25 @@ public class DrugAdminController {
 				DrugPharmacyMapper.class);
 		return drugService.drugStatusUpdate(pharmacyManageDetailsObj);
 	}
-	
+
+	/**
+	 * @param drugDetails
+	 * @return
+	 * @throws Exception
+	 */
 	@CrossOrigin(origins = "*", allowedHeaders = "*")
 	@RequestMapping(value = "/drug/save", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public Map<String,String> saveDrug(@RequestBody String drugDetails)throws Exception{
-		DrugDetails drugObj = DrugUtil.getMapperInstance().readValue(drugDetails,DrugDetails.class);
-		Map<String, String> mapObj = new HashMap<String, String>();
-		mapObj.put("message", drugService.saveDrug(drugObj));
-		return mapObj;
+	public Map<String, String> saveDrug(@RequestBody String drugDetails) throws Exception {
+		Map<String, String> finalResponse = new HashMap<String,String>();
+		DrugDetails drugObj = DrugUtil.getMapperInstance().readValue(drugDetails, DrugDetails.class);
+		String responseId = drugService.saveDrug(drugObj);
+		if(responseId != null){
+			drugService.pharmacyDrugMapper(responseId);
+			finalResponse.put(DrugConstants.MESSAGE, DrugConstants.DRUG_SUCCESS_MSG);
+		}else{
+			finalResponse.put(DrugConstants.MESSAGE, DrugConstants.DRUG_ERROR_MSG);
+		}
+		return finalResponse;
 	}
 
 }

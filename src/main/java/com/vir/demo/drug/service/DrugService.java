@@ -1,10 +1,12 @@
 package com.vir.demo.drug.service;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 import javax.transaction.Transactional;
 
@@ -14,9 +16,10 @@ import org.springframework.stereotype.Service;
 
 import com.vir.demo.drug.constants.DrugConstants;
 import com.vir.demo.drug.constants.ErrorCodes;
-import com.vir.demo.drug.dao.DrugDAO;
+import com.vir.demo.drug.dao.IDrugDAO;
 import com.vir.demo.drug.entity.DrugDetails;
 import com.vir.demo.drug.entity.PharmacyDetails;
+import com.vir.demo.drug.entity.PharmacyDrugMaster;
 import com.vir.demo.drug.entity.UserLoginDetails;
 import com.vir.demo.drug.exception.DrugMapperValidationException;
 import com.vir.demo.drug.exception.LoginValidationException;
@@ -36,7 +39,7 @@ import com.vir.demo.drug.util.DrugUtil;
 public class DrugService implements IDrugService {
 
 	@Autowired
-	private DrugDAO drugDAO;
+	private IDrugDAO drugDAO;
 
 	/**
 	 * for the login valiidation
@@ -85,7 +88,7 @@ public class DrugService implements IDrugService {
 			}
 			Collections.sort(drugNames);
 		}
-		finalResponse.put("druglist", drugNames);
+		finalResponse.put(DrugConstants.DRUG_LIST_LOWER, drugNames);
 		return finalResponse;
 	}
 
@@ -147,7 +150,7 @@ public class DrugService implements IDrugService {
 				if (pharmacyDTO.getPharmacyMasterId().equals(drugSearch.getPharmacyMasterId())) {
 					drugRes.add(drugSearch);
 				}
-				pharmacyFinalResponse.put("drugList", drugRes);
+				pharmacyFinalResponse.put(DrugConstants.DRUG_LIST, drugRes);
 			}
 			finalResponse.add(pharmacyFinalResponse);
 		}
@@ -160,7 +163,7 @@ public class DrugService implements IDrugService {
 	@Override
 	public Map<String, List<PharmacyDetails>> fetchPharmacyArea() {
 		Map<String, List<PharmacyDetails>> pharmacyAreaResponse = new HashMap<String, List<PharmacyDetails>>();
-		pharmacyAreaResponse.put("area", drugDAO.getPharmacyArea());
+		pharmacyAreaResponse.put(DrugConstants.AREA, drugDAO.getPharmacyArea());
 		return pharmacyAreaResponse;
 	}
 
@@ -209,25 +212,60 @@ public class DrugService implements IDrugService {
 	}
 	
 	public String saveDrug(DrugDetails drugDetails){
-	if(drugDetails!=null && drugDetails.getDrugName()!= null){
+		String drugId = null;
+		if(drugDetails!=null && drugDetails.getDrugName()!= null){
 		Map<String, List<String>> drugResObj = getDrugDetails();
-		List<String>  drugList = drugResObj.get("druglist");
+		List<String>  drugList = drugResObj.get(DrugConstants.DRUG_LIST_LOWER);
 		if(drugList.contains(drugDetails.getDrugName())){
-			return  "Drug Is Already Exist";
+			return  DrugConstants.DRUG_IS_AVAILABLE;
 		}
-		drugDetails.setDrugId(generateID(drugDAO.getLatestDrugId().toString()));
+		String maxCountStr = drugDAO.getLatestDrugId().toString();
+		int maxCount = Integer.parseInt(maxCountStr);
+		drugId = generateID(maxCount,DrugConstants.DRUG_PREFIX);
+		drugDetails.setDrugId(drugId);
 		drugDetails.setDrugName(drugDetails.getDrugName());
 		drugDetails.setIsActive(DrugConstants.YES_Y);
-		
-	}
-	return drugDAO.saveDrug(drugDetails);
+		}
+	return drugId;
 	}
 
 	
-   private String  generateID(String s) {
-        Integer  temp = Integer.parseInt(s.substring(3));
-        temp = temp +1;
-        String id = s.substring(0,3)+temp;
-        return id;
-    }
+   private String  generateID(int latestMappingId, String prefix) {
+	   latestMappingId = latestMappingId +1;
+       String id = prefix+latestMappingId;
+       return id;
+   }
+   
+   public void pharmacyDrugMapper(String drugID){
+		List<PharmacyDetails> pharmacyList = drugDAO.getPharmacyDetails(DrugConstants.ALL);
+		String countMappingId = drugDAO.getMasterLatestId().toString();
+		int latestMappingId = Integer.parseInt(countMappingId);
+		PharmacyDrugMaster pharmacyDrugMaster= null;
+		List<PharmacyDrugMaster> pharDrugMasterList = new ArrayList<PharmacyDrugMaster>();
+		for(PharmacyDetails pharmacyDetails : pharmacyList){
+				String mappingId = generateID(latestMappingId, DrugConstants.MAPPING_PREFIX);
+				pharmacyDrugMaster = new PharmacyDrugMaster();
+				pharmacyDrugMaster.setMappingId(mappingId);
+				pharmacyDrugMaster.setPharmacyMasterId(pharmacyDetails.getPharmacyMasterId());
+				pharmacyDrugMaster.setDrugId(drugID);
+				pharmacyDrugMaster.setIsAvailable(DrugConstants.YES_Y);
+				pharmacyDrugMaster.setDrugPriceEach(getRandomDoubleBetweenRange(DrugConstants.MIN_VALUE,DrugConstants.MAX_VALUE));
+				pharmacyDrugMaster.setCurrency(DrugConstants.CURRENCY_INDIA);
+				latestMappingId++;
+				pharDrugMasterList.add(pharmacyDrugMaster);
+		}
+		drugDAO.savePharmcayDrugMapper(pharDrugMasterList);
+	}
+
+	/*
+	 * To generate drug price dynamically
+	 * decimal value restricted to two
+	 */
+	private Double getRandomDoubleBetweenRange(float min, float max) {
+		DecimalFormat df = new DecimalFormat(DrugConstants.DECIMAL_FORMAT);
+		Random random = new Random();
+	    double x = random.doubles(min,(max+1)).findFirst().getAsDouble();
+	    return Double.parseDouble(df.format(x));
+	}
+	
 }

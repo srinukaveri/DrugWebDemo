@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pharmacy</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+</style>
+<script>
+   
+    $(document).ready(function(){
+        $("#error").hide();
+     $("#submit").click(function(){
+  if($("#drugname").val()=="")
+  $("#error").show();
+  else
+  {
+    $.ajax({
+      type: "POST",
+      url: "https://drugwebdemo.herokuapp.com/drug/save",
+      data: JSON.stringify({"drugName":$("#drugname").val()}),
+    contentType: "application/json; charset=utf-8",
+    dataType: "json",
+      success: function(Data){
+          alert(Data.message);
+      },
+      error:function() { alert("Something went wrong"); }
+});
+
+  }
+    
+    
+    
+    });
+    });
+    </script>
+</head>
+<body>
+    <nav class="navbar navbar" style="background:gray">
+        <a style="color:#fff" class="navbar-brand" href="#">Medicare</a>
+        <form   action="login.html">
+          <button class="logout" class="btn btn-outline-success my-2 my-sm-0"  style="position:absolute;right:0px; top:5px;"submit">Logout</button></form>
+  </nav>
+
+        <div class="container"  >
+    <div class="card text-center">
+     
+        <div class="card-body">
+          <h4 class="card-title"><b>Drug Entry</b></h4></br>
+          <span>Enter a Drug drugName</span><br><br>
+       
+          <input type="text" id="drugname" style="width:20%;"form-control" placeholder="Drug Name"><span id="error" style="color:red">Drug Name is not empty</span>  <br>  <br>
+            
+          
+              <button type="button" id="submit" class="btn btn-success">submit</button> 
+              
+                <button type="button" onclick="window.location.href='home.html'" class="btn btn-warning">Back</button>
+        </div>
+  
+      </div>
+
+    </div>
+</body>
+
+<!-- Footer -->
+<footer class="page-footer font-small blue" id="footer">
+
+        <!-- Copyright -->
+        <div style="margin-top:20px;color:#fff" class="footer-copyright text-center py-3">© 2018 Copyright
+        </div>
+        <!-- Copyright -->
+      
+      </footer>
+      <!-- Footer -->
+      </html>

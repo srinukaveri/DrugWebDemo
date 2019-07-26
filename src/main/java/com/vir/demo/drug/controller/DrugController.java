@@ -12,17 +12,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.vir.demo.drug.entity.PharmacyDetails;
-import com.vir.demo.drug.entity.UserLoginDetails;
 import com.vir.demo.drug.exception.DrugMapperValidationException;
-import com.vir.demo.drug.exception.LoginValidationException;
 import com.vir.demo.drug.model.DrugRequest;
-import com.vir.demo.drug.model.ModifyDrugInfo;
-import com.vir.demo.drug.service.DrugService;
+import com.vir.demo.drug.service.IDrugService;
 import com.vir.demo.drug.util.DrugUtil;
 
 /**
- * @author Sreeni 
- * This is the controller class where all process starting from
+ * @author Sreeni This is the controller class where all process starting from
  *         here.
  *
  */
@@ -30,7 +26,7 @@ import com.vir.demo.drug.util.DrugUtil;
 public class DrugController {
 
 	@Autowired
-	private DrugService drugService;
+	private IDrugService drugService;
 
 	@RequestMapping(method = RequestMethod.GET, value = "/")
 	public String showText() {
@@ -46,26 +42,6 @@ public class DrugController {
 	@RequestMapping(value = "/drug", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public Map<String, List<String>> getDrugDetails() {
 		return drugService.getDrugDetails();
-	}
-
-	/**
-	 * @param loginDetails
-	 * @return
-	 * @throws Exception
-	 */
-	@RequestMapping(value = "/login/", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public Map<String, String> doUserLogin(@RequestBody String loginDetails) throws Exception {
-		Map<String, String> response = null;
-		try {
-			UserLoginDetails loginDetailsObj = DrugUtil.getMapperInstance().readValue(loginDetails,
-					UserLoginDetails.class);
-			String serviceResponse = drugService.doLogin(loginDetailsObj.getUserName(),
-					loginDetailsObj.getUserPassword());
-			response = DrugUtil.setResponseMsg(serviceResponse);
-		} catch (LoginValidationException exe) {
-			response = DrugUtil.setResponseMsg(exe.getMessage(), exe.getErrorCode());
-		}
-		return response;
 	}
 
 	/**
@@ -86,12 +62,6 @@ public class DrugController {
 			return DrugUtil.setResponseList(exe.getMessage(), exe.getErrorCode());
 		}
 		return finalResponse;
-	}
-
-	@RequestMapping(value = "/drug/add", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public Map<String, String> saveDrug(@RequestBody String saveDrugDetails) throws Exception {
-		ModifyDrugInfo drugRequestObj = DrugUtil.getMapperInstance().readValue(saveDrugDetails, ModifyDrugInfo.class);
-		return null;
 	}
 
 	@CrossOrigin(origins = "*", allowedHeaders = "*")

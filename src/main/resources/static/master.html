@@ -39,7 +39,7 @@ margin-top:13px;
     <div class="card text-center">
      
         <div class="card-body">
-          <h4 class="card-title"><b>Registered/Not Registered</b></h4></br>
+          <h4 class="card-title"><b>Available/Not Available</b></h4></br>
           <span>Choose a pharamacy </span><br>
           <select id="pharamacy_list">
               <option value="1"></option>
@@ -155,7 +155,7 @@ function  checkavail(shopName,areaName,drug){
             }
 
     },
-    failure: function(errMsg) {
+    error: function(errMsg) {
         alert("error"+errMsg);
     }
 });
@@ -190,7 +190,7 @@ function pharmacyDrugupdate(check,mappingid)
     contentType:"application/json",
     dataType:"text",
     success: function(data){
-        alert(data);
+        alert("jsjsjsj");
     },
     failure: function(errMsg) {
         alert("error");

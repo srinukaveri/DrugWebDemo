@@ -1,7 +1,6 @@
 package com.vir.demo.drug.dao;
 
 import java.util.List;
-import java.util.Map;
 
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
@@ -98,7 +97,6 @@ public class DrugDAO implements IDrugDAO {
 		}
 		return drugList;
 	}
-	
 
 	/**
 	 * fetch the master details of the pharmacy
@@ -140,19 +138,23 @@ public class DrugDAO implements IDrugDAO {
 		return pharmacyDrugList;
 	}
 
-	public String saveDrug(DrugDetails drugDetails) {
+	public void saveDrug(DrugDetails drugDetails) {
 		entity.persist(drugDetails);
-		return "Drug Saved Successgully";
 	}
 
 	public String getLatestDrugId() {
 		Query query = entity.createQuery(SQLConstants.LATEST_DRUG_ID);
 		return query.getResultList().get(0).toString();
 	}
+
 	@Override
 	public void savePharmcayDrugMapper(List<PharmacyDrugMaster> pharDrugMasterList) {
 		pharDrugMasterList.forEach(pharMaster -> entity.persist(pharMaster));
 		System.out.println("Saved successfully...!");
+	}
+
+	public void savePharmcayDrugMapper(PharmacyDrugMaster pharDrugMaster) {
+		entity.persist(pharDrugMaster);
 	}
 
 	/**
@@ -161,15 +163,15 @@ public class DrugDAO implements IDrugDAO {
 	 */
 	@Override
 	public String updateDrugDetails(DrugManageDetails drug) {
-		String responseMsg = "Drug Details Successfully Updated";
+		String responseMsg ;
 		try {
 			Query query = entity.createQuery(SQLConstants.DRUG_UPDATE);
 			query.setParameter("isActive", drug.getIsActive());
 			query.setParameter("drugName", drug.getDrugName());
 			query.executeUpdate();
+			responseMsg = DrugConstants.DRUG_UPDATE_SUCCESS_MESSAGE;
 		} catch (Exception exe) {
-			exe.printStackTrace();
-			responseMsg = "Error Occoured While Update";
+			responseMsg = DrugConstants.DRUG_ERROR_MSG;
 		}
 		return responseMsg;
 	}
@@ -191,7 +193,7 @@ public class DrugDAO implements IDrugDAO {
 	@SuppressWarnings("unchecked")
 	public List<PharmacyManageDetails> getPharmacyStatus(String pharmacyName) {
 		Query query = entity.createQuery(SQLConstants.PHARMACY_STATUS_SQL);
-		query.setParameter("pharmacyName", pharmacyName);
+		query.setParameter(DrugConstants.PHARMACY_NAME, pharmacyName);
 		return query.getResultList();
 	}
 
@@ -201,47 +203,50 @@ public class DrugDAO implements IDrugDAO {
 	 */
 	@Override
 	public String updatePharmacyDetails(PharmacyManageDetails pharmacy) {
-		String responseMsg = "Pharmacy Details Updated Successfully";
+		String responseMsg;
 		try {
 			Query query = entity.createQuery(SQLConstants.PHARMACY_UPDATE);
-			query.setParameter("isRegistered", pharmacy.getIsRegistered());
-			query.setParameter("pharmacyName", pharmacy.getPharmacyName());
-			query.setParameter("area", pharmacy.getArea());
+			query.setParameter(DrugConstants.IS_REGISTERED, pharmacy.getIsRegistered());
+			query.setParameter(DrugConstants.PHARMACY_NAME, pharmacy.getPharmacyName());
+			query.setParameter(DrugConstants.AREA, pharmacy.getArea());
 			query.executeUpdate();
+			responseMsg = DrugConstants.PHARMACY_SUCCESS_MESSAGE;
 		} catch (Exception exe) {
-			exe.printStackTrace();
-			responseMsg = "Error Occoured While Update";
+			responseMsg = DrugConstants.UPDATE_ERROR_MESSAGE;
 		}
 		return responseMsg;
 	}
-	
 
 	@SuppressWarnings("unchecked")
 	public List<PharmacyDetails> getPharmacyList() {
 		Query query = entity.createQuery(SQLConstants.GET_PHARMACY_LIST_SQL);
 		return query.getResultList();
 	}
-	
-	public DrugPharmacyMapper  getDrugIsAvailableInPharmacy(DrugPharmacyMapper drugPharmacyMapper){
+
+	public DrugPharmacyMapper getDrugIsAvailableInPharmacy(DrugPharmacyMapper drugPharmacyMapper) {
 		Query query = entity.createQuery(SQLConstants.GET_DRUG_PHARMACY_AVAIL_SQL);
-		query.setParameter("pharmacyName", drugPharmacyMapper.getPharmacyName());
-		query.setParameter("area", drugPharmacyMapper.getArea());
-		query.setParameter("drugName", drugPharmacyMapper.getDrugName());
+		query.setParameter(DrugConstants.PHARMACY_NAME, drugPharmacyMapper.getPharmacyName());
+		query.setParameter(DrugConstants.AREA, drugPharmacyMapper.getArea());
+		query.setParameter(DrugConstants.DRUG_NAME, drugPharmacyMapper.getDrugName());
 		return (DrugPharmacyMapper) query.getSingleResult();
 	}
 
-	public String drugStatusUpdate(DrugPharmacyMapper drugPharmacyMapper){
-		String responseMsg = "Drug Details Successfully Updated";
+	public String drugStatusUpdate(DrugPharmacyMapper drugPharmacyMapper) {
+		String responseMsg ;
 		try {
 			Query query = entity.createQuery(SQLConstants.UPDATE_PHARMACY_DRUG_MASTER_SQL);
-			query.setParameter("isAvailable",drugPharmacyMapper.getIsAvailable());
-			query.setParameter("mappingId",drugPharmacyMapper.getMappingId());
+			query.setParameter(DrugConstants.IS_AVAILABLE, drugPharmacyMapper.getIsAvailable());
+			query.setParameter(DrugConstants.MAPPING_ID, drugPharmacyMapper.getMappingId());
 			query.executeUpdate();
+			responseMsg = DrugConstants.DRUG_UPDATE_SUCCESS_MESSAGE;
 		} catch (Exception exe) {
-			exe.printStackTrace();
-			responseMsg = "Error Occoured While Update";
+			responseMsg = DrugConstants.UPDATE_ERROR_MESSAGE;
 		}
 		return responseMsg;
 	}
 
+	public String getMasterLatestId() {
+		Query query = entity.createQuery(SQLConstants.LATEST_MASTER_ID);
+		return query.getResultList().get(0).toString();
+	}
 }
