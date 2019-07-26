@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pharmacy</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+<style>
+    #footer{
+position: absolute;  
+background:gray;
+bottom:0%;
+width:100%;
+height:7%;
+}
+.logout{
+ position: absolute;   
+right:5px;
+margin-top:13px;
+}
+#dropdown{
+    width:20%;
+    height:30px;
+}
+    </style>
+</style>
+</head>
+<body>
+        <nav class="navbar navbar" style="background:gray">
+                <a style="color:#fff" class="navbar-brand" href="#">Medicare</a>
+                <form   action="login.html">
+                <button class="logout" class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button></form>
+              </nav>
+
+        <div class="container"  >
+    <div class="card text-center">
+     
+        <div class="card-body">
+          <h4 class="card-title"><b>Registered/Not Registered</b></h4></br>
+          <span>Choose a pharamacy </span><br>
+          <select id="pharamacy_list">
+              <option value="1"></option>
+              </select></br></br>
+              <span>Choose a Area </span><br>
+              <select id="area_list">
+                <option value="1"></option>
+                </select></br></br>
+              <button type="button" id="activebtn" class="btn btn-success">Registered</button> 
+              <button type="button" id="inactivebtn" class="btn btn-danger">Not Registered</button>
+        </div></br></br>
+        <form  action="home.html">
+        <button type="button" class="btn btn-warning">Back</button></form>
+      </div>
+
+    </div>
+</body>
+<script>
+   
+$(document).ready(function(){
+    $("#activebtn").attr("disabled",true);
+    $("#inactivebtn").attr("disabled",true);
+   drugname='',status='';
+   // getting list
+    $.ajax({
+    type: "GET",
+    url: "https://drugwebdemo.herokuapp.com/pharmacy/list",
+    success: function(data){
+   for(var i=0;i<data.length;i++)
+   {   
+    $('#pharamacy_list').append($('<option>', {
+     
+    value:data[i],
+
+    text:data[i]
+}));
+
+
+   }
+
+
+    }
+   
+});
+
+
+$("#pharamacy_list").change(function(){
+pharamacy_name=$(this).children("option:selected").val();
+
+$.ajax({
+    type: "POST",
+    url: "https://drugwebdemo.herokuapp.com/pharmacy/status",
+
+    data:JSON.stringify({'pharmacyName':pharamacy_name }),
+    contentType: "application/json",
+    dataType: "json",
+    success: function(data){
+        for(var i=0;i<data.length;i++)
+   {
+ $('#area_list').append($('<option>', {
+    value:pharamacy_name,
+    class:data[i].isRegistered,
+    text:data[i].area
+ 
+})); 
+}
+    },
+    failure: function(errMsg) {
+        alert("error"+errMsg);
+    }
+});
+
+
+});
+
+$("#area_list").change(function(){
+    $("#activebtn").attr("disabled",false);
+    $("#inactivebtn").attr("disabled",false);
+shopName=$(this).children("option:selected").val();
+shopStatus=$(this).children("option:selected").attr('class');
+shopArea=$(this).children("option:selected").text();
+if(shopStatus==="Y"){
+$("#activebtn").attr("disabled","disabled");
+}else{
+    $("#inactivebtn").attr("disabled","disabled"); 
+}
+
+$("#inactivebtn").click(function(){
+      check=''
+      if(shopStatus==="Y")
+        check="N"
+    else
+        check="Y"
+
+        updatePharamacy(shopName,check,shopArea);
+  });
+  $("#activebtn").click(function(){
+    check=''
+      if(shopStatus==="Y")
+        check="N"
+    else
+        check="Y"
+
+  updatePharamacy(shopName,check,shopArea);
+});
+
+
+
+
+
+
+});
+
+function updatePharamacy(shopName,shopStatus,shopArea){
+$.ajax({
+    type: "POST",
+    url: "https://drugwebdemo.herokuapp.com/pharmacy/manage",
+
+    data:JSON.stringify({'pharmacyName':shopName,'isRegistered':shopStatus,'area':shopArea }),
+    contentType: "application/json",
+    dataType: "json",
+    success: function(data){
+    alert(data.message)
+window.location="Pharamacyupdate.html"
+
+    },
+    failure: function(errMsg) {
+        alert("error"+errMsg);
+    }
+
+
+});
+
+}
+
+
+
+});
+ 
+</script>
+<!-- Footer -->
+<footer class="page-footer font-small blue" id="footer">
+
+        <!-- Copyright -->
+        <div style="margin-top:20px;color:#fff" class="footer-copyright text-center py-3">© 2018 Copyright
+        </div>
+        <!-- Copyright -->
+      
+      </footer>
+      <!-- Footer -->
+      </html>
