@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pharmacy</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+<style>
+    #footer{
+position: absolute;  
+background:gray;
+bottom:0%;
+width:100%;
+height:7%;
+}
+.logout{
+ position: absolute;   
+right:5px;
+margin-top:13px;
+}
+#dropdown{
+    width:20%;
+    height:30px;
+}
+    </style>
+</style>
+</head>
+<body>
+        <nav class="navbar navbar" style="background:gray">
+                <a style="color:#fff" class="navbar-brand" href="#">Medicare</a>
+                <form   action="login.html">
+                <button class="logout" class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button></form>
+              </nav>
+
+        <div class="container"  >
+    <div class="card text-center">
+     
+        <div class="card-body">
+          <h4 class="card-title"><b>Registered/Not Registered</b></h4></br>
+          <span>Choose a pharamacy </span><br>
+          <select id="pharamacy_list">
+              <option value="1"></option>
+              </select></br></br>
+              <span>Choose a Area </span><br>
+                <select id="area_list">
+                    <option value="1"></option>
+                    </select></br></br>
+              <span>Choose a Drug </span><br>
+              <select id="drug_list">
+                <option value="1"></option>
+                </select></br></br>
+                
+              <button type="button" id="activebtn" class="btn btn-success">Available</button> 
+              <button type="button" id="inactivebtn" class="btn btn-danger">Not Available</button>
+        </div></br></br>
+        <form  action="home.html">
+        <button type="button"  onclick="window.location.href='home.html'" class="btn btn-warning">Back</button></form>
+      </div>
+
+    </div>
+</body>
+<script>
+   
+$(document).ready(function(){
+    response_Status="",response_mapid='';
+    shopName='',area='',drug='';
+    $("#activebtn").attr("disabled",true);
+    $("#inactivebtn").attr("disabled",true);
+    $.ajax({
+    type: "GET",
+    url: "https://drugwebdemo.herokuapp.com/pharmacy/list",
+    success: function(data){
+   for(var i=0;i<data.length;i++)
+   {   
+    $('#pharamacy_list').append($('<option>', {
+     
+    value:data[i],
+
+    text:data[i]
+}));
+}
+}
+});
+
+  $.ajax({
+    type: "GET",
+    url: "https://drugwebdemo.herokuapp.com/drug",
+    success: function(data){
+ 
+for(var i=0;i<data.druglist.length;i++)
+   {
+    $('#drug_list').append($('<option>', {
+    value:data.druglist[i],
+    text:data.druglist[i]
+}));
+   }
+
+
+    }
+   
+});
+
+  $.ajax({
+    type: "GET",
+    url: "https://drugwebdemo.herokuapp.com/pharmacy/area",
+    success: function(data){
+for(var i=0;i<data.area.length;i++)
+   {
+    $('#area_list').append($('<option>', {
+    value:data.area[i],
+    text:data.area[i]
+}));
+   }
+
+
+    }
+   
+});
+
+
+$("#pharamacy_list").change(function(){
+    shopName=$(this).children("option:selected").val();
+
+});
+ 
+$("#drug_list").change(function(){
+    drug=$(this).children("option:selected").val();
+    checkavail(shopName,area,drug);
+});
+$("#area_list").change(function(){
+   area=$(this).children("option:selected").val();
+
+});
+
+function  checkavail(shopName,areaName,drug){
+    $("#activebtn").attr("disabled",false);
+    $("#inactivebtn").attr("disabled",false); 
+    $.ajax({
+    type: "POST",
+    url: "https://drugwebdemo.herokuapp.com/dp/isavailable",
+    
+    data:JSON.stringify({"pharmacyName":shopName,"area":areaName,"drugName":drug}),
+    contentType: "application/json",
+    dataType: "json",
+    success: function(data){
+        response_Status=data.isAvailable;
+        response_mapid=data.mappingId;
+        if(response_Status==="Y"){
+        $("#activebtn").attr("disabled","disabled");
+        }else{
+          $("#inactivebtn").attr("disabled","disabled"); 
+            }
+
+    },
+    failure: function(errMsg) {
+        alert("error"+errMsg);
+    }
+});
+   
+}
+
+$("#inactivebtn").click(function(){
+      check=''
+      if(response_Status==="Y")
+        check="N"
+    else
+        check="Y"
+
+   pharmacyDrugupdate(check,response_mapid)     
+  });
+  $("#activebtn").click(function(){
+    check=''
+      if(response_Status==="Y")
+        check="N"
+    else
+        check="Y"
+        pharmacyDrugupdate(check,response_mapid)
+});
+
+function pharmacyDrugupdate(check,mappingid)
+ {
+
+    $.ajax({
+    type: "POST",
+    url: "https://drugwebdemo.herokuapp.com/dp/update",
+    data:JSON.stringify({"mappingId":mappingid,"isAvailable":check}),
+    contentType:"application/json",
+    dataType:"text",
+    success: function(data){
+        alert("jsjsjsj");
+    },
+    failure: function(errMsg) {
+        alert("error");
+    }
+}); 
+window.location="master.html" 
+}
+});
+</script>
+<!-- Footer -->
+<footer class="page-footer font-small blue" id="footer">
+
+        <!-- Copyright -->
+        <div style="margin-top:20px;color:#fff" class="footer-copyright text-center py-3">© 2018 Copyright
+        </div>
+        <!-- Copyright -->
+      
+      </footer>
+      <!-- Footer -->
+      </html>
