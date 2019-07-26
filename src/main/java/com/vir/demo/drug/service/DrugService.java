@@ -209,9 +209,9 @@ public class DrugService implements IDrugService {
 	}
 	
 	public String saveDrug(DrugDetails drugDetails){
-		String responseMsg= null;
 	if(drugDetails!=null && drugDetails.getDrugName()!= null){
-		List<DrugDetails>  drugList = drugDAO.getDrugDetails();
+		Map<String, List<String>> drugResObj = getDrugDetails();
+		List<String>  drugList = drugResObj.get("druglist");
 		if(drugList.contains(drugDetails.getDrugName())){
 			return  "Drug Is Already Exist";
 		}
