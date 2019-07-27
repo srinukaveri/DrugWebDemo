@@ -30,7 +30,7 @@ margin-top:13px;
 </head>
 <body>
         <nav class="navbar navbar" style="background:gray">
-                <a style="color:#fff" class="navbar-brand" href="#">Medicare</a>
+                <a style="color:#fff" class="navbar-brand" href="#">Medicare Admin Console</a>
                
                 <button class="logout" onclick="onback()" class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button>
               </nav>
@@ -113,7 +113,6 @@ $("#activebtn").attr("disabled","disabled");
     updateDrug(drugname,check);
 });
 function updateDrug(drugname,status){
-    alert("your"+status)
     $.ajax({
     type: "POST",
     url: "https://drugwebdemo.herokuapp.com/drug/manage",

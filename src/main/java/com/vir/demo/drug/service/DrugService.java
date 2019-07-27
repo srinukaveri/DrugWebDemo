@@ -225,6 +225,7 @@ public class DrugService implements IDrugService {
 		drugDetails.setDrugId(drugId);
 		drugDetails.setDrugName(drugDetails.getDrugName());
 		drugDetails.setIsActive(DrugConstants.YES_Y);
+		drugDAO.saveDrug(drugDetails);
 		}
 	return drugId;
 	}

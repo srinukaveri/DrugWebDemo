@@ -3,187 +3,187 @@ INSERT INTO USER_LOGIN_DETAILS VALUES('admin','admin');
 
 INSERT INTO PHARMACY_DETAILS
 (PHARMACY_MASTER_ID,PHARMACY_NAME,IS_REGISTERED,ADDRESS_LINE,AREA,CITY,STATE,POSTAL_CODE,COUNTRY,LATITUDE,LONGITUDE,OPEN_TIME,CLOSED_TIME,PHONE,WEBSITE) 
-VALUES('PID10001','Chennai Medical Agencies','Y','No 6 Reddy Street','Virugambakkam','Chennai','Tamilnadu','600092','India','13.04398','80.17836','6:00 AM','12:00 PM',
+VALUES('PID1001','Chennai Medical Agencies','Y','No 6 Reddy Street','Virugambakkam','Chennai','Tamilnadu','600092','India','13.04398','80.17836','6:00 AM','12:00 PM',
 '044-2564156','www.chnmed.com');
 INSERT INTO PHARMACY_DETAILS
 (PHARMACY_MASTER_ID,PHARMACY_NAME,IS_REGISTERED,ADDRESS_LINE,AREA,CITY,STATE,POSTAL_CODE,COUNTRY,LATITUDE,LONGITUDE,OPEN_TIME,CLOSED_TIME,PHONE,WEBSITE) 
-VALUES('PID10002','Ashok Pharmacy','Y','No 221, Old, 40A, Arcot Rd','Virugambakkam','Chennai','Tamilnadu','600092','India','13.04148','80.17481','8:30 AM','10:15 PM',
+VALUES('PID1002','Ashok Pharmacy','Y','No 221, Old, 40A, Arcot Rd','Virugambakkam','Chennai','Tamilnadu','600092','India','13.04148','80.17481','8:30 AM','10:15 PM',
 '044-2564157','www.ashokmed.com');
 INSERT INTO PHARMACY_DETAILS
 (PHARMACY_MASTER_ID,PHARMACY_NAME,IS_REGISTERED,ADDRESS_LINE,AREA,CITY,STATE,POSTAL_CODE,COUNTRY,LATITUDE,LONGITUDE,OPEN_TIME,CLOSED_TIME,PHONE,WEBSITE) 
-VALUES('PID10003','Anand Pharmacy','Y','No.14, Bhattacharjee St, Sanjay Gandhi Nagar','Virugambakkam','Chennai','Tamilnadu','600092','India','13.05073','80.19082','9:00 AM','10:00 PM',
+VALUES('PID1003','Anand Pharmacy','Y','No.14, Bhattacharjee St, Sanjay Gandhi Nagar','Virugambakkam','Chennai','Tamilnadu','600092','India','13.05073','80.19082','9:00 AM','10:00 PM',
 '044-2564158','www.anandmed.com');
 INSERT INTO PHARMACY_DETAILS
 (PHARMACY_MASTER_ID,PHARMACY_NAME,IS_REGISTERED,ADDRESS_LINE,AREA,CITY,STATE,POSTAL_CODE,COUNTRY,LATITUDE,LONGITUDE,OPEN_TIME,CLOSED_TIME,PHONE,WEBSITE) 
-VALUES('PID10004','Subam Pharmacy','Y','Shop No. 44, AVM Avenue, 1st Main Rd','Virugambakkam','Chennai','Tamilnadu','600092','India','13.04796','80.18943','8:00 AM','11:30 PM',
+VALUES('PID1004','Subam Pharmacy','Y','Shop No. 44, AVM Avenue, 1st Main Rd','Virugambakkam','Chennai','Tamilnadu','600092','India','13.04796','80.18943','8:00 AM','11:30 PM',
 '044-2564152','www.subampharmacy.com');
 INSERT INTO PHARMACY_DETAILS
 (PHARMACY_MASTER_ID,PHARMACY_NAME,IS_REGISTERED,ADDRESS_LINE,AREA,CITY,STATE,POSTAL_CODE,COUNTRY,LATITUDE,LONGITUDE,OPEN_TIME,CLOSED_TIME,PHONE,WEBSITE) 
-VALUES('PID10005','Neelan Pharmacy & General','Y','246/2,Shop no 4, 3rd main road, 2nd Main Rd','Virugambakkam','Chennai','Tamilnadu','600092','India','13.05886','80.19778','7:30 AM','11:30 PM',
+VALUES('PID1005','Neelan Pharmacy & General','Y','246/2,Shop no 4, 3rd main road, 2nd Main Rd','Virugambakkam','Chennai','Tamilnadu','600092','India','13.05886','80.19778','7:30 AM','11:30 PM',
 '044-2564152','www.subampharmacy.com');
 INSERT INTO PHARMACY_DETAILS
 (PHARMACY_MASTER_ID,PHARMACY_NAME,IS_REGISTERED,ADDRESS_LINE,AREA,CITY,STATE,POSTAL_CODE,COUNTRY,LATITUDE,LONGITUDE,OPEN_TIME,CLOSED_TIME,PHONE,WEBSITE) 
-VALUES('PID10006','Geetha Pharmacy','Y','328, 2nd Main Rd, Natesa Nagar','Virugambakkam','Chennai','Tamilnadu','600092','India','13.0571','80.191933','7:30 AM','11:30 PM',
+VALUES('PID1006','Geetha Pharmacy','Y','328, 2nd Main Rd, Natesa Nagar','Virugambakkam','Chennai','Tamilnadu','600092','India','13.0571','80.191933','7:30 AM','11:30 PM',
 '044-2564152','www.geethapharmacy.com');
 
 
 --mock not excat data --Manapakkam
 INSERT INTO PHARMACY_DETAILS
 (PHARMACY_MASTER_ID,PHARMACY_NAME,IS_REGISTERED,ADDRESS_LINE,AREA,CITY,STATE,POSTAL_CODE,COUNTRY,LATITUDE,LONGITUDE,OPEN_TIME,CLOSED_TIME,PHONE,WEBSITE) 
-VALUES('PID10007','Chennai Medical Agencies','Y','No 6 Reddy Street','Manapakkam','Chennai','Tamilnadu','600092','India','13.04398','80.17836','6:00 AM','12:00 PM',
+VALUES('PID1007','Chennai Medical Agencies','Y','No 6 Reddy Street','Manapakkam','Chennai','Tamilnadu','600092','India','13.04398','80.17836','6:00 AM','12:00 PM',
 '044-2564156','www.chnmed.com');
 INSERT INTO PHARMACY_DETAILS
 (PHARMACY_MASTER_ID,PHARMACY_NAME,IS_REGISTERED,ADDRESS_LINE,AREA,CITY,STATE,POSTAL_CODE,COUNTRY,LATITUDE,LONGITUDE,OPEN_TIME,CLOSED_TIME,PHONE,WEBSITE) 
-VALUES('PID10008','Ashok Pharmacy','Y','No 221, Old, 40A, Arcot Rd','Manapakkam','Chennai','Tamilnadu','600092','India','13.04148','80.17481','8:30 AM','10:15 PM',
+VALUES('PID1008','Ashok Pharmacy','Y','No 221, Old, 40A, Arcot Rd','Manapakkam','Chennai','Tamilnadu','600092','India','13.04148','80.17481','8:30 AM','10:15 PM',
 '044-2564157','www.ashokmed.com');
 INSERT INTO PHARMACY_DETAILS
 (PHARMACY_MASTER_ID,PHARMACY_NAME,IS_REGISTERED,ADDRESS_LINE,AREA,CITY,STATE,POSTAL_CODE,COUNTRY,LATITUDE,LONGITUDE,OPEN_TIME,CLOSED_TIME,PHONE,WEBSITE) 
-VALUES('PID10009','Anand Pharmacy','Y','No.14, Bhattacharjee St, Sanjay Gandhi Nagar','Manapakkam','Chennai','Tamilnadu','600092','India','13.05073','80.19082','9:00 AM','10:00 PM',
+VALUES('PID1009','Anand Pharmacy','Y','No.14, Bhattacharjee St, Sanjay Gandhi Nagar','Manapakkam','Chennai','Tamilnadu','600092','India','13.05073','80.19082','9:00 AM','10:00 PM',
 '044-2564158','www.anandmed.com');
 INSERT INTO PHARMACY_DETAILS
 (PHARMACY_MASTER_ID,PHARMACY_NAME,IS_REGISTERED,ADDRESS_LINE,AREA,CITY,STATE,POSTAL_CODE,COUNTRY,LATITUDE,LONGITUDE,OPEN_TIME,CLOSED_TIME,PHONE,WEBSITE) 
-VALUES('PID100010','Subam Pharmacy','Y','Shop No. 44, AVM Avenue, 1st Main Rd','Manapakkam','Chennai','Tamilnadu','600092','India','13.04796','80.18943','8:00 AM','11:30 PM',
+VALUES('PID10010','Subam Pharmacy','Y','Shop No. 44, AVM Avenue, 1st Main Rd','Manapakkam','Chennai','Tamilnadu','600092','India','13.04796','80.18943','8:00 AM','11:30 PM',
 '044-2564152','www.subampharmacy.com');
 INSERT INTO PHARMACY_DETAILS
 (PHARMACY_MASTER_ID,PHARMACY_NAME,IS_REGISTERED,ADDRESS_LINE,AREA,CITY,STATE,POSTAL_CODE,COUNTRY,LATITUDE,LONGITUDE,OPEN_TIME,CLOSED_TIME,PHONE,WEBSITE) 
-VALUES('PID100011','Neelan Pharmacy & General','Y','246/2,Shop no 4, 3rd main road, 2nd Main Rd','Manapakkam','Chennai','Tamilnadu','600092','India','13.05886','80.19778','7:30 AM','11:30 PM',
+VALUES('PID10011','Neelan Pharmacy & General','Y','246/2,Shop no 4, 3rd main road, 2nd Main Rd','Manapakkam','Chennai','Tamilnadu','600092','India','13.05886','80.19778','7:30 AM','11:30 PM',
 '044-2564152','www.subampharmacy.com');
 INSERT INTO PHARMACY_DETAILS
 (PHARMACY_MASTER_ID,PHARMACY_NAME,IS_REGISTERED,ADDRESS_LINE,AREA,CITY,STATE,POSTAL_CODE,COUNTRY,LATITUDE,LONGITUDE,OPEN_TIME,CLOSED_TIME,PHONE,WEBSITE) 
-VALUES('PID100012','Geetha Pharmacy','Y','328, 2nd Main Rd, Natesa Nagar','Manapakkam','Chennai','Tamilnadu','600092','India','13.0571','80.191933','7:30 AM','11:30 PM',
+VALUES('PID10012','Geetha Pharmacy','Y','328, 2nd Main Rd, Natesa Nagar','Manapakkam','Chennai','Tamilnadu','600092','India','13.0571','80.191933','7:30 AM','11:30 PM',
 '044-2564152','www.geethapharmacy.com');
 
 
 --mock not excat data --Taramani
 INSERT INTO PHARMACY_DETAILS
 (PHARMACY_MASTER_ID,PHARMACY_NAME,IS_REGISTERED,ADDRESS_LINE,AREA,CITY,STATE,POSTAL_CODE,COUNTRY,LATITUDE,LONGITUDE,OPEN_TIME,CLOSED_TIME,PHONE,WEBSITE) 
-VALUES('PID100013','Chennai Medical Agencies','Y','No 6 Reddy Street','Taramani','Chennai','Tamilnadu','600092','India','13.04398','80.17836','6:00 AM','12:00 PM',
+VALUES('PID10013','Chennai Medical Agencies','Y','No 6 Reddy Street','Taramani','Chennai','Tamilnadu','600092','India','13.04398','80.17836','6:00 AM','12:00 PM',
 '044-2564156','www.chnmed.com');
 INSERT INTO PHARMACY_DETAILS
 (PHARMACY_MASTER_ID,PHARMACY_NAME,IS_REGISTERED,ADDRESS_LINE,AREA,CITY,STATE,POSTAL_CODE,COUNTRY,LATITUDE,LONGITUDE,OPEN_TIME,CLOSED_TIME,PHONE,WEBSITE) 
-VALUES('PID100014','Ashok Pharmacy','Y','No 221, Old, 40A, Arcot Rd','Taramani','Chennai','Tamilnadu','600092','India','13.04148','80.17481','8:30 AM','10:15 PM',
+VALUES('PID10014','Ashok Pharmacy','Y','No 221, Old, 40A, Arcot Rd','Taramani','Chennai','Tamilnadu','600092','India','13.04148','80.17481','8:30 AM','10:15 PM',
 '044-2564157','www.ashokmed.com');
 INSERT INTO PHARMACY_DETAILS
 (PHARMACY_MASTER_ID,PHARMACY_NAME,IS_REGISTERED,ADDRESS_LINE,AREA,CITY,STATE,POSTAL_CODE,COUNTRY,LATITUDE,LONGITUDE,OPEN_TIME,CLOSED_TIME,PHONE,WEBSITE) 
-VALUES('PID100015','Anand Pharmacy','Y','No.14, Bhattacharjee St, Sanjay Gandhi Nagar','Taramani','Chennai','Tamilnadu','600092','India','13.05073','80.19082','9:00 AM','10:00 PM',
+VALUES('PID10015','Anand Pharmacy','Y','No.14, Bhattacharjee St, Sanjay Gandhi Nagar','Taramani','Chennai','Tamilnadu','600092','India','13.05073','80.19082','9:00 AM','10:00 PM',
 '044-2564158','www.anandmed.com');
 INSERT INTO PHARMACY_DETAILS
 (PHARMACY_MASTER_ID,PHARMACY_NAME,IS_REGISTERED,ADDRESS_LINE,AREA,CITY,STATE,POSTAL_CODE,COUNTRY,LATITUDE,LONGITUDE,OPEN_TIME,CLOSED_TIME,PHONE,WEBSITE) 
-VALUES('PID100016','Subam Pharmacy','Y','Shop No. 44, AVM Avenue, 1st Main Rd','Taramani','Chennai','Tamilnadu','600092','India','13.04796','80.18943','8:00 AM','11:30 PM',
+VALUES('PID10016','Subam Pharmacy','Y','Shop No. 44, AVM Avenue, 1st Main Rd','Taramani','Chennai','Tamilnadu','600092','India','13.04796','80.18943','8:00 AM','11:30 PM',
 '044-2564152','www.subampharmacy.com');
 INSERT INTO PHARMACY_DETAILS
 (PHARMACY_MASTER_ID,PHARMACY_NAME,IS_REGISTERED,ADDRESS_LINE,AREA,CITY,STATE,POSTAL_CODE,COUNTRY,LATITUDE,LONGITUDE,OPEN_TIME,CLOSED_TIME,PHONE,WEBSITE) 
-VALUES('PID100017','Neelan Pharmacy & General','Y','246/2,Shop no 4, 3rd main road, 2nd Main Rd','Taramani','Chennai','Tamilnadu','600092','India','13.05886','80.19778','7:30 AM','11:30 PM',
+VALUES('PID10017','Neelan Pharmacy & General','Y','246/2,Shop no 4, 3rd main road, 2nd Main Rd','Taramani','Chennai','Tamilnadu','600092','India','13.05886','80.19778','7:30 AM','11:30 PM',
 '044-2564152','www.subampharmacy.com');
 INSERT INTO PHARMACY_DETAILS
 (PHARMACY_MASTER_ID,PHARMACY_NAME,IS_REGISTERED,ADDRESS_LINE,AREA,CITY,STATE,POSTAL_CODE,COUNTRY,LATITUDE,LONGITUDE,OPEN_TIME,CLOSED_TIME,PHONE,WEBSITE) 
-VALUES('PID100018','Geetha Pharmacy','Y','328, 2nd Main Rd, Natesa Nagar','Taramani','Chennai','Tamilnadu','600092','India','13.0571','80.191933','7:30 AM','11:30 PM',
+VALUES('PID10018','Geetha Pharmacy','Y','328, 2nd Main Rd, Natesa Nagar','Taramani','Chennai','Tamilnadu','600092','India','13.0571','80.191933','7:30 AM','11:30 PM',
 '044-2564152','www.geethapharmacy.com');
 
 
 --mock not excat data --Guindy
 INSERT INTO PHARMACY_DETAILS
 (PHARMACY_MASTER_ID,PHARMACY_NAME,IS_REGISTERED,ADDRESS_LINE,AREA,CITY,STATE,POSTAL_CODE,COUNTRY,LATITUDE,LONGITUDE,OPEN_TIME,CLOSED_TIME,PHONE,WEBSITE) 
-VALUES('PID100019','Chennai Medical Agencies','Y','No 6 Reddy Street','Guindy','Chennai','Tamilnadu','600092','India','13.04398','80.17836','6:00 AM','12:00 PM',
+VALUES('PID10019','Chennai Medical Agencies','Y','No 6 Reddy Street','Guindy','Chennai','Tamilnadu','600092','India','13.04398','80.17836','6:00 AM','12:00 PM',
 '044-2564156','www.chnmed.com');
 INSERT INTO PHARMACY_DETAILS
 (PHARMACY_MASTER_ID,PHARMACY_NAME,IS_REGISTERED,ADDRESS_LINE,AREA,CITY,STATE,POSTAL_CODE,COUNTRY,LATITUDE,LONGITUDE,OPEN_TIME,CLOSED_TIME,PHONE,WEBSITE) 
-VALUES('PID100020','Ashok Pharmacy','Y','No 221, Old, 40A, Arcot Rd','Guindy','Chennai','Tamilnadu','600092','India','13.04148','80.17481','8:30 AM','10:15 PM',
+VALUES('PID10020','Ashok Pharmacy','Y','No 221, Old, 40A, Arcot Rd','Guindy','Chennai','Tamilnadu','600092','India','13.04148','80.17481','8:30 AM','10:15 PM',
 '044-2564157','www.ashokmed.com');
 INSERT INTO PHARMACY_DETAILS
 (PHARMACY_MASTER_ID,PHARMACY_NAME,IS_REGISTERED,ADDRESS_LINE,AREA,CITY,STATE,POSTAL_CODE,COUNTRY,LATITUDE,LONGITUDE,OPEN_TIME,CLOSED_TIME,PHONE,WEBSITE) 
-VALUES('PID100021','Anand Pharmacy','Y','No.14, Bhattacharjee St, Sanjay Gandhi Nagar','Guindy','Chennai','Tamilnadu','600092','India','13.05073','80.19082','9:00 AM','10:00 PM',
+VALUES('PID10021','Anand Pharmacy','Y','No.14, Bhattacharjee St, Sanjay Gandhi Nagar','Guindy','Chennai','Tamilnadu','600092','India','13.05073','80.19082','9:00 AM','10:00 PM',
 '044-2564158','www.anandmed.com');
 INSERT INTO PHARMACY_DETAILS
 (PHARMACY_MASTER_ID,PHARMACY_NAME,IS_REGISTERED,ADDRESS_LINE,AREA,CITY,STATE,POSTAL_CODE,COUNTRY,LATITUDE,LONGITUDE,OPEN_TIME,CLOSED_TIME,PHONE,WEBSITE) 
-VALUES('PID100022','Subam Pharmacy','Y','Shop No. 44, AVM Avenue, 1st Main Rd','Guindy','Chennai','Tamilnadu','600092','India','13.04796','80.18943','8:00 AM','11:30 PM',
+VALUES('PID10022','Subam Pharmacy','Y','Shop No. 44, AVM Avenue, 1st Main Rd','Guindy','Chennai','Tamilnadu','600092','India','13.04796','80.18943','8:00 AM','11:30 PM',
 '044-2564152','www.subampharmacy.com');
 INSERT INTO PHARMACY_DETAILS
 (PHARMACY_MASTER_ID,PHARMACY_NAME,IS_REGISTERED,ADDRESS_LINE,AREA,CITY,STATE,POSTAL_CODE,COUNTRY,LATITUDE,LONGITUDE,OPEN_TIME,CLOSED_TIME,PHONE,WEBSITE) 
-VALUES('PID100023','Neelan Pharmacy & General','Y','246/2,Shop no 4, 3rd main road, 2nd Main Rd','Guindy','Chennai','Tamilnadu','600092','India','13.05886','80.19778','7:30 AM','11:30 PM',
+VALUES('PID10023','Neelan Pharmacy & General','Y','246/2,Shop no 4, 3rd main road, 2nd Main Rd','Guindy','Chennai','Tamilnadu','600092','India','13.05886','80.19778','7:30 AM','11:30 PM',
 '044-2564152','www.subampharmacy.com');
 INSERT INTO PHARMACY_DETAILS
 (PHARMACY_MASTER_ID,PHARMACY_NAME,IS_REGISTERED,ADDRESS_LINE,AREA,CITY,STATE,POSTAL_CODE,COUNTRY,LATITUDE,LONGITUDE,OPEN_TIME,CLOSED_TIME,PHONE,WEBSITE) 
-VALUES('PID100024','Geetha Pharmacy','Y','328, 2nd Main Rd, Natesa Nagar','Guindy','Chennai','Tamilnadu','600092','India','13.0571','80.191933','7:30 AM','11:30 PM',
+VALUES('PID10024','Geetha Pharmacy','Y','328, 2nd Main Rd, Natesa Nagar','Guindy','Chennai','Tamilnadu','600092','India','13.0571','80.191933','7:30 AM','11:30 PM',
 '044-2564152','www.geethapharmacy.com');
 
 --mock not excat data --Porur
 INSERT INTO PHARMACY_DETAILS
 (PHARMACY_MASTER_ID,PHARMACY_NAME,IS_REGISTERED,ADDRESS_LINE,AREA,CITY,STATE,POSTAL_CODE,COUNTRY,LATITUDE,LONGITUDE,OPEN_TIME,CLOSED_TIME,PHONE,WEBSITE) 
-VALUES('PID100025','Chennai Medical Agencies','Y','No 6 Reddy Street','Porur','Chennai','Tamilnadu','600092','India','13.04398','80.17836','6:00 AM','12:00 PM',
+VALUES('PID10025','Chennai Medical Agencies','Y','No 6 Reddy Street','Porur','Chennai','Tamilnadu','600092','India','13.04398','80.17836','6:00 AM','12:00 PM',
 '044-2564156','www.chnmed.com');
 INSERT INTO PHARMACY_DETAILS
 (PHARMACY_MASTER_ID,PHARMACY_NAME,IS_REGISTERED,ADDRESS_LINE,AREA,CITY,STATE,POSTAL_CODE,COUNTRY,LATITUDE,LONGITUDE,OPEN_TIME,CLOSED_TIME,PHONE,WEBSITE) 
-VALUES('PID100026','Ashok Pharmacy','Y','No 221, Old, 40A, Arcot Rd','Porur','Chennai','Tamilnadu','600092','India','13.04148','80.17481','8:30 AM','10:15 PM',
+VALUES('PID10026','Ashok Pharmacy','Y','No 221, Old, 40A, Arcot Rd','Porur','Chennai','Tamilnadu','600092','India','13.04148','80.17481','8:30 AM','10:15 PM',
 '044-2564157','www.ashokmed.com');
 INSERT INTO PHARMACY_DETAILS
 (PHARMACY_MASTER_ID,PHARMACY_NAME,IS_REGISTERED,ADDRESS_LINE,AREA,CITY,STATE,POSTAL_CODE,COUNTRY,LATITUDE,LONGITUDE,OPEN_TIME,CLOSED_TIME,PHONE,WEBSITE) 
-VALUES('PID100027','Anand Pharmacy','Y','No.14, Bhattacharjee St, Sanjay Gandhi Nagar','Porur','Chennai','Tamilnadu','600092','India','13.05073','80.19082','9:00 AM','10:00 PM',
+VALUES('PID10027','Anand Pharmacy','Y','No.14, Bhattacharjee St, Sanjay Gandhi Nagar','Porur','Chennai','Tamilnadu','600092','India','13.05073','80.19082','9:00 AM','10:00 PM',
 '044-2564158','www.anandmed.com');
 INSERT INTO PHARMACY_DETAILS
 (PHARMACY_MASTER_ID,PHARMACY_NAME,IS_REGISTERED,ADDRESS_LINE,AREA,CITY,STATE,POSTAL_CODE,COUNTRY,LATITUDE,LONGITUDE,OPEN_TIME,CLOSED_TIME,PHONE,WEBSITE) 
-VALUES('PID100028','Subam Pharmacy','Y','Shop No. 44, AVM Avenue, 1st Main Rd','Porur','Chennai','Tamilnadu','600092','India','13.04796','80.18943','8:00 AM','11:30 PM',
+VALUES('PID10028','Subam Pharmacy','Y','Shop No. 44, AVM Avenue, 1st Main Rd','Porur','Chennai','Tamilnadu','600092','India','13.04796','80.18943','8:00 AM','11:30 PM',
 '044-2564152','www.subampharmacy.com');
 INSERT INTO PHARMACY_DETAILS
 (PHARMACY_MASTER_ID,PHARMACY_NAME,IS_REGISTERED,ADDRESS_LINE,AREA,CITY,STATE,POSTAL_CODE,COUNTRY,LATITUDE,LONGITUDE,OPEN_TIME,CLOSED_TIME,PHONE,WEBSITE) 
-VALUES('PID100029','Neelan Pharmacy & General','Y','246/2,Shop no 4, 3rd main road, 2nd Main Rd','Porur','Chennai','Tamilnadu','600092','India','13.05886','80.19778','7:30 AM','11:30 PM',
+VALUES('PID10029','Neelan Pharmacy & General','Y','246/2,Shop no 4, 3rd main road, 2nd Main Rd','Porur','Chennai','Tamilnadu','600092','India','13.05886','80.19778','7:30 AM','11:30 PM',
 '044-2564152','www.subampharmacy.com');
 INSERT INTO PHARMACY_DETAILS
 (PHARMACY_MASTER_ID,PHARMACY_NAME,IS_REGISTERED,ADDRESS_LINE,AREA,CITY,STATE,POSTAL_CODE,COUNTRY,LATITUDE,LONGITUDE,OPEN_TIME,CLOSED_TIME,PHONE,WEBSITE) 
-VALUES('PID100030','Geetha Pharmacy','Y','328, 2nd Main Rd, Natesa Nagar','Porur','Chennai','Tamilnadu','600092','India','13.0571','80.191933','7:30 AM','11:30 PM',
+VALUES('PID10030','Geetha Pharmacy','Y','328, 2nd Main Rd, Natesa Nagar','Porur','Chennai','Tamilnadu','600092','India','13.0571','80.191933','7:30 AM','11:30 PM',
 '044-2564152','www.geethapharmacy.com');
 
 --mock not excat data --Thiruvanmiyur
 INSERT INTO PHARMACY_DETAILS
 (PHARMACY_MASTER_ID,PHARMACY_NAME,IS_REGISTERED,ADDRESS_LINE,AREA,CITY,STATE,POSTAL_CODE,COUNTRY,LATITUDE,LONGITUDE,OPEN_TIME,CLOSED_TIME,PHONE,WEBSITE) 
-VALUES('PID100031','Chennai Medical Agencies','Y','No 6 Reddy Street','Thiruvanmiyur','Chennai','Tamilnadu','600092','India','13.04398','80.17836','6:00 AM','12:00 PM',
+VALUES('PID10031','Chennai Medical Agencies','Y','No 6 Reddy Street','Thiruvanmiyur','Chennai','Tamilnadu','600092','India','13.04398','80.17836','6:00 AM','12:00 PM',
 '044-2564156','www.chnmed.com');
 INSERT INTO PHARMACY_DETAILS
 (PHARMACY_MASTER_ID,PHARMACY_NAME,IS_REGISTERED,ADDRESS_LINE,AREA,CITY,STATE,POSTAL_CODE,COUNTRY,LATITUDE,LONGITUDE,OPEN_TIME,CLOSED_TIME,PHONE,WEBSITE) 
-VALUES('PID100032','Ashok Pharmacy','Y','No 221, Old, 40A, Arcot Rd','Thiruvanmiyur','Chennai','Tamilnadu','600092','India','13.04148','80.17481','8:30 AM','10:15 PM',
+VALUES('PID10032','Ashok Pharmacy','Y','No 221, Old, 40A, Arcot Rd','Thiruvanmiyur','Chennai','Tamilnadu','600092','India','13.04148','80.17481','8:30 AM','10:15 PM',
 '044-2564157','www.ashokmed.com');
 INSERT INTO PHARMACY_DETAILS
 (PHARMACY_MASTER_ID,PHARMACY_NAME,IS_REGISTERED,ADDRESS_LINE,AREA,CITY,STATE,POSTAL_CODE,COUNTRY,LATITUDE,LONGITUDE,OPEN_TIME,CLOSED_TIME,PHONE,WEBSITE) 
-VALUES('PID100033','Anand Pharmacy','Y','No.14, Bhattacharjee St, Sanjay Gandhi Nagar','Thiruvanmiyur','Chennai','Tamilnadu','600092','India','13.05073','80.19082','9:00 AM','10:00 PM',
+VALUES('PID10033','Anand Pharmacy','Y','No.14, Bhattacharjee St, Sanjay Gandhi Nagar','Thiruvanmiyur','Chennai','Tamilnadu','600092','India','13.05073','80.19082','9:00 AM','10:00 PM',
 '044-2564158','www.anandmed.com');
 INSERT INTO PHARMACY_DETAILS
 (PHARMACY_MASTER_ID,PHARMACY_NAME,IS_REGISTERED,ADDRESS_LINE,AREA,CITY,STATE,POSTAL_CODE,COUNTRY,LATITUDE,LONGITUDE,OPEN_TIME,CLOSED_TIME,PHONE,WEBSITE) 
-VALUES('PID100034','Subam Pharmacy','Y','Shop No. 44, AVM Avenue, 1st Main Rd','Thiruvanmiyur','Chennai','Tamilnadu','600092','India','13.04796','80.18943','8:00 AM','11:30 PM',
+VALUES('PID10034','Subam Pharmacy','Y','Shop No. 44, AVM Avenue, 1st Main Rd','Thiruvanmiyur','Chennai','Tamilnadu','600092','India','13.04796','80.18943','8:00 AM','11:30 PM',
 '044-2564152','www.subampharmacy.com');
 INSERT INTO PHARMACY_DETAILS
 (PHARMACY_MASTER_ID,PHARMACY_NAME,IS_REGISTERED,ADDRESS_LINE,AREA,CITY,STATE,POSTAL_CODE,COUNTRY,LATITUDE,LONGITUDE,OPEN_TIME,CLOSED_TIME,PHONE,WEBSITE) 
-VALUES('PID100035','Neelan Pharmacy & General','Y','246/2,Shop no 4, 3rd main road, 2nd Main Rd','Thiruvanmiyur','Chennai','Tamilnadu','600092','India','13.05886','80.19778','7:30 AM','11:30 PM',
+VALUES('PID10035','Neelan Pharmacy & General','Y','246/2,Shop no 4, 3rd main road, 2nd Main Rd','Thiruvanmiyur','Chennai','Tamilnadu','600092','India','13.05886','80.19778','7:30 AM','11:30 PM',
 '044-2564152','www.subampharmacy.com');
 INSERT INTO PHARMACY_DETAILS
 (PHARMACY_MASTER_ID,PHARMACY_NAME,IS_REGISTERED,ADDRESS_LINE,AREA,CITY,STATE,POSTAL_CODE,COUNTRY,LATITUDE,LONGITUDE,OPEN_TIME,CLOSED_TIME,PHONE,WEBSITE) 
-VALUES('PID100036','Geetha Pharmacy','Y','328, 2nd Main Rd, Natesa Nagar','Thiruvanmiyur','Chennai','Tamilnadu','600092','India','13.0571','80.191933','7:30 AM','11:30 PM',
+VALUES('PID10036','Geetha Pharmacy','Y','328, 2nd Main Rd, Natesa Nagar','Thiruvanmiyur','Chennai','Tamilnadu','600092','India','13.0571','80.191933','7:30 AM','11:30 PM',
 '044-2564152','www.geethapharmacy.com');
 
 
 --mock not excat data --Adyar
 INSERT INTO PHARMACY_DETAILS
 (PHARMACY_MASTER_ID,PHARMACY_NAME,IS_REGISTERED,ADDRESS_LINE,AREA,CITY,STATE,POSTAL_CODE,COUNTRY,LATITUDE,LONGITUDE,OPEN_TIME,CLOSED_TIME,PHONE,WEBSITE) 
-VALUES('PID100037','Chennai Medical Agencies','Y','No 6 Reddy Street','Adyar','Chennai','Tamilnadu','600092','India','13.04398','80.17836','6:00 AM','12:00 PM',
+VALUES('PID10037','Chennai Medical Agencies','Y','No 6 Reddy Street','Adyar','Chennai','Tamilnadu','600092','India','13.04398','80.17836','6:00 AM','12:00 PM',
 '044-2564156','www.chnmed.com');
 INSERT INTO PHARMACY_DETAILS
 (PHARMACY_MASTER_ID,PHARMACY_NAME,IS_REGISTERED,ADDRESS_LINE,AREA,CITY,STATE,POSTAL_CODE,COUNTRY,LATITUDE,LONGITUDE,OPEN_TIME,CLOSED_TIME,PHONE,WEBSITE) 
-VALUES('PID100038','Ashok Pharmacy','Y','No 221, Old, 40A, Arcot Rd','Adyar','Chennai','Tamilnadu','600092','India','13.04148','80.17481','8:30 AM','10:15 PM',
+VALUES('PID10038','Ashok Pharmacy','Y','No 221, Old, 40A, Arcot Rd','Adyar','Chennai','Tamilnadu','600092','India','13.04148','80.17481','8:30 AM','10:15 PM',
 '044-2564157','www.ashokmed.com');
 INSERT INTO PHARMACY_DETAILS
 (PHARMACY_MASTER_ID,PHARMACY_NAME,IS_REGISTERED,ADDRESS_LINE,AREA,CITY,STATE,POSTAL_CODE,COUNTRY,LATITUDE,LONGITUDE,OPEN_TIME,CLOSED_TIME,PHONE,WEBSITE) 
-VALUES('PID100039','Anand Pharmacy','Y','No.14, Bhattacharjee St, Sanjay Gandhi Nagar','Adyar','Chennai','Tamilnadu','600092','India','13.05073','80.19082','9:00 AM','10:00 PM',
+VALUES('PID10039','Anand Pharmacy','Y','No.14, Bhattacharjee St, Sanjay Gandhi Nagar','Adyar','Chennai','Tamilnadu','600092','India','13.05073','80.19082','9:00 AM','10:00 PM',
 '044-2564158','www.anandmed.com');
 INSERT INTO PHARMACY_DETAILS
 (PHARMACY_MASTER_ID,PHARMACY_NAME,IS_REGISTERED,ADDRESS_LINE,AREA,CITY,STATE,POSTAL_CODE,COUNTRY,LATITUDE,LONGITUDE,OPEN_TIME,CLOSED_TIME,PHONE,WEBSITE) 
-VALUES('PID100040','Subam Pharmacy','Y','Shop No. 44, AVM Avenue, 1st Main Rd','Adyar','Chennai','Tamilnadu','600092','India','13.04796','80.18943','8:00 AM','11:30 PM',
+VALUES('PID10040','Subam Pharmacy','Y','Shop No. 44, AVM Avenue, 1st Main Rd','Adyar','Chennai','Tamilnadu','600092','India','13.04796','80.18943','8:00 AM','11:30 PM',
 '044-2564152','www.subampharmacy.com');
 INSERT INTO PHARMACY_DETAILS
 (PHARMACY_MASTER_ID,PHARMACY_NAME,IS_REGISTERED,ADDRESS_LINE,AREA,CITY,STATE,POSTAL_CODE,COUNTRY,LATITUDE,LONGITUDE,OPEN_TIME,CLOSED_TIME,PHONE,WEBSITE) 
-VALUES('PID100041','Neelan Pharmacy & General','Y','246/2,Shop no 4, 3rd main road, 2nd Main Rd','Adyar','Chennai','Tamilnadu','600092','India','13.05886','80.19778','7:30 AM','11:30 PM',
+VALUES('PID10041','Neelan Pharmacy & General','Y','246/2,Shop no 4, 3rd main road, 2nd Main Rd','Adyar','Chennai','Tamilnadu','600092','India','13.05886','80.19778','7:30 AM','11:30 PM',
 '044-2564152','www.subampharmacy.com');
 INSERT INTO PHARMACY_DETAILS
 (PHARMACY_MASTER_ID,PHARMACY_NAME,IS_REGISTERED,ADDRESS_LINE,AREA,CITY,STATE,POSTAL_CODE,COUNTRY,LATITUDE,LONGITUDE,OPEN_TIME,CLOSED_TIME,PHONE,WEBSITE) 
-VALUES('PID100042','Geetha Pharmacy','Y','328, 2nd Main Rd, Natesa Nagar','Adyar','Chennai','Tamilnadu','600092','India','13.0571','80.191933','7:30 AM','11:30 PM',
+VALUES('PID10042','Geetha Pharmacy','Y','328, 2nd Main Rd, Natesa Nagar','Adyar','Chennai','Tamilnadu','600092','India','13.0571','80.191933','7:30 AM','11:30 PM',
 '044-2564152','www.geethapharmacy.com');
 
 

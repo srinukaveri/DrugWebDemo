@@ -31,11 +31,9 @@ public class SQLConstants {
 	public static final String PHARMACY_STATUS_SQL = "select  new com.vir.demo.drug.model.PharmacyManageDetails("
 			+ "  p.isRegistered, p.area) from PharmacyDetails p where p.pharmacyName =: pharmacyName order by p.pharmacyName asc";
 
-	public static final String LATEST_MASTER_ID = "select (count(pd.mappingId)+1) from "
-			+ "PharmacyDrugMaster pd";
+	public static final String LATEST_MASTER_ID = "select (count(pd.mappingId)+1000) from PharmacyDrugMaster pd";
 	
-	public static final String LATEST_DRUG_ID = "select (count(d.drugId)+1) from "
-			+ "DrugDetails d";
+	public static final String LATEST_DRUG_ID = "select (count(d.drugId)+1000) from DrugDetails d";
 
 	public static final String DRUG_UPDATE = "update DrugDetails d  set d.isActive =:isActive where d.drugName =: drugName";
 	public static final String PHARMACY_UPDATE = "update PharmacyDetails p  set p.isRegistered =:isRegistered where p.pharmacyName =: pharmacyName and p.area = :area";

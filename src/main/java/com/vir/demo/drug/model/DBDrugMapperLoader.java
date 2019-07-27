@@ -33,7 +33,7 @@ public class DBDrugMapperLoader{
 		List<PharmacyDetails> pharmacyList = drugDAO.getPharmacyDetails(DrugConstants.ALL);
 		List<DrugDetails> drugList = drugDAO.getDrugDetails();
 		PharmacyDrugMaster pharmacyDrugMaster= null;
-		int val=0001;
+		int val=1000;
 		List<PharmacyDrugMaster> pharDrugMasterList = new ArrayList<PharmacyDrugMaster>();
 		for(PharmacyDetails pharmacyDetails : pharmacyList){
 			for(DrugDetails drugDetails : drugList){
