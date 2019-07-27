@@ -18,6 +18,7 @@ public class DrugConstants {
 	public static final String SERVICE_ERROR_MSG = "No Data Found";
 
 	public static final String YES_Y = "Y";
+	public static final String IS_EXIST_YES = "yes";
 	public static final String NO_N = "N";
 	public static final String ALL = "all";
 	public static final String CURRENCY_INDIA = "Rs";
@@ -30,7 +31,7 @@ public class DrugConstants {
 	public static final String DRUG_PREFIX = "DID";
 	public static final String MAPPING_PREFIX = "MID";
 	public static final String MAPPING_ID = "mappingId";
-	public static final String DRUG_IS_AVAILABLE = "Drug is available";
+	public static final String DRUG_IS_AVAILABLE = "Drug is available, Please enter new drug";
 	public static final String IS_AVAILABLE = "isAvailable";
 	public static final String DRUG_ID = "drugId";
 	public static final int MIN_VALUE = 10;

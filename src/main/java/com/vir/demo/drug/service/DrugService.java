@@ -217,7 +217,7 @@ public class DrugService implements IDrugService {
 		Map<String, List<String>> drugResObj = getDrugDetails();
 		List<String>  drugList = drugResObj.get(DrugConstants.DRUG_LIST_LOWER);
 		if(drugList.contains(drugDetails.getDrugName())){
-			return  DrugConstants.DRUG_IS_AVAILABLE;
+			return  DrugConstants.IS_EXIST_YES;
 		}
 		String maxCountStr = drugDAO.getLatestDrugId().toString();
 		int maxCount = Integer.parseInt(maxCountStr);

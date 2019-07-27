@@ -162,7 +162,9 @@ public class DrugAdminController {
 		Map<String, String> finalResponse = new HashMap<String,String>();
 		DrugDetails drugObj = DrugUtil.getMapperInstance().readValue(drugDetails, DrugDetails.class);
 		String responseId = drugService.saveDrug(drugObj);
-		if(responseId != null){
+		if(responseId != null && responseId.equals(DrugConstants.IS_EXIST_YES)){
+			finalResponse.put(DrugConstants.MESSAGE, DrugConstants.DRUG_IS_AVAILABLE);
+		}else if(responseId != null && !responseId.equals(DrugConstants.IS_EXIST_YES)){	
 			drugService.pharmacyDrugMapper(responseId);
 			finalResponse.put(DrugConstants.MESSAGE, DrugConstants.DRUG_SUCCESS_MSG);
 		}else{
