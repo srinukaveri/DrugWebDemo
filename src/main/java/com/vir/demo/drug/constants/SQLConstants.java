@@ -23,7 +23,7 @@ public class SQLConstants {
 			+ "pd.pharmacyMasterId, d.drugId,d.drugName,d.isActive, "
 			+ " pd.mappingId,pd.isAvailable,pd.drugPriceEach,pd.currency) "
 			+ " from DrugDetails d inner join PharmacyDrugMaster pd on d.drugId = pd.drugId "
-			+ " where d.isActive = 'Y' and pd.isAvailable = 'Y' and pd.pharmacyMasterId in (:pharmacyMasterId) and d.drugName in (:drugName)";
+			+ " where pd.isAvailable = 'Y' and pd.pharmacyMasterId in (:pharmacyMasterId) and d.drugName in (:drugName)";
 
 	public static final String DRUG_NAME_STATUS_SQL = "select  new com.vir.demo.drug.model.DrugManageDetails("
 			+ " d.drugName, d.isActive) from DrugDetails d order by d.drugName asc";
